@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EC926B0BFB900688C80 /* elpyApp.swift */; };
+		D5205ECC26B0BFB900688C80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205ECB26B0BFB900688C80 /* ContentView.swift */; };
+		D5205ECE26B0BFBA00688C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ECD26B0BFBA00688C80 /* Assets.xcassets */; };
+		D5205ED126B0BFBA00688C80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */; };
+		D5205EDC26B0BFBA00688C80 /* elpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EDB26B0BFBA00688C80 /* elpyTests.swift */; };
+		D5205EE726B0BFBA00688C80 /* elpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EE626B0BFBA00688C80 /* elpyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5205ED826B0BFBA00688C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5205EBE26B0BFB900688C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5205EC526B0BFB900688C80;
+			remoteInfo = elpy;
+		};
+		D5205EE326B0BFBA00688C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5205EBE26B0BFB900688C80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5205EC526B0BFB900688C80;
+			remoteInfo = elpy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D5205EC626B0BFB900688C80 /* elpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5205EC926B0BFB900688C80 /* elpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyApp.swift; sourceTree = "<group>"; };
+		D5205ECB26B0BFB900688C80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D5205ECD26B0BFBA00688C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D5205ED226B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5205ED726B0BFBA00688C80 /* elpyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = elpyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5205EDB26B0BFBA00688C80 /* elpyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyTests.swift; sourceTree = "<group>"; };
+		D5205EDD26B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5205EE226B0BFBA00688C80 /* elpyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = elpyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5205EE626B0BFBA00688C80 /* elpyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyUITests.swift; sourceTree = "<group>"; };
+		D5205EE826B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5205EC326B0BFB900688C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5205ED426B0BFBA00688C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5205EDF26B0BFBA00688C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5205EBD26B0BFB900688C80 = {
+			isa = PBXGroup;
+			children = (
+				D5205EC826B0BFB900688C80 /* elpy */,
+				D5205EDA26B0BFBA00688C80 /* elpyTests */,
+				D5205EE526B0BFBA00688C80 /* elpyUITests */,
+				D5205EC726B0BFB900688C80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5205EC726B0BFB900688C80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5205EC626B0BFB900688C80 /* elpy.app */,
+				D5205ED726B0BFBA00688C80 /* elpyTests.xctest */,
+				D5205EE226B0BFBA00688C80 /* elpyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5205EC826B0BFB900688C80 /* elpy */ = {
+			isa = PBXGroup;
+			children = (
+				D5205EC926B0BFB900688C80 /* elpyApp.swift */,
+				D5205ECB26B0BFB900688C80 /* ContentView.swift */,
+				D5205ECD26B0BFBA00688C80 /* Assets.xcassets */,
+				D5205ED226B0BFBA00688C80 /* Info.plist */,
+				D5205ECF26B0BFBA00688C80 /* Preview Content */,
+			);
+			path = elpy;
+			sourceTree = "<group>";
+		};
+		D5205ECF26B0BFBA00688C80 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D5205EDA26B0BFBA00688C80 /* elpyTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5205EDB26B0BFBA00688C80 /* elpyTests.swift */,
+				D5205EDD26B0BFBA00688C80 /* Info.plist */,
+			);
+			path = elpyTests;
+			sourceTree = "<group>";
+		};
+		D5205EE526B0BFBA00688C80 /* elpyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D5205EE626B0BFBA00688C80 /* elpyUITests.swift */,
+				D5205EE826B0BFBA00688C80 /* Info.plist */,
+			);
+			path = elpyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5205EC526B0BFB900688C80 /* elpy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5205EEB26B0BFBA00688C80 /* Build configuration list for PBXNativeTarget "elpy" */;
+			buildPhases = (
+				D5205EC226B0BFB900688C80 /* Sources */,
+				D5205EC326B0BFB900688C80 /* Frameworks */,
+				D5205EC426B0BFB900688C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = elpy;
+			productName = elpy;
+			productReference = D5205EC626B0BFB900688C80 /* elpy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5205ED626B0BFBA00688C80 /* elpyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5205EEE26B0BFBA00688C80 /* Build configuration list for PBXNativeTarget "elpyTests" */;
+			buildPhases = (
+				D5205ED326B0BFBA00688C80 /* Sources */,
+				D5205ED426B0BFBA00688C80 /* Frameworks */,
+				D5205ED526B0BFBA00688C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5205ED926B0BFBA00688C80 /* PBXTargetDependency */,
+			);
+			name = elpyTests;
+			productName = elpyTests;
+			productReference = D5205ED726B0BFBA00688C80 /* elpyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D5205EE126B0BFBA00688C80 /* elpyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5205EF126B0BFBA00688C80 /* Build configuration list for PBXNativeTarget "elpyUITests" */;
+			buildPhases = (
+				D5205EDE26B0BFBA00688C80 /* Sources */,
+				D5205EDF26B0BFBA00688C80 /* Frameworks */,
+				D5205EE026B0BFBA00688C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5205EE426B0BFBA00688C80 /* PBXTargetDependency */,
+			);
+			name = elpyUITests;
+			productName = elpyUITests;
+			productReference = D5205EE226B0BFBA00688C80 /* elpyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5205EBE26B0BFB900688C80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					D5205EC526B0BFB900688C80 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					D5205ED626B0BFBA00688C80 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D5205EC526B0BFB900688C80;
+					};
+					D5205EE126B0BFBA00688C80 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D5205EC526B0BFB900688C80;
+					};
+				};
+			};
+			buildConfigurationList = D5205EC126B0BFB900688C80 /* Build configuration list for PBXProject "elpy" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5205EBD26B0BFB900688C80;
+			productRefGroup = D5205EC726B0BFB900688C80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5205EC526B0BFB900688C80 /* elpy */,
+				D5205ED626B0BFBA00688C80 /* elpyTests */,
+				D5205EE126B0BFBA00688C80 /* elpyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5205EC426B0BFB900688C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5205ED126B0BFBA00688C80 /* Preview Assets.xcassets in Resources */,
+				D5205ECE26B0BFBA00688C80 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5205ED526B0BFBA00688C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5205EE026B0BFBA00688C80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5205EC226B0BFB900688C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5205ECC26B0BFB900688C80 /* ContentView.swift in Sources */,
+				D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5205ED326B0BFBA00688C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5205EDC26B0BFBA00688C80 /* elpyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5205EDE26B0BFBA00688C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5205EE726B0BFBA00688C80 /* elpyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5205ED926B0BFBA00688C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5205EC526B0BFB900688C80 /* elpy */;
+			targetProxy = D5205ED826B0BFBA00688C80 /* PBXContainerItemProxy */;
+		};
+		D5205EE426B0BFBA00688C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5205EC526B0BFB900688C80 /* elpy */;
+			targetProxy = D5205EE326B0BFBA00688C80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D5205EE926B0BFBA00688C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D5205EEA26B0BFBA00688C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5205EEC26B0BFBA00688C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"elpy/Preview Content\"";
+				DEVELOPMENT_TEAM = G58PN2GGW9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = elpy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.jittania.elpy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5205EED26B0BFBA00688C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"elpy/Preview Content\"";
+				DEVELOPMENT_TEAM = G58PN2GGW9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = elpy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.jittania.elpy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D5205EEF26B0BFBA00688C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G58PN2GGW9;
+				INFOPLIST_FILE = elpyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.jittania.elpyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/elpy.app/elpy";
+			};
+			name = Debug;
+		};
+		D5205EF026B0BFBA00688C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G58PN2GGW9;
+				INFOPLIST_FILE = elpyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.jittania.elpyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/elpy.app/elpy";
+			};
+			name = Release;
+		};
+		D5205EF226B0BFBA00688C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G58PN2GGW9;
+				INFOPLIST_FILE = elpyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.jittania.elpyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = elpy;
+			};
+			name = Debug;
+		};
+		D5205EF326B0BFBA00688C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G58PN2GGW9;
+				INFOPLIST_FILE = elpyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.jittania.elpyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = elpy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5205EC126B0BFB900688C80 /* Build configuration list for PBXProject "elpy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5205EE926B0BFBA00688C80 /* Debug */,
+				D5205EEA26B0BFBA00688C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5205EEB26B0BFBA00688C80 /* Build configuration list for PBXNativeTarget "elpy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5205EEC26B0BFBA00688C80 /* Debug */,
+				D5205EED26B0BFBA00688C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5205EEE26B0BFBA00688C80 /* Build configuration list for PBXNativeTarget "elpyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5205EEF26B0BFBA00688C80 /* Debug */,
+				D5205EF026B0BFBA00688C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5205EF126B0BFBA00688C80 /* Build configuration list for PBXNativeTarget "elpyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5205EF226B0BFBA00688C80 /* Debug */,
+				D5205EF326B0BFBA00688C80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5205EBE26B0BFB900688C80 /* Project object */;
+}
