@@ -20,4 +20,4 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-//i'm on the initial set up branch!
+//i'm on the main branch!
