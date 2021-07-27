@@ -19,5 +19,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-//i'm on the main branch!
