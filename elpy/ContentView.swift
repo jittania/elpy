@@ -20,4 +20,4 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-// from laptop!
+
