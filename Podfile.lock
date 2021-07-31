@@ -1,0 +1,38 @@
+PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - Hero (1.6.1)
+  - lottie-ios (3.2.3)
+  - SnapKit (4.2.0)
+  - SwiftLint (0.43.1)
+  - SwiftyBeaver (1.9.5)
+
+DEPENDENCIES:
+  - Charts (~> 3.6.0)
+  - Hero (~> 1.6.1)
+  - lottie-ios (~> 3.2.3)
+  - SnapKit (~> 4.0)
+  - SwiftLint (~> 0.43.1)
+  - SwiftyBeaver (~> 1.9.5)
+
+SPEC REPOS:
+  trunk:
+    - Charts
+    - Hero
+    - lottie-ios
+    - SnapKit
+    - SwiftLint
+    - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
+
+PODFILE CHECKSUM: 1493baa0880bd52f2dce58a3c4681faf05f6ea8e
+
+COCOAPODS: 1.10.2
