@@ -11,7 +11,7 @@ var request = URLRequest(url: requestUrl)
 
 // Set HTTP Request Header
 request.setValue("application/json", forHTTPHeaderField: "Content-Type") // indicates the request content type is JSON
-request.setValue("Bearer BQBEjXsbqpkRbQNTJLw8iyEJAyjZxbKlmyHS80ZB12sLp0U-B7h5pFzNw2H_QcvJiWz6_gw01bRgrddxsKY9LaM5tiX5kZcvTWo1mIb-z8ExjZ2sXC8oslF41pBKbAIHQRpMLG0RGdfX2BstHKqmTgq6FpxnCSpuUYjbFzrN_T6MOzyJpCo30lJcSOV2BqG2gDwORPN-VnkGPQJzdAOBNwEXo3zt67IoCjA", forHTTPHeaderField: "Authorization")
+request.setValue("Bearer token goes here!", forHTTPHeaderField: "Authorization") // ❗️ delete token before pushing to HitGub!!!!!
 
 // Specify HTTP Method to use
 request.httpMethod = "GET"
