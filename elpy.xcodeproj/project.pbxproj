@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,11 @@
 		D5205ED126B0BFBA00688C80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */; };
 		D5205EDC26B0BFBA00688C80 /* elpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EDB26B0BFBA00688C80 /* elpyTests.swift */; };
 		D5205EE726B0BFBA00688C80 /* elpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EE626B0BFBA00688C80 /* elpyUITests.swift */; };
+		D581176326BE48AD005D2385 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581176226BE48AD005D2385 /* Track.swift */; };
+		D581176826BE48B5005D2385 /* TrackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581176726BE48B5005D2385 /* TrackResponse.swift */; };
+		D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581176C26BE48C0005D2385 /* TrackViewModel.swift */; };
+		D581177226BE48D1005D2385 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177126BE48D1005D2385 /* APIClient.swift */; };
+		D581177726BE48DB005D2385 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177626BE48DB005D2385 /* SpotifyAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		D5205EE226B0BFBA00688C80 /* elpyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = elpyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5205EE626B0BFBA00688C80 /* elpyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyUITests.swift; sourceTree = "<group>"; };
 		D5205EE826B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D581176226BE48AD005D2385 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		D581176726BE48B5005D2385 /* TrackResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackResponse.swift; sourceTree = "<group>"; };
+		D581176C26BE48C0005D2385 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		D581177126BE48D1005D2385 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		D581177626BE48DB005D2385 /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +134,11 @@
 			children = (
 				D5205EC926B0BFB900688C80 /* elpyApp.swift */,
 				D5205ECB26B0BFB900688C80 /* ContentView.swift */,
+				D581176226BE48AD005D2385 /* Track.swift */,
+				D581176726BE48B5005D2385 /* TrackResponse.swift */,
+				D581176C26BE48C0005D2385 /* TrackViewModel.swift */,
+				D581177126BE48D1005D2385 /* APIClient.swift */,
+				D581177626BE48DB005D2385 /* SpotifyAPI.swift */,
 				D5205ECD26B0BFBA00688C80 /* Assets.xcassets */,
 				D5205ED226B0BFBA00688C80 /* Info.plist */,
 				D5205ECF26B0BFBA00688C80 /* Preview Content */,
@@ -167,7 +182,6 @@
 				C6989E8EFF8095FF1063E2A7 /* Pods-elpyTests.debug.xcconfig */,
 				A7A03618CC5D05DE70AC4DB5 /* Pods-elpyTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -409,7 +423,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5205ECC26B0BFB900688C80 /* ContentView.swift in Sources */,
+				D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */,
 				D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */,
+				D581177726BE48DB005D2385 /* SpotifyAPI.swift in Sources */,
+				D581176826BE48B5005D2385 /* TrackResponse.swift in Sources */,
+				D581176326BE48AD005D2385 /* Track.swift in Sources */,
+				D581177226BE48D1005D2385 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
