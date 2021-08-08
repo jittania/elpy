@@ -1,10 +1,3 @@
-//
-//  ExamplesListView.swift
-//  elpy
-//
-//  Created by Jittania Smith on 8/7/21.
-//
-
 import Foundation
 import SwiftUI
 

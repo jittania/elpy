@@ -19,7 +19,6 @@
 		D511BE3A26BF8F1700FE8571 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE3926BF8F1700FE8571 /* AlertItem.swift */; };
 		D511BE3F26BF8F5800FE8571 /* ExamplesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */; };
 		D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EC926B0BFB900688C80 /* elpyApp.swift */; };
-		D5205ECC26B0BFB900688C80 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205ECB26B0BFB900688C80 /* TrackListView.swift */; };
 		D5205ECE26B0BFBA00688C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ECD26B0BFBA00688C80 /* Assets.xcassets */; };
 		D5205ED126B0BFBA00688C80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */; };
 		D5205EDC26B0BFBA00688C80 /* elpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EDB26B0BFBA00688C80 /* elpyTests.swift */; };
@@ -28,7 +27,7 @@
 		D581176826BE48B5005D2385 /* TrackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581176726BE48B5005D2385 /* TrackResponse.swift */; };
 		D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581176C26BE48C0005D2385 /* TrackViewModel.swift */; };
 		D581177226BE48D1005D2385 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177126BE48D1005D2385 /* APIClient.swift */; };
-		D581177726BE48DB005D2385 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177626BE48DB005D2385 /* SpotifyAPI.swift */; };
+		D581177726BE48DB005D2385 /* SpotifyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177626BE48DB005D2385 /* SpotifyDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,6 @@
 		D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesListView.swift; sourceTree = "<group>"; };
 		D5205EC626B0BFB900688C80 /* elpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5205EC926B0BFB900688C80 /* elpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyApp.swift; sourceTree = "<group>"; };
-		D5205ECB26B0BFB900688C80 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
 		D5205ECD26B0BFBA00688C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D5205ED226B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +78,7 @@
 		D581176726BE48B5005D2385 /* TrackResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackResponse.swift; sourceTree = "<group>"; };
 		D581176C26BE48C0005D2385 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		D581177126BE48D1005D2385 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		D581177626BE48DB005D2385 /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
+		D581177626BE48DB005D2385 /* SpotifyDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,18 +147,10 @@
 			isa = PBXGroup;
 			children = (
 				D5205EC926B0BFB900688C80 /* elpyApp.swift */,
-				D5205ECB26B0BFB900688C80 /* TrackListView.swift */,
-				D511BE1C26BF82BF00FE8571 /* ContentView.swift */,
-				D581176226BE48AD005D2385 /* Track.swift */,
-				D581176726BE48B5005D2385 /* TrackResponse.swift */,
-				D511BE2F26BF8E2900FE8571 /* LoginView.swift */,
-				D581176C26BE48C0005D2385 /* TrackViewModel.swift */,
-				D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */,
-				D511BE3926BF8F1700FE8571 /* AlertItem.swift */,
-				D511BE2426BF83F800FE8571 /* Spotify.swift */,
-				D581177126BE48D1005D2385 /* APIClient.swift */,
+				D59F44A326BFB1490075E211 /* Views */,
+				D59F44A226BFB1410075E211 /* Models */,
+				D59F44A426BFB1600075E211 /* ViewModels */,
 				D511BE3426BF8ECB00FE8571 /* ImageNames.swift */,
-				D581177626BE48DB005D2385 /* SpotifyAPI.swift */,
 				D5205ECD26B0BFBA00688C80 /* Assets.xcassets */,
 				D5205ED226B0BFBA00688C80 /* Info.plist */,
 				D5205ECF26B0BFBA00688C80 /* Preview Content */,
@@ -205,6 +195,53 @@
 				A7A03618CC5D05DE70AC4DB5 /* Pods-elpyTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D59F44A226BFB1410075E211 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D581177126BE48D1005D2385 /* APIClient.swift */,
+				D581177626BE48DB005D2385 /* SpotifyDB.swift */,
+				D581176226BE48AD005D2385 /* Track.swift */,
+				D581176726BE48B5005D2385 /* TrackResponse.swift */,
+				D59F44A926BFB1CC0075E211 /* Authentication */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D59F44A326BFB1490075E211 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D511BE1C26BF82BF00FE8571 /* ContentView.swift */,
+				D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */,
+				D59F44A526BFB17A0075E211 /* Authentication */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D59F44A426BFB1600075E211 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D581176C26BE48C0005D2385 /* TrackViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D59F44A526BFB17A0075E211 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D511BE2F26BF8E2900FE8571 /* LoginView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		D59F44A926BFB1CC0075E211 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D511BE3926BF8F1700FE8571 /* AlertItem.swift */,
+				D511BE2426BF83F800FE8571 /* Spotify.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,12 +491,11 @@
 			files = (
 				D511BE1D26BF82BF00FE8571 /* ContentView.swift in Sources */,
 				D511BE3A26BF8F1700FE8571 /* AlertItem.swift in Sources */,
-				D5205ECC26B0BFB900688C80 /* TrackListView.swift in Sources */,
 				D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */,
 				D511BE2526BF83F800FE8571 /* Spotify.swift in Sources */,
 				D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */,
 				D511BE3526BF8ECB00FE8571 /* ImageNames.swift in Sources */,
-				D581177726BE48DB005D2385 /* SpotifyAPI.swift in Sources */,
+				D581177726BE48DB005D2385 /* SpotifyDB.swift in Sources */,
 				D581176826BE48B5005D2385 /* TrackResponse.swift in Sources */,
 				D581176326BE48AD005D2385 /* Track.swift in Sources */,
 				D511BE3026BF8E2900FE8571 /* LoginView.swift in Sources */,
