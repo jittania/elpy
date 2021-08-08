@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct elpyApp: App {
+    
+    @StateObject var spotify = Spotify()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(spotify)
         }
     }
 }

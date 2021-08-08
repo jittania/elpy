@@ -11,8 +11,15 @@
 		75009E62A594A07E2F05B4A5 /* Pods_elpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */; };
 		AE6563A1A8857E4D9A1820DF /* Pods_elpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277BC140C75D1894C564EB34 /* Pods_elpyTests.framework */; };
 		D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE1426BF7A4300FE8571 /* SpotifyAPI */; };
+		D511BE1D26BF82BF00FE8571 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE1C26BF82BF00FE8571 /* ContentView.swift */; };
+		D511BE2526BF83F800FE8571 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE2426BF83F800FE8571 /* Spotify.swift */; };
+		D511BE2B26BF849500FE8571 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE2A26BF849500FE8571 /* KeychainAccess */; };
+		D511BE3026BF8E2900FE8571 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE2F26BF8E2900FE8571 /* LoginView.swift */; };
+		D511BE3526BF8ECB00FE8571 /* ImageNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE3426BF8ECB00FE8571 /* ImageNames.swift */; };
+		D511BE3A26BF8F1700FE8571 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE3926BF8F1700FE8571 /* AlertItem.swift */; };
+		D511BE3F26BF8F5800FE8571 /* ExamplesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */; };
 		D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EC926B0BFB900688C80 /* elpyApp.swift */; };
-		D5205ECC26B0BFB900688C80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205ECB26B0BFB900688C80 /* ContentView.swift */; };
+		D5205ECC26B0BFB900688C80 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205ECB26B0BFB900688C80 /* TrackListView.swift */; };
 		D5205ECE26B0BFBA00688C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ECD26B0BFBA00688C80 /* Assets.xcassets */; };
 		D5205ED126B0BFBA00688C80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */; };
 		D5205EDC26B0BFBA00688C80 /* elpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EDB26B0BFBA00688C80 /* elpyTests.swift */; };
@@ -51,9 +58,15 @@
 		A7A03618CC5D05DE70AC4DB5 /* Pods-elpyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.release.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6989E8EFF8095FF1063E2A7 /* Pods-elpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.debug.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D511BE1C26BF82BF00FE8571 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D511BE2426BF83F800FE8571 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
+		D511BE2F26BF8E2900FE8571 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D511BE3426BF8ECB00FE8571 /* ImageNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNames.swift; sourceTree = "<group>"; };
+		D511BE3926BF8F1700FE8571 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesListView.swift; sourceTree = "<group>"; };
 		D5205EC626B0BFB900688C80 /* elpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5205EC926B0BFB900688C80 /* elpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyApp.swift; sourceTree = "<group>"; };
-		D5205ECB26B0BFB900688C80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D5205ECB26B0BFB900688C80 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
 		D5205ECD26B0BFBA00688C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D5205ED226B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +90,7 @@
 			files = (
 				D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */,
 				75009E62A594A07E2F05B4A5 /* Pods_elpy.framework in Frameworks */,
+				D511BE2B26BF849500FE8571 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,11 +149,17 @@
 			isa = PBXGroup;
 			children = (
 				D5205EC926B0BFB900688C80 /* elpyApp.swift */,
-				D5205ECB26B0BFB900688C80 /* ContentView.swift */,
+				D5205ECB26B0BFB900688C80 /* TrackListView.swift */,
+				D511BE1C26BF82BF00FE8571 /* ContentView.swift */,
 				D581176226BE48AD005D2385 /* Track.swift */,
 				D581176726BE48B5005D2385 /* TrackResponse.swift */,
+				D511BE2F26BF8E2900FE8571 /* LoginView.swift */,
 				D581176C26BE48C0005D2385 /* TrackViewModel.swift */,
+				D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */,
+				D511BE3926BF8F1700FE8571 /* AlertItem.swift */,
+				D511BE2426BF83F800FE8571 /* Spotify.swift */,
 				D581177126BE48D1005D2385 /* APIClient.swift */,
+				D511BE3426BF8ECB00FE8571 /* ImageNames.swift */,
 				D581177626BE48DB005D2385 /* SpotifyAPI.swift */,
 				D5205ECD26B0BFBA00688C80 /* Assets.xcassets */,
 				D5205ED226B0BFBA00688C80 /* Info.plist */,
@@ -207,6 +227,7 @@
 			name = elpy;
 			packageProductDependencies = (
 				D511BE1426BF7A4300FE8571 /* SpotifyAPI */,
+				D511BE2A26BF849500FE8571 /* KeychainAccess */,
 			);
 			productName = elpy;
 			productReference = D5205EC626B0BFB900688C80 /* elpy.app */;
@@ -284,6 +305,7 @@
 			mainGroup = D5205EBD26B0BFB900688C80;
 			packageReferences = (
 				D511BE1326BF7A4300FE8571 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
+				D511BE2926BF849500FE8571 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = D5205EC726B0BFB900688C80 /* Products */;
 			projectDirPath = "";
@@ -430,12 +452,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5205ECC26B0BFB900688C80 /* ContentView.swift in Sources */,
+				D511BE1D26BF82BF00FE8571 /* ContentView.swift in Sources */,
+				D511BE3A26BF8F1700FE8571 /* AlertItem.swift in Sources */,
+				D5205ECC26B0BFB900688C80 /* TrackListView.swift in Sources */,
 				D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */,
+				D511BE2526BF83F800FE8571 /* Spotify.swift in Sources */,
 				D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */,
+				D511BE3526BF8ECB00FE8571 /* ImageNames.swift in Sources */,
 				D581177726BE48DB005D2385 /* SpotifyAPI.swift in Sources */,
 				D581176826BE48B5005D2385 /* TrackResponse.swift in Sources */,
 				D581176326BE48AD005D2385 /* Track.swift in Sources */,
+				D511BE3026BF8E2900FE8571 /* LoginView.swift in Sources */,
+				D511BE3F26BF8F5800FE8571 /* ExamplesListView.swift in Sources */,
 				D581177226BE48D1005D2385 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,6 +800,14 @@
 				minimumVersion = 2.0.1;
 			};
 		};
+		D511BE2926BF849500FE8571 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -779,6 +815,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D511BE1326BF7A4300FE8571 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
 			productName = SpotifyAPI;
+		};
+		D511BE2A26BF849500FE8571 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D511BE2926BF849500FE8571 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
