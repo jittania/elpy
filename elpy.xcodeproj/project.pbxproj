@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		34F99D2831EDB0ED8BB625F6 /* Pods_elpy_elpyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1EADCF48E69039363CDE86 /* Pods_elpy_elpyUITests.framework */; };
 		75009E62A594A07E2F05B4A5 /* Pods_elpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */; };
 		AE6563A1A8857E4D9A1820DF /* Pods_elpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277BC140C75D1894C564EB34 /* Pods_elpyTests.framework */; };
+		D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE1426BF7A4300FE8571 /* SpotifyAPI */; };
 		D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EC926B0BFB900688C80 /* elpyApp.swift */; };
 		D5205ECC26B0BFB900688C80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205ECB26B0BFB900688C80 /* ContentView.swift */; };
 		D5205ECE26B0BFBA00688C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ECD26B0BFBA00688C80 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */,
 				75009E62A594A07E2F05B4A5 /* Pods_elpy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +205,9 @@
 			dependencies = (
 			);
 			name = elpy;
+			packageProductDependencies = (
+				D511BE1426BF7A4300FE8571 /* SpotifyAPI */,
+			);
 			productName = elpy;
 			productReference = D5205EC626B0BFB900688C80 /* elpy.app */;
 			productType = "com.apple.product-type.application";
@@ -277,6 +282,9 @@
 				Base,
 			);
 			mainGroup = D5205EBD26B0BFB900688C80;
+			packageReferences = (
+				D511BE1326BF7A4300FE8571 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
+			);
 			productRefGroup = D5205EC726B0BFB900688C80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -754,6 +762,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D511BE1326BF7A4300FE8571 /* XCRemoteSwiftPackageReference "SpotifyAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Peter-Schorn/SpotifyAPI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D511BE1426BF7A4300FE8571 /* SpotifyAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D511BE1326BF7A4300FE8571 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
+			productName = SpotifyAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D5205EBE26B0BFB900688C80 /* Project object */;
 }
