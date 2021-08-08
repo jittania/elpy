@@ -11,7 +11,7 @@
 		75009E62A594A07E2F05B4A5 /* Pods_elpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */; };
 		AE6563A1A8857E4D9A1820DF /* Pods_elpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277BC140C75D1894C564EB34 /* Pods_elpyTests.framework */; };
 		D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE1426BF7A4300FE8571 /* SpotifyAPI */; };
-		D511BE1D26BF82BF00FE8571 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE1C26BF82BF00FE8571 /* ContentView.swift */; };
+		D511BE1D26BF82BF00FE8571 /* RoottView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE1C26BF82BF00FE8571 /* RoottView.swift */; };
 		D511BE2526BF83F800FE8571 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE2426BF83F800FE8571 /* Spotify.swift */; };
 		D511BE2B26BF849500FE8571 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE2A26BF849500FE8571 /* KeychainAccess */; };
 		D511BE3026BF8E2900FE8571 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D511BE2F26BF8E2900FE8571 /* LoginView.swift */; };
@@ -28,7 +28,9 @@
 		D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581176C26BE48C0005D2385 /* TrackViewModel.swift */; };
 		D581177226BE48D1005D2385 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177126BE48D1005D2385 /* APIClient.swift */; };
 		D581177726BE48DB005D2385 /* SpotifyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177626BE48DB005D2385 /* SpotifyDB.swift */; };
-		D59F44B126BFB9650075E211 /* TestTrackListView().swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F44B026BFB9650075E211 /* TestTrackListView().swift */; };
+		D59F44B126BFB9650075E211 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F44B026BFB9650075E211 /* ContentView.swift */; };
+		D5AC3E5026C06FB3006AEC79 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E4F26C06FB3006AEC79 /* Main.swift */; };
+		D5AC3E5E26C071BE006AEC79 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E5D26C071BE006AEC79 /* Auth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +60,7 @@
 		A7A03618CC5D05DE70AC4DB5 /* Pods-elpyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.release.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6989E8EFF8095FF1063E2A7 /* Pods-elpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.debug.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D511BE1C26BF82BF00FE8571 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D511BE1C26BF82BF00FE8571 /* RoottView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoottView.swift; sourceTree = "<group>"; };
 		D511BE2426BF83F800FE8571 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		D511BE2F26BF8E2900FE8571 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D511BE3426BF8ECB00FE8571 /* ImageNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNames.swift; sourceTree = "<group>"; };
@@ -80,7 +82,9 @@
 		D581176C26BE48C0005D2385 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		D581177126BE48D1005D2385 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D581177626BE48DB005D2385 /* SpotifyDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyDB.swift; sourceTree = "<group>"; };
-		D59F44B026BFB9650075E211 /* TestTrackListView().swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestTrackListView().swift"; sourceTree = "<group>"; };
+		D59F44B026BFB9650075E211 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D5AC3E4F26C06FB3006AEC79 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		D5AC3E5D26C071BE006AEC79 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +153,11 @@
 			isa = PBXGroup;
 			children = (
 				D5205EC926B0BFB900688C80 /* elpyApp.swift */,
+				D5AC3E5D26C071BE006AEC79 /* Auth.swift */,
+				D5AC3E4E26C06F53006AEC79 /* BACKUP SpotifyAPI Library Auth Code */,
 				D59F44A326BFB1490075E211 /* Views */,
 				D59F44A226BFB1410075E211 /* Models */,
 				D59F44A426BFB1600075E211 /* ViewModels */,
-				D511BE3426BF8ECB00FE8571 /* ImageNames.swift */,
 				D5205ECD26B0BFBA00688C80 /* Assets.xcassets */,
 				D5205ED226B0BFBA00688C80 /* Info.plist */,
 				D5205ECF26B0BFBA00688C80 /* Preview Content */,
@@ -214,9 +219,7 @@
 		D59F44A326BFB1490075E211 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D511BE1C26BF82BF00FE8571 /* ContentView.swift */,
-				D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */,
-				D59F44B026BFB9650075E211 /* TestTrackListView().swift */,
+				D59F44B026BFB9650075E211 /* ContentView.swift */,
 				D59F44A526BFB17A0075E211 /* Authentication */,
 			);
 			path = Views;
@@ -233,7 +236,6 @@
 		D59F44A526BFB17A0075E211 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				D511BE2F26BF8E2900FE8571 /* LoginView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -241,10 +243,22 @@
 		D59F44A926BFB1CC0075E211 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				D511BE3926BF8F1700FE8571 /* AlertItem.swift */,
-				D511BE2426BF83F800FE8571 /* Spotify.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		D5AC3E4E26C06F53006AEC79 /* BACKUP SpotifyAPI Library Auth Code */ = {
+			isa = PBXGroup;
+			children = (
+				D5AC3E4F26C06FB3006AEC79 /* Main.swift */,
+				D511BE1C26BF82BF00FE8571 /* RoottView.swift */,
+				D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */,
+				D511BE2F26BF8E2900FE8571 /* LoginView.swift */,
+				D511BE3926BF8F1700FE8571 /* AlertItem.swift */,
+				D511BE2426BF83F800FE8571 /* Spotify.swift */,
+				D511BE3426BF8ECB00FE8571 /* ImageNames.swift */,
+			);
+			path = "BACKUP SpotifyAPI Library Auth Code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,18 +506,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D511BE1D26BF82BF00FE8571 /* ContentView.swift in Sources */,
+				D511BE1D26BF82BF00FE8571 /* RoottView.swift in Sources */,
 				D511BE3A26BF8F1700FE8571 /* AlertItem.swift in Sources */,
 				D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */,
 				D511BE2526BF83F800FE8571 /* Spotify.swift in Sources */,
 				D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */,
-				D59F44B126BFB9650075E211 /* TestTrackListView().swift in Sources */,
+				D5AC3E5E26C071BE006AEC79 /* Auth.swift in Sources */,
+				D59F44B126BFB9650075E211 /* ContentView.swift in Sources */,
 				D511BE3526BF8ECB00FE8571 /* ImageNames.swift in Sources */,
 				D581177726BE48DB005D2385 /* SpotifyDB.swift in Sources */,
 				D581176826BE48B5005D2385 /* TrackResponse.swift in Sources */,
 				D581176326BE48AD005D2385 /* Track.swift in Sources */,
 				D511BE3026BF8E2900FE8571 /* LoginView.swift in Sources */,
 				D511BE3F26BF8F5800FE8571 /* ExamplesListView.swift in Sources */,
+				D5AC3E5026C06FB3006AEC79 /* Main.swift in Sources */,
 				D581177226BE48D1005D2385 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
