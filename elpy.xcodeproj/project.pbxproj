@@ -28,6 +28,7 @@
 		D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581176C26BE48C0005D2385 /* TrackViewModel.swift */; };
 		D581177226BE48D1005D2385 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177126BE48D1005D2385 /* APIClient.swift */; };
 		D581177726BE48DB005D2385 /* SpotifyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581177626BE48DB005D2385 /* SpotifyDB.swift */; };
+		D59F44B126BFB9650075E211 /* TestTrackListView().swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F44B026BFB9650075E211 /* TestTrackListView().swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		D581176C26BE48C0005D2385 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		D581177126BE48D1005D2385 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D581177626BE48DB005D2385 /* SpotifyDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyDB.swift; sourceTree = "<group>"; };
+		D59F44B026BFB9650075E211 /* TestTrackListView().swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestTrackListView().swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			children = (
 				D511BE1C26BF82BF00FE8571 /* ContentView.swift */,
 				D511BE3E26BF8F5800FE8571 /* ExamplesListView.swift */,
+				D59F44B026BFB9650075E211 /* TestTrackListView().swift */,
 				D59F44A526BFB17A0075E211 /* Authentication */,
 			);
 			path = Views;
@@ -494,6 +497,7 @@
 				D581176D26BE48C0005D2385 /* TrackViewModel.swift in Sources */,
 				D511BE2526BF83F800FE8571 /* Spotify.swift in Sources */,
 				D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */,
+				D59F44B126BFB9650075E211 /* TestTrackListView().swift in Sources */,
 				D511BE3526BF8ECB00FE8571 /* ImageNames.swift in Sources */,
 				D581177726BE48DB005D2385 /* SpotifyDB.swift in Sources */,
 				D581176826BE48B5005D2385 /* TrackResponse.swift in Sources */,

@@ -21,10 +21,14 @@ struct ExamplesListView: View {
 //            NavigationLink(
 //                "Debug Menu", destination: DebugMenuView()
 //            )
-//
+            
             // This is the location where you can add your own views to test out
             // your application. Each view receives an instance of `Spotify`
             // from the environment.
+            
+            NavigationLink(
+                "Test GET request!", destination: TestTrackListView()
+            )
             
         }
         .listStyle(PlainListStyle())

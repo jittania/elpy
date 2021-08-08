@@ -1,6 +1,8 @@
 import Foundation
 import Combine
 
+
+
 class TrackViewModel: ObservableObject {
     
     @Published var tracks: [Track] = [] // 1
@@ -23,7 +25,7 @@ extension TrackViewModel {
         
         cancellationToken = SpotifyDB.request(.searchForTracks) // 4
             .mapError({ (error) -> Error in // 5
-                print(error)
+                print("🐸", error)
                 return error
             })
             .sink(receiveCompletion: { _ in }, // 6

@@ -14,9 +14,9 @@ struct APIClient {
         return URLSession.shared
             .dataTaskPublisher(for: request) // 3
             .tryMap { result -> Response<T> in
-                // print("I got a response and am trying to parse it!")
-                // print("Here is result.response:", result.response)
-                // print("================================")
+                 print("I got a response and am trying to parse it!")
+                 print("Here is result.response:", result.response)
+                 print("================================")
                 
                 let value = try JSONDecoder().decode(T.self, from: result.data) // 4
                 print("I'm in the API Client model!")

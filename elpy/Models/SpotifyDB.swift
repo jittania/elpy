@@ -23,13 +23,13 @@ extension SpotifyDB {
             URLQueryItem(name: "type", value: "track")
         ] // 4
         
-        var request = URLRequest(url: components.url!) // changed let to var (was let in original tutorial) in order to be able to add request method
+        var request = URLRequest(url: components.url!)
         
         request.httpMethod = "GET"
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer ...", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer <token here>", forHTTPHeaderField: "Authorization")
         
         print("I'm in the SpotifyDB extension!")
         print("3) SpotifyDB has built the URL request and sending it to APIClient, which is calling the Spotify API")
