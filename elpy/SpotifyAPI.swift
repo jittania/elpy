@@ -36,7 +36,7 @@ extension SpotifyDB {
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer BQDqmeca3hU1kbeseBFk_GOeAkuiXN0yqiSWIUXiZbaRWws9Ku382cwRJtejQah88K22GAsKhb9nN8-duzx4OkxpbB2ZoMZRir1QCsyw3f3TaC4T9E0RBQMFMB19eI0MUN0yYmWu9UjMeT1VQUcigp1RewxH2iFndHS4UaXmyvmXI4N5JYfyKlDXjKsBCM6-RgVE6cj5YtOESzyU35oTC0bst239N34ytg0", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer ...", forHTTPHeaderField: "Authorization")
         
         print("I'm in the SpotifyDB extension!")
         print("3) SpotifyDB has built the URL request and sending it to APIClient, which is calling the Spotify API")
