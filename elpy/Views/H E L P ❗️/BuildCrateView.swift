@@ -9,6 +9,7 @@ struct BuildCrateView: View {
     @State private var isSearching = false
     
     @State var tracks: [Track] = []
+    @State var trackURIs: [String] = [] // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
 
     @State private var alert: AlertItem? = nil
     
@@ -73,8 +74,9 @@ struct BuildCrateView: View {
     /// A search bar. Essentially a textfield with a magnifying glass and an "x"
     /// button overlayed in front of it.
     var searchBar: some View {
+        
         // `onCommit` is called when the user presses the return key.
-        TextField("Search", text: $searchText, onCommit: search)
+        TextField("Search", text: $searchText, onCommit: searchForTracks) // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
             .padding(.leading, 22)
             .overlay(
                 HStack {
@@ -100,19 +102,21 @@ struct BuildCrateView: View {
             .cornerRadius(10)
     }
     
-// ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
     
     /// Performs a search for tracks based on `searchText`.
-    func search() {
+    /// Successful response ->  Array[Track] saved to `BuildCrateView.tracks` ...?
+    
+    func searchForTracks() {
 
         self.tracks = []
+        self.trackURIs = [] // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
         
         if self.searchText.isEmpty { return }
 
         print("searching with query '\(self.searchText)'")
         self.isSearching = true
         
-        self.searchCancellable = spotify.api.search(
+        self.searchCancellable = spotify.api.search( // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
             query: self.searchText, categories: [.track]
         )
         .receive(on: RunLoop.main)
@@ -127,14 +131,19 @@ struct BuildCrateView: View {
                 }
             },
             receiveValue: { searchResults in
+                // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
                 self.tracks = searchResults.tracks?.items ?? []
+                for track in self.tracks {
+                    self.trackURIs.append(track.uri!)
+                }
+                print(self.trackURIs)
                 print("received \(self.tracks.count) tracks")
             }
         )
     }
     
 }
-// ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+
 
 struct BuildCrateView_Previews: PreviewProvider {
     
@@ -144,13 +153,13 @@ struct BuildCrateView_Previews: PreviewProvider {
         .because, .comeTogether, .odeToViceroy, .illWind,
         .faces, .theEnd, .time, .theEnd, .reckoner
     ]
-    
+
     static var previews: some View {
         NavigationView {
             BuildCrateView(sampleTracks: tracks)
                 .listStyle(PlainListStyle())
                 .environmentObject(spotify)
-                
+
         }
     }
     
