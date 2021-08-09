@@ -2,13 +2,14 @@ import SwiftUI
 import SpotifyWebAPI
 import Combine
 
-struct SearchForTracksView: View {
+struct BuildCrateView: View {
 
     @EnvironmentObject var spotify: Spotify
     
     @State private var isSearching = false
     
     @State var tracks: [Track] = []
+    
 
     @State private var alert: AlertItem? = nil
     
@@ -29,6 +30,18 @@ struct SearchForTracksView: View {
             Text("Tap on a track to play it.")
                 .font(.caption)
                 .foregroundColor(.secondary)
+            Spacer()
+            
+            Button(action: spotify.api.authorizationManager.deauthorize, label: {
+                Text("Save crate as playlist")
+                    .foregroundColor(.white)
+                    .padding(7)
+                    .background(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
+//                    .cornerRadius(10)
+//                    .shadow(radius: 3)
+                
+            })
+            
             Spacer()
             if tracks.isEmpty {
                 if isSearching {
@@ -56,7 +69,7 @@ struct SearchForTracksView: View {
             }
             Spacer()
         }
-        .navigationTitle("Search For Tracks")
+        .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
@@ -119,14 +132,13 @@ struct SearchForTracksView: View {
             receiveValue: { searchResults in
                 self.tracks = searchResults.tracks?.items ?? []
                 print("received \(self.tracks.count) tracks")
-                
             }
         )
     }
     
 }
 
-struct SearchView_Previews: PreviewProvider {
+struct BuildCrateView_Previews: PreviewProvider {
     
     static let spotify = Spotify()
     
@@ -137,7 +149,7 @@ struct SearchView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            SearchForTracksView(sampleTracks: tracks)
+            BuildCrateView(sampleTracks: tracks)
                 .listStyle(PlainListStyle())
                 .environmentObject(spotify)
                 

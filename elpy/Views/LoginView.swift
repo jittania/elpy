@@ -40,7 +40,7 @@ struct LoginView: ViewModifier {
     
     var spotifyLogo: ImageName {
         colorScheme == .dark ? .spotifyLogoWhite
-                : .spotifyLogoBlack
+                : .spotifyLogoGreen
     }
     
     func body(content: Content) -> some View {
