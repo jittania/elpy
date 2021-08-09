@@ -1,3 +1,10 @@
+//
+//  APIClient.swift
+//  ButtonGetsSpotifyTracks
+//
+//  Created by Jittania Smith on 8/4/21.
+//
+
 import Foundation
 import Combine
 
@@ -14,9 +21,9 @@ struct APIClient {
         return URLSession.shared
             .dataTaskPublisher(for: request) // 3
             .tryMap { result -> Response<T> in
-                 print("I got a response and am trying to parse it!")
-                 print("Here is result.response:", result.response)
-                 print("================================")
+                // print("I got a response and am trying to parse it!")
+                // print("Here is result.response:", result.response)
+                // print("================================")
                 
                 let value = try JSONDecoder().decode(T.self, from: result.data) // 4
                 print("I'm in the API Client model!")
@@ -41,4 +48,3 @@ struct APIClient {
 // 5) Our “homemade” Response object now contains the actual data + the URL response from which we can find status code etc.
 // 6) Return the result on the main thread
 // 7) We end with erasing the publisher’s type, since it can be very long and “complicated”, and then transform and return it as the return type we want (AnyPublisher<Response<T>, Error>)
-

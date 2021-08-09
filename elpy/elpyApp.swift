@@ -1,17 +1,21 @@
-//
-//  elpyApp.swift
-//  elpy
-//
-//  Created by Jittania Smith on 7/27/21.
-//
-
 import SwiftUI
+import Combine
+import SpotifyWebAPI
 
 @main
-struct elpy: App {
+struct elpyApp: App {
+
+    @StateObject var spotify = Spotify()
+
+//    init() {
+//        SpotifyAPILogHandler.bootstrap()
+//    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(spotify)
         }
     }
+    
 }
