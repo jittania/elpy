@@ -9,7 +9,6 @@ struct BuildCrateView: View {
     @State private var isSearching = false
     
     @State var tracks: [Track] = []
-    
 
     @State private var alert: AlertItem? = nil
     
@@ -27,22 +26,15 @@ struct BuildCrateView: View {
         VStack {
             searchBar
                 .padding([.top, .horizontal])
-            Text("Tap on a track to play it.")
+            Text("Tap track to play")
                 .font(.caption)
                 .foregroundColor(.secondary)
-            Spacer()
-            
-            Button(action: spotify.api.authorizationManager.deauthorize, label: {
-                Text("Save crate as playlist")
-                    .foregroundColor(.white)
-                    .padding(7)
-                    .background(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
-//                    .cornerRadius(10)
-//                    .shadow(radius: 3)
-                
-            })
+            Text("Scroll down to save crate as playlist")
+                .font(.caption)
+                .foregroundColor(.secondary)
             
             Spacer()
+            
             if tracks.isEmpty {
                 if isSearching {
                     HStack {
@@ -68,6 +60,9 @@ struct BuildCrateView: View {
                 }
             }
             Spacer()
+            NavigationLink(
+                "Save crate as playlist", destination: CreatePlaylistView()
+            )
         }
         .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in
@@ -105,6 +100,8 @@ struct BuildCrateView: View {
             .cornerRadius(10)
     }
     
+// ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+    
     /// Performs a search for tracks based on `searchText`.
     func search() {
 
@@ -137,6 +134,7 @@ struct BuildCrateView: View {
     }
     
 }
+// ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
 
 struct BuildCrateView_Previews: PreviewProvider {
     

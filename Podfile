@@ -6,7 +6,6 @@ target 'elpy' do
   use_frameworks!
 
   # Pods for elpy
-  pod 'SnapKit', '~> 4.0'
   pod 'Hero', '~> 1.6.1'
   pod 'SwiftLint', '~> 0.43.1'
   pod 'Charts', '~> 3.6.0'
