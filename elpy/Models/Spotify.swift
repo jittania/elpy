@@ -142,7 +142,7 @@ final class Spotify: ObservableObject {
             }
         }
         else {
-            print("did NOT find authorization information in keychain")
+            print("did NOT find authorization information in keychain (ignore this warning if keychain data is not being persisted)")
         }
         
     }

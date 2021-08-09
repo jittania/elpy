@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		34F99D2831EDB0ED8BB625F6 /* Pods_elpy_elpyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1EADCF48E69039363CDE86 /* Pods_elpy_elpyUITests.framework */; };
 		75009E62A594A07E2F05B4A5 /* Pods_elpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */; };
+		9FFED6B526C0CA2F00900F52 /* BuildCrateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */; };
 		AE6563A1A8857E4D9A1820DF /* Pods_elpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277BC140C75D1894C564EB34 /* Pods_elpyTests.framework */; };
 		D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE1426BF7A4300FE8571 /* SpotifyAPI */; };
 		D511BE2B26BF849500FE8571 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE2A26BF849500FE8571 /* KeychainAccess */; };
-		D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EC926B0BFB900688C80 /* elpyApp.swift */; };
+		D5205ECA26B0BFB900688C80 /* ElpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EC926B0BFB900688C80 /* ElpyApp.swift */; };
 		D5205ECE26B0BFBA00688C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ECD26B0BFBA00688C80 /* Assets.xcassets */; };
 		D5205ED126B0BFBA00688C80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */; };
 		D5205EDC26B0BFBA00688C80 /* elpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EDB26B0BFBA00688C80 /* elpyTests.swift */; };
@@ -26,7 +27,7 @@
 		D59F44B126BFB9650075E211 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F44B026BFB9650075E211 /* ContentView.swift */; };
 		D5AC3E7126C0A2C9006AEC79 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E7026C0A2C9006AEC79 /* Spotify.swift */; };
 		D5AC3E7926C0A318006AEC79 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E7826C0A318006AEC79 /* LoginView.swift */; };
-		D5AC3E7E26C0A33F006AEC79 /* ExamplesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E7D26C0A33F006AEC79 /* ExamplesListView.swift */; };
+		D5AC3E7E26C0A33F006AEC79 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */; };
 		D5AC3E8326C0A356006AEC79 /* SearchForTracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E8226C0A356006AEC79 /* SearchForTracksView.swift */; };
 		D5AC3E8826C0A367006AEC79 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E8726C0A367006AEC79 /* TrackView.swift */; };
 		D5AC3E8D26C0A3A1006AEC79 /* DebugMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3E8C26C0A3A1006AEC79 /* DebugMenuView.swift */; };
@@ -62,11 +63,12 @@
 		658F587F0BD9ADE27631FAB0 /* Pods-elpy-elpyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpy-elpyUITests.release.xcconfig"; path = "Target Support Files/Pods-elpy-elpyUITests/Pods-elpy-elpyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		79973128874FE8D4863B43B8 /* Pods-elpy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpy.release.xcconfig"; path = "Target Support Files/Pods-elpy/Pods-elpy.release.xcconfig"; sourceTree = "<group>"; };
 		8AFA693278A54E275544B122 /* Pods-elpy-elpyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpy-elpyUITests.debug.xcconfig"; path = "Target Support Files/Pods-elpy-elpyUITests/Pods-elpy-elpyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildCrateView.swift; sourceTree = "<group>"; };
 		A7A03618CC5D05DE70AC4DB5 /* Pods-elpyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.release.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6989E8EFF8095FF1063E2A7 /* Pods-elpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.debug.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5205EC626B0BFB900688C80 /* elpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5205EC926B0BFB900688C80 /* elpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyApp.swift; sourceTree = "<group>"; };
+		D5205EC926B0BFB900688C80 /* ElpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElpyApp.swift; sourceTree = "<group>"; };
 		D5205ECD26B0BFBA00688C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5205ED026B0BFBA00688C80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D5205ED226B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 		D59F44B026BFB9650075E211 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D5AC3E7026C0A2C9006AEC79 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		D5AC3E7826C0A318006AEC79 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		D5AC3E7D26C0A33F006AEC79 /* ExamplesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesListView.swift; sourceTree = "<group>"; };
+		D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
 		D5AC3E8226C0A356006AEC79 /* SearchForTracksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForTracksView.swift; sourceTree = "<group>"; };
 		D5AC3E8726C0A367006AEC79 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		D5AC3E8C26C0A3A1006AEC79 /* DebugMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuView.swift; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 		D5205EC826B0BFB900688C80 /* elpy */ = {
 			isa = PBXGroup;
 			children = (
-				D5205EC926B0BFB900688C80 /* elpyApp.swift */,
+				D5205EC926B0BFB900688C80 /* ElpyApp.swift */,
 				D59F44A226BFB1410075E211 /* Models */,
 				D59F44A326BFB1490075E211 /* Views */,
 				D5AC3E9B26C0A416006AEC79 /* Utilities */,
@@ -226,9 +228,9 @@
 			children = (
 				D59F44B026BFB9650075E211 /* ContentView.swift */,
 				D5AC3E7826C0A318006AEC79 /* LoginView.swift */,
-				D5AC3E7D26C0A33F006AEC79 /* ExamplesListView.swift */,
+				D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */,
 				D5AC3E8226C0A356006AEC79 /* SearchForTracksView.swift */,
-				D5AC3E8726C0A367006AEC79 /* TrackView.swift */,
+				9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */,
 				D5AC3E8C26C0A3A1006AEC79 /* DebugMenuView.swift */,
 				D594103F26C0A72B001283D3 /* RecentlyPlayedView.swift */,
 				D594102B26C0A6BE001283D3 /* SavedAlbumsGridView.swift */,
@@ -237,6 +239,7 @@
 				D594103A26C0A6FC001283D3 /* AlbumTrackCellView.swift */,
 				D5AC3E9126C0A3E1006AEC79 /* PlaylistsListView.swift */,
 				D5AC3E9626C0A401006AEC79 /* PlaylistCellView.swift */,
+				D5AC3E8726C0A367006AEC79 /* TrackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -501,7 +504,7 @@
 				D594103B26C0A6FC001283D3 /* AlbumTrackCellView.swift in Sources */,
 				D5AC3E8326C0A356006AEC79 /* SearchForTracksView.swift in Sources */,
 				D594103626C0A6ED001283D3 /* AlbumTracksView.swift in Sources */,
-				D5205ECA26B0BFB900688C80 /* elpyApp.swift in Sources */,
+				D5205ECA26B0BFB900688C80 /* ElpyApp.swift in Sources */,
 				D59F44B126BFB9650075E211 /* ContentView.swift in Sources */,
 				D5AC3EAA26C0A490006AEC79 /* MiscellaneousUtilities.swift in Sources */,
 				D594104026C0A72B001283D3 /* RecentlyPlayedView.swift in Sources */,
@@ -509,12 +512,13 @@
 				D594102726C0A69A001283D3 /* PlaylistDeduplicator.swift in Sources */,
 				D5AC3E8D26C0A3A1006AEC79 /* DebugMenuView.swift in Sources */,
 				D5AC3E7126C0A2C9006AEC79 /* Spotify.swift in Sources */,
-				D5AC3E7E26C0A33F006AEC79 /* ExamplesListView.swift in Sources */,
+				D5AC3E7E26C0A33F006AEC79 /* MainNavigationView.swift in Sources */,
 				D5AC3EA526C0A454006AEC79 /* AlertItem.swift in Sources */,
 				D5AC3E9D26C0A42E006AEC79 /* ImageName.swift in Sources */,
 				D594102C26C0A6BE001283D3 /* SavedAlbumsGridView.swift in Sources */,
 				D594103126C0A6D3001283D3 /* AlbumGridItemView.swift in Sources */,
 				D5AC3E7926C0A318006AEC79 /* LoginView.swift in Sources */,
+				9FFED6B526C0CA2F00900F52 /* BuildCrateView.swift in Sources */,
 				D5AC3EB726C0A4B4006AEC79 /* SpotifyAPIExtensions.swift in Sources */,
 				D5AC3E9226C0A3E1006AEC79 /* PlaylistsListView.swift in Sources */,
 			);

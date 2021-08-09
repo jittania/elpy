@@ -1,24 +1,22 @@
 import SwiftUI
 
-struct ExamplesListView: View {
+struct MainNavigationView: View {
     
     var body: some View {
+        
         List {
             
             NavigationLink(
-                "Playlists", destination: PlaylistsListView()
+                "Manage Playlists", destination: PlaylistsListView()
             )
             NavigationLink(
-                "Saved Albums", destination: SavedAlbumsGridView()
-            )
-            NavigationLink(
-                "Search For Tracks", destination: SearchForTracksView()
-            )
-            NavigationLink(
-                "Recently Played Tracks", destination: RecentlyPlayedView()
+                "See Recently Played Tracks", destination: RecentlyPlayedView()
             )
             NavigationLink(
                 "Debug Menu", destination: DebugMenuView()
+            )
+            NavigationLink(
+                "Build a crate!", destination: BuildCrateView()
             )
             
             // This is the location where you can add your own views to test out
@@ -41,7 +39,7 @@ struct ExamplesListView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            ExamplesListView()
+            MainNavigationView()
                 .environmentObject(spotify)
         }
     }

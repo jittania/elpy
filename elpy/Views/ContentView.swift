@@ -12,8 +12,8 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ExamplesListView()
-                .navigationBarTitle("Spotify Example App")
+            MainNavigationView()
+                .navigationBarTitle("E L P Y")
                 .navigationBarItems(trailing: logoutButton)
                 .disabled(!spotify.isAuthorized)
         }

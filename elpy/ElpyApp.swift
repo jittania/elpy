@@ -3,13 +3,13 @@ import Combine
 import SpotifyWebAPI
 
 @main
-struct elpyApp: App {
+struct Elpy: App {
 
     @StateObject var spotify = Spotify()
 
-//    init() {
-//        SpotifyAPILogHandler.bootstrap()
-//    }
+    init() {
+        SpotifyAPILogHandler.bootstrap()
+    }
 
     var body: some Scene {
         WindowGroup {
