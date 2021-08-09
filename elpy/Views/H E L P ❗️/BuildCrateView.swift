@@ -62,7 +62,7 @@ struct BuildCrateView: View {
             }
             Spacer()
             NavigationLink(
-                "Save crate as playlist", destination: CreatePlaylistView()
+                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
             )
         }
         .navigationTitle("Build a crate!")
@@ -137,7 +137,7 @@ struct BuildCrateView: View {
                     self.trackURIs.append(track.uri!)
                 }
                 print(self.trackURIs)
-                print("received \(self.tracks.count) tracks")
+                print("🐸 received \(self.tracks.count) tracks")
             }
         )
     }

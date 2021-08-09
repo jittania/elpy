@@ -5,6 +5,8 @@ import SwiftUI
 struct CreatePlaylistView: View {
     
     @EnvironmentObject var spotify: Spotify
+    
+    @Binding var trackURIs: [String]  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
 
     @State var newPlaylistName: String = ""
 
@@ -26,7 +28,7 @@ struct CreatePlaylistView: View {
     }
     
     func createPlaylistFromTracks() {
-        
+        print("🌴", self.trackURIs)
         // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
         /// Create a playlist when this button is tapped using `newPlaylistName`
         /// and `spotify.api.createPlaylist`
@@ -38,9 +40,11 @@ struct CreatePlaylistView: View {
 }
     
 struct CreatePlaylistView_Previews: PreviewProvider {
+    @State static var trackURIs: [String] = []
+
     static var previews: some View {
         Group {
-            CreatePlaylistView()
+            CreatePlaylistView(trackURIs: $trackURIs)
         }
     }
 }
