@@ -62,12 +62,12 @@ struct BuildCrateView: View {
                 }
             }
             Spacer()
-            NavigationLink(
-                "Save crate as playlist", destination: CreatePlaylistView()  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
-            )
 //            NavigationLink(
-//                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+//                "Save crate as playlist", destination: CreatePlaylistView()  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
 //            )
+            NavigationLink(
+                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+            )
         }
         .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in

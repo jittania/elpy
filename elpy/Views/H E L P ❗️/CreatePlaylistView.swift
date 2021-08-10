@@ -7,7 +7,7 @@ struct CreatePlaylistView: View {
     
     @EnvironmentObject var spotify: Spotify
 
-    // @Binding var trackURIs: [String]  // 🐸 trackURIs from BuildCrateView
+    @Binding var trackURIs: [String]  // 🐸 trackURIs from BuildCrateView
 
     @State private var isSearching = false
     
@@ -17,8 +17,8 @@ struct CreatePlaylistView: View {
     
     @State private var searchText = ""
     @State private var searchCancellable: AnyCancellable? = nil
+    @State private var addTracksCancellable: AnyCancellable? = nil
 
-    init() { }
     
     var body: some View {
         VStack {
@@ -45,11 +45,11 @@ struct CreatePlaylistView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            else {
-                Text("Delete this text")
-                    .font(.title)
-                    .foregroundColor(.secondary)
-            }
+//            else {
+//                Text("Delete this text")
+//                    .font(.title)
+//                    .foregroundColor(.secondary)
+//            }
             Spacer()
         }
         .navigationTitle("Create Playlist 🐸")
@@ -112,11 +112,35 @@ struct CreatePlaylistView: View {
     ///
     /// Returns: `snapshot id`of the playlist - can be used to refresh playlists view elsewhere - can check if this is necessary (check if this gets done anyway when you navigate back to "manage playlists" view
 
+    func addTracksToCurrentPlaylist(playlistURI: SpotifyURIConvertible) {
+        print("code to add songs to a playlist will go here")
+        
+        let playlist = playlistURI
+        let uris = self.trackURIs
+        
+        self.addTracksCancellable = spotify.api.addToPlaylist(
+            playlist,
+            uris: uris
+        )
+        .receive(on: RunLoop.main)
+        .sink(
+            receiveCompletion: { completion in
+                print("received completion:", completion)
+                if case .failure(let error) = completion {
+                    self.alert = AlertItem(
+                        title: "Unable to add tracks to playlist! 🤢",
+                        message: error.localizedDescription
+                    )
+                }
+            },
+            receiveValue: { someResponse in
+                print("Adding tracks worked! : \(someResponse)")
+            }
+        )
+    }
+    
     func createPlaylistFromTracks() {
         
-        // print("🌴 Track URIS:", self.trackURIs)
-        // =======================================================================
-
         self.crateName = ""
         
         if self.searchText.isEmpty { return }
@@ -127,7 +151,6 @@ struct CreatePlaylistView: View {
         let playlistDeets = PlaylistDetails(name: self.searchText)
         print("playlistDeets:", playlistDeets)
         
-        // let userURI = "spotify:user:74fb67fc80f24026"
         let currentUserURI = self.spotify.currentUser?.uri
         
         self.searchCancellable = spotify.api.createPlaylist(for: currentUserURI as! SpotifyURIConvertible, playlistDeets
@@ -147,6 +170,10 @@ struct CreatePlaylistView: View {
             receiveValue: { newPlaylistFromCrate in
                 self.crateName = newPlaylistFromCrate.name
                 print("Newly created playlist name: \(self.crateName)")
+                
+                let newPlaylistURI = newPlaylistFromCrate.uri
+                
+                addTracksToCurrentPlaylist(playlistURI: newPlaylistURI)
             }
         )
     }
