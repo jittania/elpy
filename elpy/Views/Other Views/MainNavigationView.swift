@@ -13,7 +13,7 @@ struct MainNavigationView: View {
                 "See Recently Played Tracks", destination: RecentlyPlayedView()
             )
             NavigationLink(
-                "Debug Menu", destination: DebugMenuView()
+                "🐞", destination: DebugMenuView()
             )
             NavigationLink(
                 "Build a crate!", destination: BuildCrateView()

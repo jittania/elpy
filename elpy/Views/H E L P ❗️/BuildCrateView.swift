@@ -1,3 +1,4 @@
+import Foundation
 import SwiftUI
 import SpotifyWebAPI
 import Combine
@@ -62,8 +63,11 @@ struct BuildCrateView: View {
             }
             Spacer()
             NavigationLink(
-                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+                "Save crate as playlist", destination: CreatePlaylistView()  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
             )
+//            NavigationLink(
+//                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+//            )
         }
         .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in
@@ -133,9 +137,13 @@ struct BuildCrateView: View {
             receiveValue: { searchResults in
                 // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
                 self.tracks = searchResults.tracks?.items ?? []
+                
+                /// playlists. To get all of the URIs, use:
+                /// let uris: [String] = playlists.items.map(\.uri)
                 for track in self.tracks {
                     self.trackURIs.append(track.uri!)
                 }
+                
                 print(self.trackURIs)
                 print("🐸 received \(self.tracks.count) tracks")
             }
