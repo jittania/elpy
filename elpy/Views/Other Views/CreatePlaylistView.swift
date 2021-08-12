@@ -33,7 +33,7 @@ struct CreatePlaylistView: View {
                     HStack {
                         ProgressView()
                             .padding()
-                        Text("Searching")
+                        Text("Creating")
                             .font(.title)
                             .foregroundColor(.secondary)
                     }
@@ -47,7 +47,7 @@ struct CreatePlaylistView: View {
             }
             Spacer()
         }
-        .navigationTitle("Create Playlist 🐸")
+        .navigationTitle("Create Playlist")
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
@@ -78,7 +78,6 @@ struct CreatePlaylistView: View {
     }
     
     // =======================================================================
-    
     /// Note: Question marks `?` after a type refer to Optionals , a way in Swift which lets you indicate the possibility that a value might be absent for any type at all, without the need for special constants
     
     /// Note: Double question mark `??` is a nil-coalescing operator. In plain terms, it is just a shorthand for saying != nil . First it checks if the the return value is nil, if NOT, then the left value is presented, and if it is nil then the right value is presented.
@@ -100,6 +99,7 @@ struct CreatePlaylistView: View {
     /// - `uris`: An Array of URIs for tracks/episodes, type: `[SpotifyURIConvertible]`
     ///
     /// Returns: `snapshot id`of the playlist - can be used to refresh playlists view elsewhere - can check if this is necessary (check if this gets done anyway when you navigate back to "manage playlists" view
+    
 
     func getPlaylistDetails() {
         

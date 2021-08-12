@@ -19,6 +19,9 @@
 		D5205EDC26B0BFBA00688C80 /* elpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EDB26B0BFBA00688C80 /* elpyTests.swift */; };
 		D5205EE726B0BFBA00688C80 /* elpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EE626B0BFBA00688C80 /* elpyUITests.swift */; };
 		D5840F6126C0F16400D987DA /* CreatePlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */; };
+		D5840F8526C5E2E200D987DA /* GenreSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5840F8426C5E2E200D987DA /* GenreSelectView.swift */; };
+		D5840F8A26C5E2EF00D987DA /* YearSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5840F8926C5E2EF00D987DA /* YearSelectView.swift */; };
+		D5840F8F26C5E2FE00D987DA /* MiscSearchCriteraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5840F8E26C5E2FE00D987DA /* MiscSearchCriteraView.swift */; };
 		D594102726C0A69A001283D3 /* PlaylistDeduplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594102626C0A69A001283D3 /* PlaylistDeduplicator.swift */; };
 		D594102C26C0A6BE001283D3 /* SavedAlbumsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594102B26C0A6BE001283D3 /* SavedAlbumsGridView.swift */; };
 		D594103126C0A6D3001283D3 /* AlbumGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594103026C0A6D3001283D3 /* AlbumGridItemView.swift */; };
@@ -80,6 +83,9 @@
 		D5205EE626B0BFBA00688C80 /* elpyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elpyUITests.swift; sourceTree = "<group>"; };
 		D5205EE826B0BFBA00688C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistView.swift; sourceTree = "<group>"; };
+		D5840F8426C5E2E200D987DA /* GenreSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSelectView.swift; sourceTree = "<group>"; };
+		D5840F8926C5E2EF00D987DA /* YearSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelectView.swift; sourceTree = "<group>"; };
+		D5840F8E26C5E2FE00D987DA /* MiscSearchCriteraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscSearchCriteraView.swift; sourceTree = "<group>"; };
 		D594102626C0A69A001283D3 /* PlaylistDeduplicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDeduplicator.swift; sourceTree = "<group>"; };
 		D594102B26C0A6BE001283D3 /* SavedAlbumsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlbumsGridView.swift; sourceTree = "<group>"; };
 		D594103026C0A6D3001283D3 /* AlbumGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumGridItemView.swift; sourceTree = "<group>"; };
@@ -231,7 +237,6 @@
 		D5840F6C26C10E9200D987DA /* Other Views */ = {
 			isa = PBXGroup;
 			children = (
-				9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */,
 				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
 				D59F44B026BFB9650075E211 /* ContentView.swift */,
 				D5AC3E7826C0A318006AEC79 /* LoginView.swift */,
@@ -241,6 +246,10 @@
 				D5AC3E9126C0A3E1006AEC79 /* PlaylistsListView.swift */,
 				D5AC3E9626C0A401006AEC79 /* PlaylistCellView.swift */,
 				D5AC3E8726C0A367006AEC79 /* TrackView.swift */,
+				9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */,
+				D5840F8426C5E2E200D987DA /* GenreSelectView.swift */,
+				D5840F8926C5E2EF00D987DA /* YearSelectView.swift */,
+				D5840F8E26C5E2FE00D987DA /* MiscSearchCriteraView.swift */,
 			);
 			path = "Other Views";
 			sourceTree = "<group>";
@@ -523,10 +532,12 @@
 				D594103B26C0A6FC001283D3 /* AlbumTrackCellView.swift in Sources */,
 				D5AC3E8326C0A356006AEC79 /* SearchForTracksView.swift in Sources */,
 				D594103626C0A6ED001283D3 /* AlbumTracksView.swift in Sources */,
+				D5840F8F26C5E2FE00D987DA /* MiscSearchCriteraView.swift in Sources */,
 				D5205ECA26B0BFB900688C80 /* ElpyApp.swift in Sources */,
 				D59F44B126BFB9650075E211 /* ContentView.swift in Sources */,
 				D5AC3EAA26C0A490006AEC79 /* MiscellaneousUtilities.swift in Sources */,
 				D594104026C0A72B001283D3 /* RecentlyPlayedView.swift in Sources */,
+				D5840F8526C5E2E200D987DA /* GenreSelectView.swift in Sources */,
 				D5AC3E9726C0A401006AEC79 /* PlaylistCellView.swift in Sources */,
 				D594102726C0A69A001283D3 /* PlaylistDeduplicator.swift in Sources */,
 				D5AC3E8D26C0A3A1006AEC79 /* DebugMenuView.swift in Sources */,
@@ -536,6 +547,7 @@
 				D5840F6126C0F16400D987DA /* CreatePlaylistView.swift in Sources */,
 				D5AC3E9D26C0A42E006AEC79 /* ImageName.swift in Sources */,
 				D594102C26C0A6BE001283D3 /* SavedAlbumsGridView.swift in Sources */,
+				D5840F8A26C5E2EF00D987DA /* YearSelectView.swift in Sources */,
 				D594103126C0A6D3001283D3 /* AlbumGridItemView.swift in Sources */,
 				D5AC3E7926C0A318006AEC79 /* LoginView.swift in Sources */,
 				9FFED6B526C0CA2F00900F52 /* BuildCrateView.swift in Sources */,

@@ -107,8 +107,8 @@ struct PlaylistsListView: View {
                             )
                     }
                 },
-                // We will receive a value for each page of playlists. You could
-                // use Combine's `collect()` operator to wait until all of the
+                // We will receive a value for each page of playlists.
+                // Can use Combine's `collect()` operator to wait until all of the
                 // pages have been retrieved.
                 receiveValue: { playlistsPage in
                     let playlists = playlistsPage.items
