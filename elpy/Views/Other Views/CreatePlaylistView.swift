@@ -9,27 +9,27 @@ struct CreatePlaylistView: View {
 
     @Binding var trackURIs: [String]  // 🐸 trackURIs from BuildCrateView
 
-    @State private var isSearching = false
+    @State private var isCreatingPlaylist = false
     
     @State var crateName: String = ""
-
+    
     @State private var alert: AlertItem? = nil
     
-    @State private var searchText = ""
+    @State var newPlaylistURI: SpotifyURIConvertible = ""
+    
+    @State private var userInputPlaylistName  = ""
     @State private var searchCancellable: AnyCancellable? = nil
     @State private var addTracksCancellable: AnyCancellable? = nil
+    @State private var getPlaylistCancellable: AnyCancellable? = nil
 
     
     var body: some View {
         VStack {
-            searchBar
+            playlistNameBar
                 .padding([.top, .horizontal])
-//            Text("Tap on a track to play it.")
-//                .font(.caption)
-//                .foregroundColor(.secondary)
             Spacer()
             if crateName.isEmpty {
-                if isSearching {
+                if isCreatingPlaylist {
                     HStack {
                         ProgressView()
                             .padding()
@@ -45,11 +45,6 @@ struct CreatePlaylistView: View {
                         .foregroundColor(.secondary)
                 }
             }
-//            else {
-//                Text("Delete this text")
-//                    .font(.title)
-//                    .foregroundColor(.secondary)
-//            }
             Spacer()
         }
         .navigationTitle("Create Playlist 🐸")
@@ -58,22 +53,21 @@ struct CreatePlaylistView: View {
         }
     }
     
-    /// A search bar. Essentially a textfield with a magnifying glass and an "x"
-    /// button overlayed in front of it.
-    var searchBar: some View {
+
+    var playlistNameBar: some View {
         // `onCommit` is called when the user presses the return key.
-        TextField("Enter name", text: $searchText, onCommit: createPlaylistFromTracks)
+        TextField("Enter name", text: $userInputPlaylistName , onCommit: createPlaylistFromTracks)
             .padding(.leading, 22)
             .overlay(
                 HStack {
 //                    Image(systemName: "magnifyingglass")
 //                        .foregroundColor(.secondary)
                     Spacer()
-                    if !searchText.isEmpty {
+                    if !userInputPlaylistName .isEmpty {
                         // Clear the search text when the user taps the "x"
                         // button.
                         Button(action: {
-                            self.searchText = ""
+                            self.userInputPlaylistName  = ""
                             // self.tracks = []
                         }, label: {
                             Image(systemName: "xmark.circle.fill")
@@ -112,9 +106,33 @@ struct CreatePlaylistView: View {
     ///
     /// Returns: `snapshot id`of the playlist - can be used to refresh playlists view elsewhere - can check if this is necessary (check if this gets done anyway when you navigate back to "manage playlists" view
 
-    func addTracksToCurrentPlaylist(playlistURI: SpotifyURIConvertible) {
-        print("code to add songs to a playlist will go here")
+    func getPlaylistDetails() {
         
+        let playlist = self.newPlaylistURI
+        
+        self.getPlaylistCancellable = spotify.api.playlist(playlist)
+            .receive(on: RunLoop.main)
+            .sink(
+                receiveCompletion: { completion in
+                    print("received completion:", completion)
+                    if case .failure(let error) = completion {
+                        self.alert = AlertItem(
+                            title: "Unable to locate playlist!",
+                            message: error.localizedDescription
+                        )
+                    }
+                },
+                receiveValue: { playlistObject in
+                    let playlistItems: [PlaylistItem] = playlistObject.items.items.compactMap(\.item)
+                    print("New playlist '\(playlistObject.name)' succesfully created with \(playlistItems.count) tracks")
+
+                }
+            )
+        
+    }
+    
+    func addTracksToCurrentPlaylist(playlistURI: SpotifyURIConvertible) {
+
         let playlist = playlistURI
         let uris = self.trackURIs
         
@@ -128,13 +146,15 @@ struct CreatePlaylistView: View {
                 print("received completion:", completion)
                 if case .failure(let error) = completion {
                     self.alert = AlertItem(
-                        title: "Unable to add tracks to playlist! 🤢",
+                        title: "Unable to add tracks to playlist!",
                         message: error.localizedDescription
                     )
                 }
             },
-            receiveValue: { someResponse in
-                print("Adding tracks worked! : \(someResponse)")
+            receiveValue: { playlistSnapshotID in
+                print("received playlistSnapshotID:", playlistSnapshotID)
+                
+                getPlaylistDetails()
             }
         )
     }
@@ -143,12 +163,12 @@ struct CreatePlaylistView: View {
         
         self.crateName = ""
         
-        if self.searchText.isEmpty { return }
+        if self.userInputPlaylistName .isEmpty { return }
 
-        print("searching with query '\(self.searchText)'")
-        self.isSearching = true
+        print("searching with query '\(self.userInputPlaylistName )'")
+        self.isCreatingPlaylist = true
         
-        let playlistDeets = PlaylistDetails(name: self.searchText)
+        let playlistDeets = PlaylistDetails(name: self.userInputPlaylistName )
         print("playlistDeets:", playlistDeets)
         
         let currentUserURI = self.spotify.currentUser?.uri
@@ -158,7 +178,7 @@ struct CreatePlaylistView: View {
         .receive(on: RunLoop.main)
         .sink(
             receiveCompletion: { completion in
-                self.isSearching = false
+                self.isCreatingPlaylist = false
                 if case .failure(let error) = completion {
                     self.alert = AlertItem(
                         title: "Couldn't Perform Search",
@@ -171,7 +191,8 @@ struct CreatePlaylistView: View {
                 self.crateName = newPlaylistFromCrate.name
                 print("Newly created playlist name: \(self.crateName)")
                 
-                let newPlaylistURI = newPlaylistFromCrate.uri
+                // let newPlaylistURI = newPlaylistFromCrate.uri
+                self.newPlaylistURI = newPlaylistFromCrate.uri
                 
                 addTracksToCurrentPlaylist(playlistURI: newPlaylistURI)
             }
@@ -181,14 +202,7 @@ struct CreatePlaylistView: View {
 }
     
     
-    
-    
-    
 
-    
-    
-
-    
 //struct CreatePlaylistView_Previews: PreviewProvider {
 //    @State static var trackURIs: [String] = [] // 🐸
 //

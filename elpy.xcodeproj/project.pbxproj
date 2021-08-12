@@ -216,28 +216,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D5840F6526C105FB00D987DA /* H E L P ❗️ */ = {
+		D5840F6526C105FB00D987DA /* delete */ = {
 			isa = PBXGroup;
 			children = (
+				D594102B26C0A6BE001283D3 /* SavedAlbumsGridView.swift */,
+				D594103026C0A6D3001283D3 /* AlbumGridItemView.swift */,
+				D594103526C0A6ED001283D3 /* AlbumTracksView.swift */,
+				D594103A26C0A6FC001283D3 /* AlbumTrackCellView.swift */,
 				D5AC3E8226C0A356006AEC79 /* SearchForTracksView.swift */,
-				9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */,
-				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
 			);
-			path = "H E L P ❗️";
+			path = delete;
 			sourceTree = "<group>";
 		};
 		D5840F6C26C10E9200D987DA /* Other Views */ = {
 			isa = PBXGroup;
 			children = (
+				9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */,
+				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
 				D59F44B026BFB9650075E211 /* ContentView.swift */,
 				D5AC3E7826C0A318006AEC79 /* LoginView.swift */,
 				D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */,
 				D5AC3E8C26C0A3A1006AEC79 /* DebugMenuView.swift */,
 				D594103F26C0A72B001283D3 /* RecentlyPlayedView.swift */,
-				D594102B26C0A6BE001283D3 /* SavedAlbumsGridView.swift */,
-				D594103026C0A6D3001283D3 /* AlbumGridItemView.swift */,
-				D594103526C0A6ED001283D3 /* AlbumTracksView.swift */,
-				D594103A26C0A6FC001283D3 /* AlbumTrackCellView.swift */,
 				D5AC3E9126C0A3E1006AEC79 /* PlaylistsListView.swift */,
 				D5AC3E9626C0A401006AEC79 /* PlaylistCellView.swift */,
 				D5AC3E8726C0A367006AEC79 /* TrackView.swift */,
@@ -257,7 +257,7 @@
 		D59F44A326BFB1490075E211 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D5840F6526C105FB00D987DA /* H E L P ❗️ */,
+				D5840F6526C105FB00D987DA /* delete */,
 				D5840F6C26C10E9200D987DA /* Other Views */,
 			);
 			path = Views;
