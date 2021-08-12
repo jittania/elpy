@@ -14,7 +14,7 @@ struct Elpy: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(spotify)
+                .environmentObject(spotify) 
         }
     }
     

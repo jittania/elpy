@@ -5,7 +5,7 @@ import Combine
 
 struct CreatePlaylistView: View {
     
-    @EnvironmentObject var spotify: Spotify
+    @EnvironmentObject var spotify: Spotify // Used to share the same Spotify instance between views so user stays logged in
 
     @Binding var trackURIs: [String]  // 🐸 trackURIs from BuildCrateView
 
@@ -18,7 +18,7 @@ struct CreatePlaylistView: View {
     @State var newPlaylistURI: SpotifyURIConvertible = ""
     
     @State private var userInputPlaylistName  = ""
-    @State private var searchCancellable: AnyCancellable? = nil
+    @State private var createPlaylistCancellable: AnyCancellable? = nil
     @State private var addTracksCancellable: AnyCancellable? = nil
     @State private var getPlaylistCancellable: AnyCancellable? = nil
 
@@ -60,15 +60,10 @@ struct CreatePlaylistView: View {
             .padding(.leading, 22)
             .overlay(
                 HStack {
-//                    Image(systemName: "magnifyingglass")
-//                        .foregroundColor(.secondary)
                     Spacer()
                     if !userInputPlaylistName .isEmpty {
-                        // Clear the search text when the user taps the "x"
-                        // button.
                         Button(action: {
                             self.userInputPlaylistName  = ""
-                            // self.tracks = []
                         }, label: {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundColor(.secondary)
@@ -124,7 +119,7 @@ struct CreatePlaylistView: View {
                 },
                 receiveValue: { playlistObject in
                     let playlistItems: [PlaylistItem] = playlistObject.items.items.compactMap(\.item)
-                    print("New playlist '\(playlistObject.name)' succesfully created with \(playlistItems.count) tracks")
+                    print("New playlist '\(playlistObject.name)' successfully created with \(playlistItems.count) tracks")
 
                 }
             )
@@ -171,9 +166,9 @@ struct CreatePlaylistView: View {
         let playlistDeets = PlaylistDetails(name: self.userInputPlaylistName )
         print("playlistDeets:", playlistDeets)
         
-        let currentUserURI = self.spotify.currentUser?.uri
+        let currentUserURI = self.spotify.currentUser!.uri
         
-        self.searchCancellable = spotify.api.createPlaylist(for: currentUserURI as! SpotifyURIConvertible, playlistDeets
+        self.createPlaylistCancellable = spotify.api.createPlaylist(for: currentUserURI as SpotifyURIConvertible, playlistDeets
         )
         .receive(on: RunLoop.main)
         .sink(
@@ -190,8 +185,7 @@ struct CreatePlaylistView: View {
             receiveValue: { newPlaylistFromCrate in
                 self.crateName = newPlaylistFromCrate.name
                 print("Newly created playlist name: \(self.crateName)")
-                
-                // let newPlaylistURI = newPlaylistFromCrate.uri
+
                 self.newPlaylistURI = newPlaylistFromCrate.uri
                 
                 addTracksToCurrentPlaylist(playlistURI: newPlaylistURI)
@@ -203,13 +197,13 @@ struct CreatePlaylistView: View {
     
     
 
-//struct CreatePlaylistView_Previews: PreviewProvider {
-//    @State static var trackURIs: [String] = [] // 🐸
-//
-//    static var previews: some View {
-//        Group {
-//            CreatePlaylistView(trackURIs: $trackURIs) // 🐸
-//
-//        }
-//    }
-//}
+struct CreatePlaylistView_Previews: PreviewProvider {
+    @State static var trackURIs: [String] = []
+
+    static var previews: some View {
+        Group {
+            CreatePlaylistView(trackURIs: $trackURIs)
+
+        }
+    }
+}

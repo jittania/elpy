@@ -10,7 +10,7 @@ struct BuildCrateView: View {
     @State private var isSearching = false
     
     @State var tracks: [Track] = []
-    @State var trackURIs: [String] = [] // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+    @State var trackURIs: [String] = []
 
     @State private var alert: AlertItem? = nil
     
@@ -28,7 +28,10 @@ struct BuildCrateView: View {
         VStack {
             searchBar
                 .padding([.top, .horizontal])
-            Text("Tap track to play")
+            Text("Here is the crate Elpy made for you! Now, you can...")
+                //.font(.title)
+                .foregroundColor(.secondary)
+            Text("Tap a track to play it")
                 .font(.caption)
                 .foregroundColor(.secondary)
             Text("Scroll down to save crate as playlist")
@@ -62,11 +65,9 @@ struct BuildCrateView: View {
                 }
             }
             Spacer()
-//            NavigationLink(
-//                "Save crate as playlist", destination: CreatePlaylistView()  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
-//            )
+
             NavigationLink(
-                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)  // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
         }
         .navigationTitle("Build a crate!")
@@ -75,12 +76,10 @@ struct BuildCrateView: View {
         }
     }
     
-    /// A search bar. Essentially a textfield with a magnifying glass and an "x"
-    /// button overlayed in front of it.
     var searchBar: some View {
         
         // `onCommit` is called when the user presses the return key.
-        TextField("Search", text: $searchText, onCommit: searchForTracks) // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+        TextField("Search", text: $searchText, onCommit: searchForTracks)
             .padding(.leading, 22)
             .overlay(
                 HStack {
@@ -88,8 +87,6 @@ struct BuildCrateView: View {
                         .foregroundColor(.secondary)
                     Spacer()
                     if !searchText.isEmpty {
-                        // Clear the search text when the user taps the "x"
-                        // button.
                         Button(action: {
                             self.searchText = ""
                             self.tracks = []
@@ -108,19 +105,19 @@ struct BuildCrateView: View {
     
     
     /// Performs a search for tracks based on `searchText`.
-    /// Successful response ->  Array[Track] saved to `BuildCrateView.tracks` ...?
+    /// Successful response ->  Array[Track] saved to `self.tracks`
     
     func searchForTracks() {
 
         self.tracks = []
-        self.trackURIs = [] // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+        self.trackURIs = []
         
         if self.searchText.isEmpty { return }
 
         print("searching with query '\(self.searchText)'")
         self.isSearching = true
         
-        self.searchCancellable = spotify.api.search( // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+        self.searchCancellable = spotify.api.search(
             query: self.searchText, categories: [.track]
         )
         .receive(on: RunLoop.main)
@@ -135,17 +132,15 @@ struct BuildCrateView: View {
                 }
             },
             receiveValue: { searchResults in
-                // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️
+               
                 self.tracks = searchResults.tracks?.items ?? []
-                
-                /// playlists. To get all of the URIs, use:
-                /// let uris: [String] = playlists.items.map(\.uri)
+
                 for track in self.tracks {
                     self.trackURIs.append(track.uri!)
                 }
                 
                 print(self.trackURIs)
-                print("🐸 received \(self.tracks.count) tracks")
+                print("Request for \(self.tracks.count) tracks received!")
             }
         )
     }
