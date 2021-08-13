@@ -20,6 +20,11 @@ struct YearSelectView: View {
             NavigationLink(
                 "N E X T", destination: MiscCriteraView(currentGenre: self.$currentGenre, currentYear: self.$currentYear) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
         }
         .navigationTitle("Select a year")
     }

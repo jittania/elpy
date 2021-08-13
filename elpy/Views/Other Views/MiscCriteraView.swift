@@ -31,6 +31,11 @@ struct MiscCriteraView: View {
             NavigationLink(
                 "N E X T", destination: BuildCrateView(currentGenre: self.$currentGenre, currentYear: self.$currentYear, currentIncludeText: $currentIncludeText, currentExcludeText: $currentExcludeText) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
         }
         .navigationTitle("Other things!")
     }

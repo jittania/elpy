@@ -25,6 +25,11 @@ struct GenreSelectView: View {
             NavigationLink(
                 "N E X T", destination: YearSelectView(currentGenre: self.$currentGenre)
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
         }
         .navigationTitle("Select a genre")
     }

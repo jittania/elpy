@@ -46,6 +46,12 @@ struct CreatePlaylistView: View {
                 }
             }
             Spacer()
+            NavigationLink(
+                "Build another crate", destination: GenreSelectView()
+            )
+            NavigationLink(
+                "Go back to main nav", destination: MainNavigationView()
+            )
         }
         .navigationTitle("Create Playlist")
         .alert(item: $alert) { alert in

@@ -40,7 +40,11 @@ struct BuildCrateView: View {
                 print("Text to exclude: \(self.currentExcludeText)")
                 searchForTracks()
             }
-            Spacer()
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
             Text("Tap a track to play it")
                 .font(.caption)
                 .foregroundColor(.secondary)
@@ -61,7 +65,7 @@ struct BuildCrateView: View {
                     
                 }
                 else {
-                    Text("No Results")
+                    Text("Your search yielded no results!")
                         .font(.title)
                         .foregroundColor(.secondary)
                 }
@@ -74,12 +78,11 @@ struct BuildCrateView: View {
                 }
             }
             Spacer()
-
             NavigationLink(
                 "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
             NavigationLink(
-                "Start over", destination: GenreSelectView()
+                "Try again!", destination: GenreSelectView()
             )
         }
         .navigationTitle("Build a crate!")
@@ -121,18 +124,26 @@ struct BuildCrateView: View {
     
     func searchForTracks() {
         
-        // code here to construct search query ?
+        let genreString = "genre:" + self.currentGenre + " "
+        let yearString = "year:" + self.currentYear + " "
+        let exclTextString = "NOT " + self.currentExcludeText
+        let inclTextString = self.currentIncludeText + " "
+        
+        let queryString = inclTextString+genreString+yearString+exclTextString
+        print("query string:", "\(queryString)")
 
         self.tracks = []
         self.trackURIs = []
         
-        if self.searchText.isEmpty { return }
+        //if self.searchText.isEmpty { return }
+        if queryString.isEmpty { return }
 
-        print("searching with query '\(self.searchText)'")
+        print("searching with query '\(queryString)'")
         self.isSearching = true
         
         self.searchCancellable = spotify.api.search(
-            query: self.searchText, categories: [.track]
+//            query: self.searchText, categories: [.track]
+            query: queryString, categories: [.track]
         )
         .receive(on: RunLoop.main)
         .sink(
