@@ -17,7 +17,6 @@ struct YearSelectView: View {
             Text("Can either enter a single year, or a range of years separated by a dash e.g. '1980-1989'")
             yearInputBar
                 .padding([.top, .horizontal])
-            Spacer()
             NavigationLink(
                 "N E X T", destination: MiscCriteraView(currentGenre: self.$currentGenre, currentYear: self.$currentYear) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
             )

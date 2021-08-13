@@ -6,7 +6,7 @@ struct MainNavigationView: View {
         
         Text("Welcome to Elpy!")
         
-        Text("Elpy is a music discovery tool that build a 'crate' of new songs for you, just like in the olden days when people we'nt to record stores to dig up new finds. Except for Elpy has access to Spotify's entire database!")
+        Text("Elpy is a music discovery tool that builds a 'crate' of new songs for you, just like in the olden days when people went to record stores to dig up new finds. Except for Elpy has access to Spotify's entire database of tracks!")
             .padding()
         
         Text("From here, you can check out your current Spotify library, view recently played tracks, or get started building crates with Elpy:")
@@ -23,16 +23,10 @@ struct MainNavigationView: View {
 //            NavigationLink(
 //                "🐞", destination: DebugMenuView()
 //            )
-//            NavigationLink(
-//                "Build crates!", destination: BuildCrateView()
-//            )
             NavigationLink(
-                "Build crates!", destination: GenreSelectView()
+                "Build me some crates!", destination: GenreSelectView()
             )
             
-            // This is the location where you can add your own views to test out
-            // your application. Each view receives an instance of `Spotify`
-            // from the environment.
             
         }
         .listStyle(PlainListStyle())

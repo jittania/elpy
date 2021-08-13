@@ -14,9 +14,14 @@ struct GenreSelectView: View {
     
     var body: some View {
         VStack {
+            Text("Not sure what to enter?")
+            HStack {
+                Link("Click here", destination: URL(string: "https://everynoise.com/genrewords.html")!)
+                    .foregroundColor(.red)
+                Text("for a complete list of Spotify genres")
+            }
             genreInputBar
                 .padding([.top, .horizontal])
-            Spacer()
             NavigationLink(
                 "N E X T", destination: YearSelectView(currentGenre: self.$currentGenre)
             )

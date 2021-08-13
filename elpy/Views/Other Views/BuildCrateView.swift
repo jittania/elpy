@@ -6,6 +6,10 @@ import Combine
 struct BuildCrateView: View {
 
     @EnvironmentObject var spotify: Spotify
+    @Binding var currentGenre: String
+    @Binding var currentYear: String
+    @Binding var currentIncludeText: String
+    @Binding var currentExcludeText: String
     
     @State private var isSearching = false
     
@@ -18,26 +22,31 @@ struct BuildCrateView: View {
     @State private var searchCancellable: AnyCancellable? = nil
     
     /// Used by the preview provider to provide sample data.
-    fileprivate init(sampleTracks: [Track]) {
-        self._tracks = State(initialValue: sampleTracks)
-    }
+//    fileprivate init(sampleTracks: [Track]) {
+//        self._tracks = State(initialValue: sampleTracks)
+//    }
     
-    init() { }
+//    init() { }
     
     var body: some View {
         VStack {
-            searchBar
-                .padding([.top, .horizontal])
-            Text("Here is the crate Elpy made for you! Now, you can...")
-                //.font(.title)
-                .foregroundColor(.secondary)
+//            searchBar
+//                .padding([.top, .horizontal])
+            Button("B U I L D!") {
+                print("Build crate command initiated with following criteria:")
+                print("Genre: \(self.currentGenre)")
+                print("Release year or range: \(self.currentYear)")
+                print("Text to include: \(self.currentIncludeText)")
+                print("Text to exclude: \(self.currentExcludeText)")
+                searchForTracks()
+            }
+            Spacer()
             Text("Tap a track to play it")
                 .font(.caption)
                 .foregroundColor(.secondary)
             Text("Scroll down to save crate as playlist")
                 .font(.caption)
                 .foregroundColor(.secondary)
-            
             Spacer()
             
             if tracks.isEmpty {
@@ -79,38 +88,40 @@ struct BuildCrateView: View {
         }
     }
     
-    var searchBar: some View {
-        
-        // `onCommit` is called when the user presses the return key.
-        TextField("Search", text: $searchText, onCommit: searchForTracks)
-            .padding(.leading, 22)
-            .overlay(
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.secondary)
-                    Spacer()
-                    if !searchText.isEmpty {
-                        Button(action: {
-                            self.searchText = ""
-                            self.tracks = []
-                        }, label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.secondary)
-                        })
-                    }
-                }
-            )
-            .padding(.vertical, 7)
-            .padding(.horizontal, 7)
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(10)
-    }
+//    var searchBar: some View {
+//
+//        // `onCommit` is called when the user presses the return key.
+//        TextField("Search", text: $searchText, onCommit: searchForTracks)
+//            .padding(.leading, 22)
+//            .overlay(
+//                HStack {
+//                    Image(systemName: "magnifyingglass")
+//                        .foregroundColor(.secondary)
+//                    Spacer()
+//                    if !searchText.isEmpty {
+//                        Button(action: {
+//                            self.searchText = ""
+//                            self.tracks = []
+//                        }, label: {
+//                            Image(systemName: "xmark.circle.fill")
+//                                .foregroundColor(.secondary)
+//                        })
+//                    }
+//                }
+//            )
+//            .padding(.vertical, 7)
+//            .padding(.horizontal, 7)
+//            .background(Color(.secondarySystemBackground))
+//            .cornerRadius(10)
+//    }
     
     
     /// Performs a search for tracks based on `searchText`.
     /// Successful response ->  Array[Track] saved to `self.tracks`
     
     func searchForTracks() {
+        
+        // code here to construct search query ?
 
         self.tracks = []
         self.trackURIs = []
@@ -151,25 +162,25 @@ struct BuildCrateView: View {
 }
 
 
-struct BuildCrateView_Previews: PreviewProvider {
-    
-    static let spotify = Spotify()
-    
-    static let tracks: [Track] = [
-        .because, .comeTogether, .odeToViceroy, .illWind,
-        .faces, .theEnd, .time, .theEnd, .reckoner
-    ]
-
-    static var previews: some View {
-        NavigationView {
-            BuildCrateView(sampleTracks: tracks)
-                .listStyle(PlainListStyle())
-                .environmentObject(spotify)
-
-        }
-    }
-    
-}
-
+//struct BuildCrateView_Previews: PreviewProvider {
+//
+//    static let spotify = Spotify()
+//
+//    static let tracks: [Track] = [
+//        .because, .comeTogether, .odeToViceroy, .illWind,
+//        .faces, .theEnd, .time, .theEnd, .reckoner
+//    ]
+//
+//    static var previews: some View {
+//        NavigationView {
+//            BuildCrateView(sampleTracks: tracks)
+//                .listStyle(PlainListStyle())
+//                .environmentObject(spotify)
+//
+//        }
+//    }
+//
+//}
+//
 
 
