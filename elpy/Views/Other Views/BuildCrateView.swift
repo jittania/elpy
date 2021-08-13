@@ -69,6 +69,9 @@ struct BuildCrateView: View {
             NavigationLink(
                 "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
+            NavigationLink(
+                "Start over", destination: GenreSelectView()
+            )
         }
         .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in
