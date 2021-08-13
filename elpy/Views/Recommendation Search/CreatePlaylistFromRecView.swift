@@ -3,11 +3,11 @@ import SwiftUI
 import SpotifyWebAPI
 import Combine
 
-struct CreatePlaylistView: View {
+struct CreatePlaylistFromRecView: View {
     
-    @EnvironmentObject var spotify: Spotify // Used to share the same Spotify instance between views so user stays logged in
+    @EnvironmentObject var spotify: Spotify
 
-    @Binding var trackURIs: [String]  // 🐸 trackURIs from BuildCrateView
+    @Binding var trackURIs: [String]  // 🐸 trackURIs from
 
     @State private var isCreatingPlaylist = false
     
@@ -47,11 +47,21 @@ struct CreatePlaylistView: View {
             }
             Spacer()
             NavigationLink(
-                "Build another crate", destination: GenreSelectView()
+                "Build new recommendations crate", destination: TrackAttributesView()
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
             NavigationLink(
                 "Go back to main nav", destination: MainNavigationView()
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
         }
         .navigationTitle("Create Playlist")
         .alert(item: $alert) { alert in
@@ -202,14 +212,14 @@ struct CreatePlaylistView: View {
 }
     
     
-
-struct CreatePlaylistView_Previews: PreviewProvider {
-    @State static var trackURIs: [String] = []
-
-    static var previews: some View {
-        Group {
-            CreatePlaylistView(trackURIs: $trackURIs)
-
-        }
-    }
-}
+//
+//struct CreatePlaylistFromRecView_Previews: PreviewProvider {
+//    @State static var trackURIs: [String] = []
+//
+//    static var previews: some View {
+//        Group {
+//            CreatePlaylistView(trackURIs: $trackURIs)
+//
+//        }
+//    }
+//}

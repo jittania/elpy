@@ -81,9 +81,27 @@ struct BuildCrateView: View {
             NavigationLink(
                 "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
             NavigationLink(
                 "Try again!", destination: GenreSelectView()
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
+            NavigationLink(
+                "Go back to main nav", destination: MainNavigationView()
+            )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
         }
         .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in
@@ -119,8 +137,17 @@ struct BuildCrateView: View {
 //    }
     
     
-    /// Performs a search for tracks based on `searchText`.
+    /// Performs a search for tracks based on `queryString`.
     /// Successful response ->  Array[Track] saved to `self.tracks`
+    
+//    func search(
+//        query: String,
+//        categories: [IDCategory],
+//        market: String? = nil,
+//        limit: Int? = nil,
+//        offset: Int? = nil,
+//        includeExternal: String? = nil
+//    ) -> AnyPublisher<SearchResult, Error>
     
     func searchForTracks() {
         

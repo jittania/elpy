@@ -1,3 +1,4 @@
+import Foundation
 import SwiftUI
 
 struct MainNavigationView: View {
@@ -17,15 +18,30 @@ struct MainNavigationView: View {
             NavigationLink(
                 "View Playlists", destination: PlaylistsListView()
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
             NavigationLink(
                 "View Recently Played Tracks", destination: RecentlyPlayedView()
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
 //            NavigationLink(
 //                "🐞", destination: DebugMenuView()
 //            )
             NavigationLink(
-                "Build me some crates!", destination: GenreSelectView()
+                "Build me some crates!", destination: ChooseBuiltTypeView()
             )
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
             
             
         }

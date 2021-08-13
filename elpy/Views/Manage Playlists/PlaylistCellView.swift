@@ -37,7 +37,7 @@ struct PlaylistCellView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 70, height: 70)
                     .padding(.trailing, 5)
-                Text("\(playlist.name) - \(playlistDeduplicator.totalItems) items")
+                Text("\(playlist.name)")
                 if playlistDeduplicator.isDeduplicating {
                     ProgressView()
                         .padding(.leading, 5)

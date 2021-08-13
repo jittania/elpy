@@ -11,6 +11,10 @@
 		75009E62A594A07E2F05B4A5 /* Pods_elpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */; };
 		9FFED6B526C0CA2F00900F52 /* BuildCrateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */; };
 		AE6563A1A8857E4D9A1820DF /* Pods_elpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277BC140C75D1894C564EB34 /* Pods_elpyTests.framework */; };
+		D507A62126C7025000887AD1 /* CreatePlaylistFromRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A62026C7025000887AD1 /* CreatePlaylistFromRecView.swift */; };
+		D507A62626C702E900887AD1 /* GetRecsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A62526C702E900887AD1 /* GetRecsView.swift */; };
+		D507A64526C70BC800887AD1 /* ChooseBuiltTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A64426C70BC800887AD1 /* ChooseBuiltTypeView.swift */; };
+		D507A64A26C70DBD00887AD1 /* TrackAttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A64926C70DBD00887AD1 /* TrackAttributesView.swift */; };
 		D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE1426BF7A4300FE8571 /* SpotifyAPI */; };
 		D511BE2B26BF849500FE8571 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE2A26BF849500FE8571 /* KeychainAccess */; };
 		D5205ECA26B0BFB900688C80 /* ElpyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5205EC926B0BFB900688C80 /* ElpyApp.swift */; };
@@ -71,6 +75,10 @@
 		A7A03618CC5D05DE70AC4DB5 /* Pods-elpyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.release.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA1AC07FE40CC52E354BF0E6 /* Pods_elpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6989E8EFF8095FF1063E2A7 /* Pods-elpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.debug.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D507A62026C7025000887AD1 /* CreatePlaylistFromRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistFromRecView.swift; sourceTree = "<group>"; };
+		D507A62526C702E900887AD1 /* GetRecsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecsView.swift; sourceTree = "<group>"; };
+		D507A64426C70BC800887AD1 /* ChooseBuiltTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBuiltTypeView.swift; sourceTree = "<group>"; };
+		D507A64926C70DBD00887AD1 /* TrackAttributesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAttributesView.swift; sourceTree = "<group>"; };
 		D5205EC626B0BFB900688C80 /* elpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5205EC926B0BFB900688C80 /* ElpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElpyApp.swift; sourceTree = "<group>"; };
 		D5205ECD26B0BFBA00688C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +155,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D507A62B26C7035C00887AD1 /* Filtered Search */ = {
+			isa = PBXGroup;
+			children = (
+				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
+				9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */,
+				D5840F8426C5E2E200D987DA /* GenreSelectView.swift */,
+				D5840F8926C5E2EF00D987DA /* YearSelectView.swift */,
+				D5840F8E26C5E2FE00D987DA /* MiscCriteraView.swift */,
+			);
+			path = "Filtered Search";
+			sourceTree = "<group>";
+		};
+		D507A62F26C7038200887AD1 /* Manage Playlists */ = {
+			isa = PBXGroup;
+			children = (
+				D5AC3E9126C0A3E1006AEC79 /* PlaylistsListView.swift */,
+				D5AC3E9626C0A401006AEC79 /* PlaylistCellView.swift */,
+			);
+			path = "Manage Playlists";
+			sourceTree = "<group>";
+		};
+		D507A63326C703A600887AD1 /* Recommendation Search */ = {
+			isa = PBXGroup;
+			children = (
+				D507A62026C7025000887AD1 /* CreatePlaylistFromRecView.swift */,
+				D507A62526C702E900887AD1 /* GetRecsView.swift */,
+				D507A64926C70DBD00887AD1 /* TrackAttributesView.swift */,
+			);
+			path = "Recommendation Search";
+			sourceTree = "<group>";
+		};
+		D507A63726C703C800887AD1 /* Recently Played */ = {
+			isa = PBXGroup;
+			children = (
+				D594103F26C0A72B001283D3 /* RecentlyPlayedView.swift */,
+				D5AC3E8726C0A367006AEC79 /* TrackView.swift */,
+			);
+			path = "Recently Played";
+			sourceTree = "<group>";
+		};
 		D5205EBD26B0BFB900688C80 = {
 			isa = PBXGroup;
 			children = (
@@ -176,9 +224,9 @@
 				D59F44A226BFB1410075E211 /* Models */,
 				D59F44A326BFB1490075E211 /* Views */,
 				D5AC3E9B26C0A416006AEC79 /* Utilities */,
+				D5205ECF26B0BFBA00688C80 /* Preview Content */,
 				D5205ECD26B0BFBA00688C80 /* Assets.xcassets */,
 				D5205ED226B0BFBA00688C80 /* Info.plist */,
-				D5205ECF26B0BFBA00688C80 /* Preview Content */,
 			);
 			path = elpy;
 			sourceTree = "<group>";
@@ -234,26 +282,6 @@
 			path = delete;
 			sourceTree = "<group>";
 		};
-		D5840F6C26C10E9200D987DA /* Other Views */ = {
-			isa = PBXGroup;
-			children = (
-				D59F44B026BFB9650075E211 /* ContentView.swift */,
-				D5AC3E7826C0A318006AEC79 /* LoginView.swift */,
-				D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */,
-				D5AC3E8C26C0A3A1006AEC79 /* DebugMenuView.swift */,
-				D594103F26C0A72B001283D3 /* RecentlyPlayedView.swift */,
-				D5AC3E9126C0A3E1006AEC79 /* PlaylistsListView.swift */,
-				D5AC3E9626C0A401006AEC79 /* PlaylistCellView.swift */,
-				D5AC3E8726C0A367006AEC79 /* TrackView.swift */,
-				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
-				9FFED6B426C0CA2F00900F52 /* BuildCrateView.swift */,
-				D5840F8426C5E2E200D987DA /* GenreSelectView.swift */,
-				D5840F8926C5E2EF00D987DA /* YearSelectView.swift */,
-				D5840F8E26C5E2FE00D987DA /* MiscCriteraView.swift */,
-			);
-			path = "Other Views";
-			sourceTree = "<group>";
-		};
 		D59F44A226BFB1410075E211 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,7 +295,14 @@
 			isa = PBXGroup;
 			children = (
 				D5840F6526C105FB00D987DA /* delete */,
-				D5840F6C26C10E9200D987DA /* Other Views */,
+				D5AC3E7826C0A318006AEC79 /* LoginView.swift */,
+				D59F44B026BFB9650075E211 /* ContentView.swift */,
+				D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */,
+				D507A64426C70BC800887AD1 /* ChooseBuiltTypeView.swift */,
+				D507A63726C703C800887AD1 /* Recently Played */,
+				D507A62F26C7038200887AD1 /* Manage Playlists */,
+				D507A63326C703A600887AD1 /* Recommendation Search */,
+				D507A62B26C7035C00887AD1 /* Filtered Search */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +310,7 @@
 		D5AC3E9B26C0A416006AEC79 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D5AC3E8C26C0A3A1006AEC79 /* DebugMenuView.swift */,
 				D5AC3E9C26C0A42E006AEC79 /* ImageName.swift */,
 				D5AC3EA426C0A454006AEC79 /* AlertItem.swift */,
 				D5AC3EA926C0A490006AEC79 /* MiscellaneousUtilities.swift */,
@@ -538,12 +574,16 @@
 				D5AC3EAA26C0A490006AEC79 /* MiscellaneousUtilities.swift in Sources */,
 				D594104026C0A72B001283D3 /* RecentlyPlayedView.swift in Sources */,
 				D5840F8526C5E2E200D987DA /* GenreSelectView.swift in Sources */,
+				D507A64A26C70DBD00887AD1 /* TrackAttributesView.swift in Sources */,
 				D5AC3E9726C0A401006AEC79 /* PlaylistCellView.swift in Sources */,
+				D507A62126C7025000887AD1 /* CreatePlaylistFromRecView.swift in Sources */,
 				D594102726C0A69A001283D3 /* PlaylistDeduplicator.swift in Sources */,
 				D5AC3E8D26C0A3A1006AEC79 /* DebugMenuView.swift in Sources */,
+				D507A64526C70BC800887AD1 /* ChooseBuiltTypeView.swift in Sources */,
 				D5AC3E7126C0A2C9006AEC79 /* Spotify.swift in Sources */,
 				D5AC3E7E26C0A33F006AEC79 /* MainNavigationView.swift in Sources */,
 				D5AC3EA526C0A454006AEC79 /* AlertItem.swift in Sources */,
+				D507A62626C702E900887AD1 /* GetRecsView.swift in Sources */,
 				D5840F6126C0F16400D987DA /* CreatePlaylistView.swift in Sources */,
 				D5AC3E9D26C0A42E006AEC79 /* ImageName.swift in Sources */,
 				D594102C26C0A6BE001283D3 /* SavedAlbumsGridView.swift in Sources */,

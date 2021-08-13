@@ -48,8 +48,7 @@ struct PlaylistsListView: View {
             else {
                 Text(
                     """
-                    Tap on a playlist to play it. Tap and hold on a Playlist \
-                    to remove duplicates.
+                    Tap on a playlist to play it from Spotify!
                     """
                 )
                 .font(.caption)
