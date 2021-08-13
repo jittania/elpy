@@ -13,7 +13,7 @@ struct GetRecsView: View {
     @State var trackURIs: [String] = []
     
 //    @Binding var danceability: AttributeRange<Double>
-//    @Binding var popularity: AttributeRange<Int>
+
 
     @State private var alert: AlertItem? = nil
     
