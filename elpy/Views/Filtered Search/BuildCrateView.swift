@@ -13,6 +13,7 @@ struct BuildCrateView: View {
     
     @State private var isSearching = false
     
+    @State var queryString: String = ""
     @State var tracks: [Track] = []
     @State var trackURIs: [String] = []
 
@@ -53,7 +54,12 @@ struct BuildCrateView: View {
                 .foregroundColor(.secondary)
             Spacer()
             
-            if tracks.isEmpty {
+            if queryString.isEmpty {
+                Text("You must enter at least one search field!")
+                    .font(.title)
+                    .foregroundColor(.secondary)
+            }
+            else if tracks.isEmpty {
                 if isSearching {
                     HStack {
                         ProgressView()
@@ -151,13 +157,46 @@ struct BuildCrateView: View {
     
     func searchForTracks() {
         
+//        var genreString = ""
+//        var yearString = ""
+//        var exclTextString = ""
+//        var inclTextString = ""
+//        print("genreString should be empty: ", genreString)
+//        print("self.currentGenre should have a value: ", self.currentGenre)
+//
+//        if self.currentGenre != "" {
+//            var genreString = "genre:" + self.currentGenre + " "
+//        } else {
+//            var genreString = "genre:" + self.currentGenre + " "
+//        }
+//
+//        if self.currentYear == "" {
+//            var yearString = ""
+//        } else {
+//            var yearString = yearString = "year:" + self.currentYear + " "
+//        }
+//
+//        if self.currentExcludeText == "" {
+//            var exclTextString = ""
+//        } else {
+//            var exclTextString = "NOT " + self.currentExcludeText
+//        }
+//
+//        if self.currentIncludeText == "" {
+//            var inclTextString = ""
+//        } else {
+//            var inclTextString = self.currentIncludeText + " "
+//        }
+        
         let genreString = "genre:" + self.currentGenre + " "
         let yearString = "year:" + self.currentYear + " "
         let exclTextString = "NOT " + self.currentExcludeText
         let inclTextString = self.currentIncludeText + " "
+        print("genreString should contain a value: ", genreString)
         
         let queryString = inclTextString+genreString+yearString+exclTextString
-        print("query string:", "\(queryString)")
+        self.queryString = queryString
+        print("query string:", self.queryString)
 
         self.tracks = []
         self.trackURIs = []
