@@ -105,6 +105,7 @@ struct GetRecsView: View {
     
     func getTrackRecs() {
         
+        // resets the search
         self.tracks = []
         self.trackURIs = []
         
@@ -154,8 +155,6 @@ struct GetRecsView: View {
         )
         
         //==========================================
-        
-        //if self.searchText.isEmpty { return }
         
         self.isSearching = true
         

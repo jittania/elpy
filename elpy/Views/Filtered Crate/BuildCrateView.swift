@@ -6,20 +6,19 @@ import Combine
 struct BuildCrateView: View {
 
     @EnvironmentObject var spotify: Spotify
+    
     @Binding var currentGenre: String
     @Binding var currentYear: String
     @Binding var currentIncludeText: String
     @Binding var currentExcludeText: String
-    
-    @State private var isSearching = false
-    
-    @State var queryString: String = ""
+
     @State var tracks: [Track] = []
     @State var trackURIs: [String] = []
 
+    @State private var showingEmptySearchAlert = false
     @State private var alert: AlertItem? = nil
     
-    @State private var searchText = ""
+    @State private var isSearching = false
     @State private var searchCancellable: AnyCancellable? = nil
     
     /// Used by the preview provider to provide sample data.
@@ -30,29 +29,27 @@ struct BuildCrateView: View {
 //    init() { }
     
     var body: some View {
-        VStack {
-            Button("Build!") {
-                print("Build crate command initiated with following criteria:")
-                print("Genre: \(self.currentGenre)")
-                print("Release year or range: \(self.currentYear)")
-                print("Text to include: \(self.currentIncludeText)")
-                print("Text to exclude: \(self.currentExcludeText)")
+        
+        Button("Build Crate!") {
+            if self.currentGenre == "" && self.currentYear == "" && self.currentIncludeText == "" && self.currentExcludeText == "" {
+                print("Cannot execute search because user did not enter any search critera")
+                showingEmptySearchAlert = true
+            } else {
                 searchForTracks()
             }
-            .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+        }
+        .alert(isPresented: $showingEmptySearchAlert) {
+            Alert(
+                title: Text("Warning!"),
+                message: Text("Must fill out at least one search field"),
+                dismissButton: .default(Text("Got it!")))
+        }
+            
+        //==========================================
+        VStack {
             Text("Tap a track to play it")
                 .foregroundColor(.secondary)
-            
-            if queryString.isEmpty {
-                Text("You must enter at least one search field!")
-                    .font(.title)
-                    .foregroundColor(.secondary)
-            }
-            else if tracks.isEmpty {
+            if tracks.isEmpty {
                 if isSearching {
                     HStack {
                         ProgressView()
@@ -62,21 +59,20 @@ struct BuildCrateView: View {
                             .foregroundColor(.secondary)
                     }
 
-                }
-                else {
+                } else {
                     Text("Your search yielded no results!")
                         .font(.title)
                         .foregroundColor(.secondary)
                 }
-            }
-            else {
+            } else {
                 List {
                     ForEach(tracks, id: \.self) { track in
                         TrackView(track: track)
                     }
                 }
             }
-
+        //==========================================
+            
             NavigationLink(
                 "Save Crate", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
@@ -101,106 +97,80 @@ struct BuildCrateView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.black, lineWidth: 2)
                     )
-        }
+            
+        } // VStack
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
     }
-    
-//    var searchBar: some View {
-//
-//        // `onCommit` is called when the user presses the return key.
-//        TextField("Search", text: $searchText, onCommit: searchForTracks)
-//            .padding(.leading, 22)
-//            .overlay(
-//                HStack {
-//                    Image(systemName: "magnifyingglass")
-//                        .foregroundColor(.secondary)
-//                    Spacer()
-//                    if !searchText.isEmpty {
-//                        Button(action: {
-//                            self.searchText = ""
-//                            self.tracks = []
-//                        }, label: {
-//                            Image(systemName: "xmark.circle.fill")
-//                                .foregroundColor(.secondary)
-//                        })
-//                    }
-//                }
-//            )
-//            .padding(.vertical, 7)
-//            .padding(.horizontal, 7)
-//            .background(Color(.secondarySystemBackground))
-//            .cornerRadius(10)
-//    }
-    
+
     
     /// Performs a search for tracks based on `queryString`.
     /// Successful response ->  Array[Track] saved to `self.tracks`
-    
-//    func search(
-//        query: String,
-//        categories: [IDCategory],
-//        market: String? = nil,
-//        limit: Int? = nil,
-//        offset: Int? = nil,
-//        includeExternal: String? = nil
-//    ) -> AnyPublisher<SearchResult, Error>
-    
+
     func searchForTracks() {
         
-//        var genreString = ""
-//        var yearString = ""
-//        var exclTextString = ""
-//        var inclTextString = ""
-//        print("genreString should be empty: ", genreString)
-//        print("self.currentGenre should have a value: ", self.currentGenre)
-//
-//        if self.currentGenre != "" {
-//            var genreString = "genre:" + self.currentGenre + " "
-//        } else {
-//            var genreString = "genre:" + self.currentGenre + " "
-//        }
-//
-//        if self.currentYear == "" {
-//            var yearString = ""
-//        } else {
-//            var yearString = yearString = "year:" + self.currentYear + " "
-//        }
-//
-//        if self.currentExcludeText == "" {
-//            var exclTextString = ""
-//        } else {
-//            var exclTextString = "NOT " + self.currentExcludeText
-//        }
-//
-//        if self.currentIncludeText == "" {
-//            var inclTextString = ""
-//        } else {
-//            var inclTextString = self.currentIncludeText + " "
-//        }
-        
-        let genreString = "genre:" + self.currentGenre + " "
-        let yearString = "year:" + self.currentYear + " "
-        let exclTextString = "NOT " + self.currentExcludeText
-        let inclTextString = self.currentIncludeText + " "
-        print("genreString should contain a value: ", genreString)
-        
-        let queryString = inclTextString+genreString+yearString+exclTextString
-        self.queryString = queryString
-        print("query string:", self.queryString)
-
+        // resets the search
         self.tracks = []
         self.trackURIs = []
+        var queryString: String = ""
+        print("Query string should be empty: ", queryString)
         
-        //if self.searchText.isEmpty { return }
+        //==========================================
+
+        // values will be received as "" or a string
+        var queryCurrGenre: String
+        var queryCurrYear: String
+        var queryCurrIncludeText: String
+        var queryCurrExcludeText: String
+        
+        // need to check if each value is empty string
+        // if a value is not empty, add appropriate prefix to it and append to
+        // query string; else leave out
+        
+        // Make sure that unnecessary string isn't left at end of querystring
+        
+        // if genre string contains spaces, add double quotation marks
+        
+        // queryString must contain elements in this order:
+        // currentIncludeText + currentGenre + currentYear + currentExcludeText
+        // and all characters must be lowercase except for NOT
+        
+        if self.currentIncludeText != "" {
+            queryCurrIncludeText = self.currentIncludeText.lowercased()
+            queryString += queryCurrIncludeText + " "
+        }
+        if self.currentGenre != "" {
+            // if genre string contains spaces, add double quotation marks
+            if self.currentGenre.contains(" ") {
+                // add dbl quot marks
+                self.currentGenre = "\"\(self.currentGenre)\""
+            }
+            
+            queryCurrGenre = "genre:" + self.currentGenre.lowercased()
+            queryString += queryCurrGenre + " "
+        }
+        if self.currentYear != "" {
+            queryCurrYear = "year:" + self.currentYear
+            queryString += queryCurrYear + " "
+        }
+        if self.currentExcludeText != "" {
+            queryCurrExcludeText = "NOT " + self.currentExcludeText.lowercased()
+            queryString += queryCurrExcludeText
+        } else {
+            queryString.removeLast()
+        }
+        
+        print("Assembled lowercase query string: ", queryString)
+        
+        //==========================================
+
         if queryString.isEmpty { return }
 
         print("searching with query '\(queryString)'")
         self.isSearching = true
         
         self.searchCancellable = spotify.api.search(
-//            query: self.searchText, categories: [.track]
             query: queryString, categories: [.track]
         )
         .receive(on: RunLoop.main)
