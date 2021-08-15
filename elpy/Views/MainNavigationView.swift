@@ -30,7 +30,7 @@ struct MainNavigationView: View {
 //                "🐞", destination: DebugMenuView()
 //            )
             NavigationLink(
-                "Build me some crates!", destination: ChooseBuiltTypeView()
+                "Build Crates!", destination: ChooseBuildTypeView()
             )
             .padding()
                     .overlay(

@@ -31,7 +31,6 @@ struct GenreSelectView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
         }
-        .navigationTitle("Select a genre")
     }
     
     var genreInputBar: some View {

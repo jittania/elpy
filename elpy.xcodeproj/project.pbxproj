@@ -13,7 +13,7 @@
 		AE6563A1A8857E4D9A1820DF /* Pods_elpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277BC140C75D1894C564EB34 /* Pods_elpyTests.framework */; };
 		D507A62126C7025000887AD1 /* CreatePlaylistFromRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A62026C7025000887AD1 /* CreatePlaylistFromRecView.swift */; };
 		D507A62626C702E900887AD1 /* GetRecsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A62526C702E900887AD1 /* GetRecsView.swift */; };
-		D507A64526C70BC800887AD1 /* ChooseBuiltTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A64426C70BC800887AD1 /* ChooseBuiltTypeView.swift */; };
+		D507A64526C70BC800887AD1 /* ChooseBuildTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A64426C70BC800887AD1 /* ChooseBuildTypeView.swift */; };
 		D507A64A26C70DBD00887AD1 /* TrackAttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507A64926C70DBD00887AD1 /* TrackAttributesView.swift */; };
 		D511BE1526BF7A4300FE8571 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE1426BF7A4300FE8571 /* SpotifyAPI */; };
 		D511BE2B26BF849500FE8571 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D511BE2A26BF849500FE8571 /* KeychainAccess */; };
@@ -45,6 +45,7 @@
 		D5AC3EA526C0A454006AEC79 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3EA426C0A454006AEC79 /* AlertItem.swift */; };
 		D5AC3EAA26C0A490006AEC79 /* MiscellaneousUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3EA926C0A490006AEC79 /* MiscellaneousUtilities.swift */; };
 		D5AC3EB726C0A4B4006AEC79 /* SpotifyAPIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC3EB626C0A4B4006AEC79 /* SpotifyAPIExtensions.swift */; };
+		D5F006F026C8CFAA00E0670B /* SeedGenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F006EF26C8CFAA00E0670B /* SeedGenresView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +78,7 @@
 		C6989E8EFF8095FF1063E2A7 /* Pods-elpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elpyTests.debug.xcconfig"; path = "Target Support Files/Pods-elpyTests/Pods-elpyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D507A62026C7025000887AD1 /* CreatePlaylistFromRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistFromRecView.swift; sourceTree = "<group>"; };
 		D507A62526C702E900887AD1 /* GetRecsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecsView.swift; sourceTree = "<group>"; };
-		D507A64426C70BC800887AD1 /* ChooseBuiltTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBuiltTypeView.swift; sourceTree = "<group>"; };
+		D507A64426C70BC800887AD1 /* ChooseBuildTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBuildTypeView.swift; sourceTree = "<group>"; };
 		D507A64926C70DBD00887AD1 /* TrackAttributesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackAttributesView.swift; sourceTree = "<group>"; };
 		D5205EC626B0BFB900688C80 /* elpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5205EC926B0BFB900688C80 /* ElpyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElpyApp.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		D5AC3EA426C0A454006AEC79 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		D5AC3EA926C0A490006AEC79 /* MiscellaneousUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousUtilities.swift; sourceTree = "<group>"; };
 		D5AC3EB626C0A4B4006AEC79 /* SpotifyAPIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIExtensions.swift; sourceTree = "<group>"; };
+		D5F006EF26C8CFAA00E0670B /* SeedGenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedGenresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		D507A63326C703A600887AD1 /* Rec Crate */ = {
 			isa = PBXGroup;
 			children = (
+				D5F006EF26C8CFAA00E0670B /* SeedGenresView.swift */,
 				D507A64926C70DBD00887AD1 /* TrackAttributesView.swift */,
 				D507A62526C702E900887AD1 /* GetRecsView.swift */,
 			);
@@ -297,7 +300,7 @@
 				D5AC3E7826C0A318006AEC79 /* LoginView.swift */,
 				D59F44B026BFB9650075E211 /* ContentView.swift */,
 				D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */,
-				D507A64426C70BC800887AD1 /* ChooseBuiltTypeView.swift */,
+				D507A64426C70BC800887AD1 /* ChooseBuildTypeView.swift */,
 				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
 				D507A63726C703C800887AD1 /* Recently Played */,
 				D507A62F26C7038200887AD1 /* Manage Playlists */,
@@ -575,11 +578,12 @@
 				D594104026C0A72B001283D3 /* RecentlyPlayedView.swift in Sources */,
 				D5840F8526C5E2E200D987DA /* GenreSelectView.swift in Sources */,
 				D507A64A26C70DBD00887AD1 /* TrackAttributesView.swift in Sources */,
+				D5F006F026C8CFAA00E0670B /* SeedGenresView.swift in Sources */,
 				D5AC3E9726C0A401006AEC79 /* PlaylistCellView.swift in Sources */,
 				D507A62126C7025000887AD1 /* CreatePlaylistFromRecView.swift in Sources */,
 				D594102726C0A69A001283D3 /* PlaylistDeduplicator.swift in Sources */,
 				D5AC3E8D26C0A3A1006AEC79 /* DebugMenuView.swift in Sources */,
-				D507A64526C70BC800887AD1 /* ChooseBuiltTypeView.swift in Sources */,
+				D507A64526C70BC800887AD1 /* ChooseBuildTypeView.swift in Sources */,
 				D5AC3E7126C0A2C9006AEC79 /* Spotify.swift in Sources */,
 				D5AC3E7E26C0A33F006AEC79 /* MainNavigationView.swift in Sources */,
 				D5AC3EA526C0A454006AEC79 /* AlertItem.swift in Sources */,

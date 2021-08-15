@@ -6,17 +6,19 @@ import Combine
 struct GetRecsView: View {
 
     @EnvironmentObject var spotify: Spotify
-    
-    @State private var isSearching = false
-    
+
     @State var tracks: [Track] = []
     @State var trackURIs: [String] = []
     
-//    @Binding var danceability: AttributeRange<Double>
-
-
-    @State private var alert: AlertItem? = nil
+    @Binding var seedGenres: [String]
+    @Binding var popularity: Double
+    @Binding var danceability: Double
+    @Binding var instrumentalness: Double
+    @Binding var acousticness: Double
+    @Binding var valence: Double
     
+    @State private var alert: AlertItem? = nil
+    @State private var isSearching = false
     @State private var searchCancellable: AnyCancellable? = nil
    
 //    / Used by the preview provider to provide sample data.
@@ -24,16 +26,12 @@ struct GetRecsView: View {
 //        self._tracks = State(initialValue: sampleTracks)
 //    }
     
-    init() { }
+    // init() { }
     
     var body: some View {
         VStack {
-            Button("B U I L D!") {
-//                print("Build crate command initiated with following criteria:")
-//                print("Genre: \(self.currentGenre)")
-//                print("Release year or range: \(self.currentYear)")
-//                print("Text to include: \(self.currentIncludeText)")
-//                print("Text to exclude: \(self.currentExcludeText)")
+            Text("Popularity: \(self.popularity)")
+            Button("Build Crate!") {
                 getTrackRecs()
             }
             .padding()
@@ -83,7 +81,7 @@ struct GetRecsView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Try again!", destination: TrackAttributesView()
+                "Try again!", destination: SeedGenresView()
             )
             .padding()
                     .overlay(
@@ -99,7 +97,6 @@ struct GetRecsView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
         }
-        .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
@@ -110,33 +107,59 @@ struct GetRecsView: View {
     /// Performs a search for recommended tracks based on `TrackAttributes`.
     /// Successful response ->  Array[Track] saved to `self.tracks`
     
-    // Correct: "https://api.spotify.com/v1/recommendations?limit=20&seed_genres=classical%2Ccountry&target_energy=0.43&target_popularity=20&target_valence=0.3"
-    
-    // Actual:
-    
-//    func recommendations(
-//        _ trackAttributes: TrackAttributes,
-//        limit: Int? = nil,
-//        market: String? = nil
-//    ) -> AnyPublisher<RecommendationsResponse, Error>
-    
     func getTrackRecs() {
         
         self.tracks = []
         self.trackURIs = []
         
+        //==========================================
+        // other values will either be received as 0 or something else
+        var popularity: AttributeRange<Int>?
+        var danceability: AttributeRange<Double>?
+        var instrumentalness: AttributeRange<Double>?
+        var acousticness: AttributeRange<Double>?
+        var valence: AttributeRange<Double>?
+        
+        // need to check if values are not zero.
+        // if not zero, must convert to proper type and plug into
+        // .init(target: <val>) format
+        if self.popularity != 0 {
+            popularity = .init(target: Int(self.popularity))
+        }
+        
+        if self.instrumentalness != 0 {
+            instrumentalness = .init(target: self.instrumentalness)
+        }
+        
+        if self.danceability != 0 {
+            danceability = .init(target: self.danceability)
+        }
+        
+        if self.acousticness != 0 {
+            acousticness = .init(target: self.acousticness)
+        }
+        
+        if self.valence != 0 {
+            valence = .init(target: self.valence)
+        }
+
+        // need to assign genres array to trackAttributes object
+        // then add other attributes
+        
+        print("Logging var danceability: \(String(describing: danceability))")
+        
         let trackAttributesObj = TrackAttributes(
-            seedGenres: ["classical", "country"],
-            energy: .init(target: 0.43),
-            popularity: .init(target: 20),
-            valence: .init(target: 0.3)
+            seedGenres: self.seedGenres,
+            acousticness: acousticness,
+            danceability: danceability,
+            instrumentalness: instrumentalness,
+            popularity: popularity,
+            valence: valence
         )
         
-        //if self.searchText.isEmpty { return }
+        //==========================================
         
-//        print("searching with following Track Attributes:")
-//        print("Danceability: ", trackAttributesObj.danceability ?? 0.5)
-//        print("Popularity: ", trackAttributesObj.popularity ?? 50)
+        //if self.searchText.isEmpty { return }
         
         self.isSearching = true
         

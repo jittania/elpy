@@ -3,7 +3,7 @@
 import Foundation
 import SwiftUI
 
-struct ChooseBuiltTypeView: View {
+struct ChooseBuildTypeView: View {
     
     var body: some View {
         
@@ -21,7 +21,7 @@ struct ChooseBuiltTypeView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Get Recommended Tracks", destination: TrackAttributesView()
+                "Get Recommended Tracks", destination: SeedGenresView()
             )
             .padding()
                     .overlay(
@@ -35,7 +35,7 @@ struct ChooseBuiltTypeView: View {
     }
 }
 
-//struct ChooseBuiltTypeView_Previews: PreviewProvider {
+//struct ChooseBuildTypeView_Previews: PreviewProvider {
 //
 //    static let spotify: Spotify = {
 //        let spotify = Spotify()
