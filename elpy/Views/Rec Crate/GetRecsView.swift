@@ -73,7 +73,7 @@ struct GetRecsView: View {
             }
             Spacer()
             NavigationLink(
-                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
+                "Save Crate", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
             .padding()
                     .overlay(
@@ -89,7 +89,7 @@ struct GetRecsView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Go back to main nav", destination: MainNavigationView()
+                "Home", destination: MainNavigationView()
             )
             .padding()
                     .overlay(

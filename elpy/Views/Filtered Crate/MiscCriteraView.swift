@@ -3,12 +3,6 @@ import SwiftUI
 import Combine
 import SpotifyWebAPI
 
-
-/// Examples:
-///
-/// input field for any keyword user would like to include
-/// input field for any keyword user would like to exclude (using NOT)
-
 struct MiscCriteraView: View {
     
     @EnvironmentObject var spotify: Spotify
@@ -20,24 +14,31 @@ struct MiscCriteraView: View {
     
     // init() { }
     
-    
     var body: some View {
+        
+        Text("Here you can choose to include or omit any keywords from your search that could be present in the track, artist, or album names.")
+        
         VStack {
             Text("I want my search to include this text:")
             includeCriteriaBar
                 .padding([.top, .horizontal])
             Text("I want my search to NOT include this text:")
             excludeCriteriaBar
-            NavigationLink(
-                "N E X T", destination: BuildCrateView(currentGenre: self.$currentGenre, currentYear: self.$currentYear, currentIncludeText: $currentIncludeText, currentExcludeText: $currentExcludeText) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
-            )
-            .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
         }
-        .navigationTitle("Other things!")
+        
+        NavigationLink(
+            "Next", destination: BuildCrateView(
+                currentGenre: self.$currentGenre,
+                currentYear: self.$currentYear,
+                currentIncludeText: self.$currentIncludeText,
+                currentExcludeText: self.$currentExcludeText
+            ) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
+        )
+        .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
     }
     
     var includeCriteriaBar: some View {
@@ -59,6 +60,7 @@ struct MiscCriteraView: View {
             .padding(.vertical, 7)
             .padding(.horizontal, 7)
     }
+    
     var excludeCriteriaBar: some View {
         
         TextField("Text to exclude", text: $currentExcludeText)

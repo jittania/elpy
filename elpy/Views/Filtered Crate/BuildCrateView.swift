@@ -31,9 +31,7 @@ struct BuildCrateView: View {
     
     var body: some View {
         VStack {
-//            searchBar
-//                .padding([.top, .horizontal])
-            Button("B U I L D!") {
+            Button("Build!") {
                 print("Build crate command initiated with following criteria:")
                 print("Genre: \(self.currentGenre)")
                 print("Release year or range: \(self.currentYear)")
@@ -52,7 +50,6 @@ struct BuildCrateView: View {
             Text("Scroll down to save crate as playlist")
                 .font(.caption)
                 .foregroundColor(.secondary)
-            Spacer()
             
             if queryString.isEmpty {
                 Text("You must enter at least one search field!")
@@ -68,7 +65,7 @@ struct BuildCrateView: View {
                             .font(.title)
                             .foregroundColor(.secondary)
                     }
-                    
+
                 }
                 else {
                     Text("Your search yielded no results!")
@@ -83,9 +80,9 @@ struct BuildCrateView: View {
                     }
                 }
             }
-            Spacer()
+
             NavigationLink(
-                "Save crate as playlist", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
+                "Save Crate", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
             .padding()
                     .overlay(
@@ -101,7 +98,7 @@ struct BuildCrateView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Go back to main nav", destination: MainNavigationView()
+                "Home", destination: MainNavigationView()
             )
             .padding()
                     .overlay(
@@ -109,7 +106,6 @@ struct BuildCrateView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
         }
-        .navigationTitle("Build a crate!")
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }

@@ -75,7 +75,6 @@ struct CreatePlaylistView: View {
                                .stroke(Color.black, lineWidth: 2)
                        )
         }
-        .navigationTitle("Create Playlist")
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }

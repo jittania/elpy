@@ -34,6 +34,7 @@ struct TrackView: View {
         if let artistName = track.artists?.first?.name {
             displayName += " - \(artistName)"
         }
+        
         return displayName
     }
     
