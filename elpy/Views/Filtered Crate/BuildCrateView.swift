@@ -46,6 +46,7 @@ struct BuildCrateView: View {
         }
             
         //==========================================
+        // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ 
         
         VStack {
             Text("Tap a track to play it")
@@ -61,7 +62,7 @@ struct BuildCrateView: View {
                     }
 
                 } else {
-                    Text("Your search yielded no results!")
+                    Text("Your search yielded no results")
                         .font(.title)
                         .foregroundColor(.secondary)
                 }
