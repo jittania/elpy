@@ -30,7 +30,6 @@ struct GetRecsView: View {
     
     var body: some View {
         VStack {
-            Text("Popularity: \(self.popularity)")
             Button("Build Crate!") {
                 getTrackRecs()
             }
@@ -40,11 +39,8 @@ struct GetRecsView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             Text("Tap a track to play it")
-                .font(.caption)
                 .foregroundColor(.secondary)
-            Text("Scroll down to save crate as playlist")
-                .font(.caption)
-                .foregroundColor(.secondary)
+
             Spacer()
             
             if tracks.isEmpty {

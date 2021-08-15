@@ -4,17 +4,15 @@ import Combine
 import SpotifyWebAPI
 
 struct SeedGenresView: View {
-    
     @EnvironmentObject var spotify: Spotify
-//    @State private var isEditing = false
     
     @State var seedGenres: [String] = []
     
     @State private var selectedGenreOne = "acoustic"
-    @State private var selectedGenreTwo = "acoustic"
-    @State private var selectedGenreThree = "acoustic"
+    @State private var selectedGenreTwo = "---"
+    @State private var selectedGenreThree = "---"
     
-    let defaultGenreSeeds = [
+    let defaultGenreSeedsReq = [
         "acoustic",
         "afrobeat",
         "alt-rock",
@@ -143,61 +141,223 @@ struct SeedGenresView: View {
         "world-music"
       ]
     
-    init() { }
+    let defaultGenreSeedsOptional = [
+        "---",
+        "acoustic",
+        "afrobeat",
+        "alt-rock",
+        "alternative",
+        "ambient",
+        "anime",
+        "black-metal",
+        "bluegrass",
+        "blues",
+        "bossanova",
+        "brazil",
+        "breakbeat",
+        "british",
+        "cantopop",
+        "chicago-house",
+        "children",
+        "chill",
+        "classical",
+        "club",
+        "comedy",
+        "country",
+        "dance",
+        "dancehall",
+        "death-metal",
+        "deep-house",
+        "detroit-techno",
+        "disco",
+        "disney",
+        "drum-and-bass",
+        "dub",
+        "dubstep",
+        "edm",
+        "electro",
+        "electronic",
+        "emo",
+        "folk",
+        "forro",
+        "french",
+        "funk",
+        "garage",
+        "german",
+        "gospel",
+        "goth",
+        "grindcore",
+        "groove",
+        "grunge",
+        "guitar",
+        "happy",
+        "hard-rock",
+        "hardcore",
+        "hardstyle",
+        "heavy-metal",
+        "hip-hop",
+        "holidays",
+        "honky-tonk",
+        "house",
+        "idm",
+        "indian",
+        "indie",
+        "indie-pop",
+        "industrial",
+        "iranian",
+        "j-dance",
+        "j-idol",
+        "j-pop",
+        "j-rock",
+        "jazz",
+        "k-pop",
+        "kids",
+        "latin",
+        "latino",
+        "malay",
+        "mandopop",
+        "metal",
+        "metal-misc",
+        "metalcore",
+        "minimal-techno",
+        "movies",
+        "mpb",
+        "new-age",
+        "new-release",
+        "opera",
+        "pagode",
+        "party",
+        "philippines-opm",
+        "piano",
+        "pop",
+        "pop-film",
+        "post-dubstep",
+        "power-pop",
+        "progressive-house",
+        "psych-rock",
+        "punk",
+        "punk-rock",
+        "r-n-b",
+        "rainy-day",
+        "reggae",
+        "reggaeton",
+        "road-trip",
+        "rock",
+        "rock-n-roll",
+        "rockabilly",
+        "romance",
+        "sad",
+        "salsa",
+        "samba",
+        "sertanejo",
+        "show-tunes",
+        "singer-songwriter",
+        "ska",
+        "sleep",
+        "songwriter",
+        "soul",
+        "soundtracks",
+        "spanish",
+        "study",
+        "summer",
+        "swedish",
+        "synth-pop",
+        "tango",
+        "techno",
+        "trance",
+        "trip-hop",
+        "turkish",
+        "work-out",
+        "world-music"
+      ]
+    
+    // init() { }
     
     var body: some View {
 
         ///  Note: Because pickers in forms have this navigation behavior, it’s important you present them in a
         ///  NavigationView on iOS otherwise you’ll find that tapping them doesn’t work.
-        
-        NavigationView {
-            Text("Select Seed Genres")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            Form {
-                Section {
-                    Text("Enter up to 3 seed genres")
+        Form {
+            Text("Enter between 1 and 3 seed genres to continue")
+            Section {
+                Picker("First Genre:", selection: $selectedGenreOne) {
+                   ForEach(defaultGenreSeedsReq, id: \.self) {
+                       Text($0)
+                   }
+               }
+               .pickerStyle(WheelPickerStyle())
             }
-                
-                Section {
-                    Picker("First Genre:", selection: $selectedGenreOne) {
-                       ForEach(defaultGenreSeeds, id: \.self) {
-                           Text($0)
-                       }
+            Section {
+                Picker("Second Genre:", selection: $selectedGenreTwo) {
+                   ForEach(defaultGenreSeedsOptional, id: \.self) {
+                       Text($0)
                    }
-                   .pickerStyle(WheelPickerStyle())
-                }
-                
-                Section {
-                    Picker("Second Genre:", selection: $selectedGenreTwo) {
-                       ForEach(defaultGenreSeeds, id: \.self) {
-                           Text($0)
-                       }
-                   }
-                   .pickerStyle(WheelPickerStyle())
-                }
-                
-                Section {
-                    Picker("Third Genre:", selection: $selectedGenreThree) {
-                       ForEach(defaultGenreSeeds, id: \.self) {
-                           Text($0)
-                       }
-                   }
-                   .pickerStyle(WheelPickerStyle())
-                }
+               }
+               .pickerStyle(WheelPickerStyle())
             }
-        }
-        NavigationLink(
-            "Next", destination: TrackAttributesView(seedGenres: self.$seedGenres)
-        ) // ❗️  create disable var that checks length of seedGenres at >= 1
-        .font(.title)
-        .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
+            Section {
+                Picker("Third Genre:", selection: $selectedGenreThree) {
+                   ForEach(defaultGenreSeedsOptional, id: \.self) {
+                       Text($0)
+                   }
+               }
+               .pickerStyle(WheelPickerStyle())
+            }
+            Section {
+                Button(
+                    action: {
+                        createArrFromSelections()
+                    },
+                    label: { Text("Save") }
                 )
+                .font(.headline)
+                .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, lineWidth: 2)
+                        )
+            }
+            NavigationLink(
+                "Next", destination: TrackAttributesView(seedGenres: self.$seedGenres)
+            )
+            .disabled(seedGenres.isEmpty)
+            .font(.headline)
+            .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
+        } // Form
+    } // body
+    
+    func createArrFromSelections() {
+        // need to reset genreSeeds every time user clicks button
+        self.seedGenres = []
+        
+        // only save genre picks if not equal to "---"
+        let firstGenrePick = self.selectedGenreOne
+        var secondGenrePick: String?
+        var thirdGenrePick: String?
+        
+        if self.selectedGenreTwo != "---" && self.selectedGenreTwo != firstGenrePick {
+            secondGenrePick = self.selectedGenreTwo
         }
+        if self.selectedGenreThree != "---" && self.selectedGenreThree != firstGenrePick && self.selectedGenreThree != self.selectedGenreTwo {
+            thirdGenrePick = self.selectedGenreThree
+        }
+        
+        // only add genre picks to array if not nil and if not already in arr
+        self.seedGenres.append(firstGenrePick)
+        
+        if secondGenrePick != nil {
+            self.seedGenres.append(secondGenrePick!)
+        }
+        if thirdGenrePick != nil {
+            self.seedGenres.append(thirdGenrePick!)
+        }
+        
+        print("Logging selected genres: ", self.seedGenres)
+    }
 }
     
 

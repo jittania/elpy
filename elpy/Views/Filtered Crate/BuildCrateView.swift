@@ -45,10 +45,6 @@ struct BuildCrateView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             Text("Tap a track to play it")
-                .font(.caption)
-                .foregroundColor(.secondary)
-            Text("Scroll down to save crate as playlist")
-                .font(.caption)
                 .foregroundColor(.secondary)
             
             if queryString.isEmpty {
