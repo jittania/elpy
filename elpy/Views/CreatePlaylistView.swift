@@ -3,21 +3,21 @@ import SwiftUI
 import SpotifyWebAPI
 import Combine
 
-struct CreatePlaylistFromRecView: View {
+struct CreatePlaylistView: View {
     
-    @EnvironmentObject var spotify: Spotify
+    @EnvironmentObject var spotify: Spotify // Used to share the same Spotify instance between views so user stays logged in
 
-    @Binding var trackURIs: [String]  // 🐸 trackURIs from
+    @Binding var trackURIs: [String]  // 🐸 trackURIs from BuildCrateView
 
     @State private var isCreatingPlaylist = false
     
-    @State var crateName: String = ""
+    @State private var userInputPlaylistName  = ""
+    @State private var responsePlaylistName: String = "" // should match `userInputPlaylistName` if API request to create platylist is successful
     
     @State private var alert: AlertItem? = nil
     
     @State var newPlaylistURI: SpotifyURIConvertible = ""
     
-    @State private var userInputPlaylistName  = ""
     @State private var createPlaylistCancellable: AnyCancellable? = nil
     @State private var addTracksCancellable: AnyCancellable? = nil
     @State private var getPlaylistCancellable: AnyCancellable? = nil
@@ -25,73 +25,105 @@ struct CreatePlaylistFromRecView: View {
     
     var body: some View {
         VStack {
-            playlistNameBar
-                .padding([.top, .horizontal])
-            Spacer()
-            if crateName.isEmpty {
-                if isCreatingPlaylist {
-                    HStack {
-                        ProgressView()
+            Form {
+                Section {
+                    TextField("Playlist name bar", text: $userInputPlaylistName)
+                        .padding(.leading, 22)
+                        .overlay(
+                            HStack {
+                                if !userInputPlaylistName.isEmpty {
+                                    Button(action: {
+                                        self.userInputPlaylistName = ""
+                                    }, label: {
+                                        Image(systemName: "xmark.circle.fill")
+                                            .foregroundColor(.secondary)
+                                    })
+                                }
+                            }
+                        )
+                        .padding(.vertical, 7)
+                        .padding(.horizontal, 7)
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(10)
+                }
+                Section {
+                    Button(action: {
+                                print("Button Tapped")
+                                createPlaylistFromTracks()
+                            }) {
+                                Text("Create Playlist")
+                            }
                             .padding()
-                        Text("Creating")
-                            .font(.title)
-                            .foregroundColor(.secondary)
-                    }
-                    
+                            .cornerRadius(10)
                 }
-                else {
-                    Text("Press enter to create playlist")
-                        .font(.title)
-                        .foregroundColor(.secondary)
-                }
+                .disabled(userInputPlaylistName.isEmpty)
             }
-            Spacer()
             NavigationLink(
-                "Build new recommendations crate", destination: TrackAttributesView()
-            )
-            .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+                   "Build another crate", destination: GenreSelectView()
+               )
+               .padding()
+                       .overlay(
+                           RoundedRectangle(cornerRadius: 10)
+                               .stroke(Color.black, lineWidth: 2)
+                       )
             NavigationLink(
-                "Go back to main nav", destination: MainNavigationView()
-            )
-            .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+                   "Go back to main nav", destination: MainNavigationView()
+               )
+               .padding()
+                       .overlay(
+                           RoundedRectangle(cornerRadius: 10)
+                               .stroke(Color.black, lineWidth: 2)
+                       )
         }
         .navigationTitle("Create Playlist")
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
     }
-    
 
-    var playlistNameBar: some View {
-        // `onCommit` is called when the user presses the return key.
-        TextField("Enter name", text: $userInputPlaylistName , onCommit: createPlaylistFromTracks)
-            .padding(.leading, 22)
-            .overlay(
-                HStack {
-                    Spacer()
-                    if !userInputPlaylistName .isEmpty {
-                        Button(action: {
-                            self.userInputPlaylistName  = ""
-                        }, label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.secondary)
-                        })
-                    }
-                }
-            )
-            .padding(.vertical, 7)
-            .padding(.horizontal, 7)
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(10)
-    }
+//            if responsePlaylistName.isEmpty {
+//                if isCreatingPlaylist {
+//                    HStack {
+//                        ProgressView()
+//                            .padding()
+//                        Text("Creating")
+//                            .font(.title)
+//                            .foregroundColor(.secondary)
+//                    }
+//
+//                }
+//                else {
+//                    Text("Must enter a playlist name")
+//                        .font(.title)
+//                        .foregroundColor(.secondary)
+//                }
+//            }
+//            else {
+//                Text("Press enter to create")
+            
+//            Spacer()
+//            NavigationLink(
+//                "Build another crate", destination: GenreSelectView()
+//            )
+//            .padding()
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .stroke(Color.black, lineWidth: 2)
+//                    )
+//            NavigationLink(
+//                "Go back to main nav", destination: MainNavigationView()
+//            )
+//            .padding()
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .stroke(Color.black, lineWidth: 2)
+//                    )
+//        }
+//        .navigationTitle("Create Playlist")
+//        .alert(item: $alert) { alert in
+//            Alert(title: alert.title, message: alert.message)
+//        }
+
     
     // =======================================================================
     /// Note: Question marks `?` after a type refer to Optionals , a way in Swift which lets you indicate the possibility that a value might be absent for any type at all, without the need for special constants
@@ -172,7 +204,7 @@ struct CreatePlaylistFromRecView: View {
     
     func createPlaylistFromTracks() {
         
-        self.crateName = ""
+        self.responsePlaylistName = ""
         
         if self.userInputPlaylistName .isEmpty { return }
 
@@ -199,8 +231,8 @@ struct CreatePlaylistFromRecView: View {
             },
 
             receiveValue: { newPlaylistFromCrate in
-                self.crateName = newPlaylistFromCrate.name
-                print("Newly created playlist name: \(self.crateName)")
+                self.responsePlaylistName = newPlaylistFromCrate.name
+                print("Newly created playlist name: \(self.responsePlaylistName)")
 
                 self.newPlaylistURI = newPlaylistFromCrate.uri
                 
@@ -212,14 +244,14 @@ struct CreatePlaylistFromRecView: View {
 }
     
     
-//
-//struct CreatePlaylistFromRecView_Previews: PreviewProvider {
-//    @State static var trackURIs: [String] = []
-//
-//    static var previews: some View {
-//        Group {
-//            CreatePlaylistView(trackURIs: $trackURIs)
-//
-//        }
-//    }
-//}
+
+struct CreatePlaylistView_Previews: PreviewProvider {
+    @State static var trackURIs: [String] = []
+
+    static var previews: some View {
+        Group {
+            CreatePlaylistView(trackURIs: $trackURIs)
+
+        }
+    }
+}
