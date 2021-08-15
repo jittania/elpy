@@ -8,6 +8,7 @@ struct YearSelectView: View {
     @EnvironmentObject var spotify: Spotify
     @Binding var currentGenre: String
     
+    @State private var showingInvalidYearAlert = false
     @State var currentYear: String = ""
 
 //    init() { }
@@ -18,15 +19,31 @@ struct YearSelectView: View {
             yearInputBar
                 .padding([.top, .horizontal])
             NavigationLink(
-                "N E X T", destination: MiscCriteraView(currentGenre: self.$currentGenre, currentYear: self.$currentYear) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
+                "Next",
+                destination:
+                    MiscCriteraView(
+                        currentGenre: self.$currentGenre,
+                        currentYear: self.$currentYear
+                    ).onAppear {
+                        if self.checkYearInput() {
+                            showingInvalidYearAlert = true
+                        }
+                    }
             )
+            .alert(isPresented: $showingInvalidYearAlert) {
+                Alert(
+                    title: Text("Invalid Entry!"),
+                    message: Text("Must enter single year (XXXX), or a range of years (XXXX-XXXX) without spaces"),
+                    dismissButton: .default(Text("Go Back"))
+                )
+            }
             .padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.black, lineWidth: 2)
                     )
-        }
-        .navigationTitle("Select a year")
+        } // VStack
+        
     }
     
     var yearInputBar: some View {
@@ -47,9 +64,18 @@ struct YearSelectView: View {
             )
             .padding(.vertical, 7)
             .padding(.horizontal, 7)
+    } // yearInputBar
+    
+    func checkYearInput() -> Bool {
+        if self.currentYear.contains(" ") || self.currentYear.count > 9 {
+            return true
+        } else {
+            return false
+        }
     }
+    
 
-}
+} // var body
 
 
 //struct YearSelectView_Previews: PreviewProvider {
