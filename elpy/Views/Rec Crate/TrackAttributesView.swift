@@ -16,8 +16,6 @@ struct TrackAttributesView: View {
     @State var acousticness: Double = 0
     @State var valence: Double = 0
     
-    // init() { }
-    
     var body: some View {
         
         VStack {
