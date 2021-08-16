@@ -303,24 +303,28 @@ struct SeedGenresView: View {
                }
                .pickerStyle(WheelPickerStyle())
             }
-            Section {
-                Button(
-                    action: {
-                        createArrFromSelections()
-                    },
-                    label: { Text("Save") }
-                )
-                .font(.headline)
-                .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 2)
-                        )
-            }
+//            Section {
+//                Button(
+//                    action: {
+//                        createArrFromSelections()
+//                    },
+//                    label: { Text("Save") }
+//                )
+//                .font(.headline)
+//                .padding()
+//                        .overlay(
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .stroke(Color.black, lineWidth: 2)
+//                        )
+//            }
             NavigationLink(
-                "Next", destination: TrackAttributesView(seedGenres: self.$seedGenres)
+                "Next",
+                destination: TrackAttributesView(
+                    seedGenres: self.$seedGenres).onAppear {
+                        createArrFromSelections()
+                    }
             )
-            .disabled(seedGenres.isEmpty)
+            //.disabled(seedGenres.isEmpty)
             .font(.headline)
             .padding()
                     .overlay(

@@ -23,7 +23,7 @@ struct GenreSelectView: View {
             genreInputBar
                 .padding([.top, .horizontal])
             NavigationLink(
-                "N E X T", destination: YearSelectView(currentGenre: self.$currentGenre)
+                "Next", destination: YearSelectView(currentGenre: self.$currentGenre)
             )
             .padding()
                     .overlay(
