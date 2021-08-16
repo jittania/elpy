@@ -271,42 +271,48 @@ struct SeedGenresView: View {
         "world-music"
       ]
     
-    // init() { }
+    init(){
+            UITableView.appearance().backgroundColor = .clear
+        }
     
     var body: some View {
         ///  Note: Because pickers in forms have this navigation behavior, it’s important you present them in a
         ///  NavigationView on iOS otherwise you’ll find that tapping them doesn’t work.
-        Form {
-            Text("Select Seed Genres")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            Text("Enter between 1 and 3 seed genres to continue")
-            Section {
-                Picker("First Genre:", selection: $selectedGenreOne) {
-                   ForEach(defaultGenreSeedsReq, id: \.self) {
-                       Text($0)
+        VStack {
+            Form {
+                Text("Enter between 1 and 3 seed genres")
+                Section {
+                    Picker("First Genre:", selection: $selectedGenreOne) {
+                       ForEach(defaultGenreSeedsReq, id: \.self) {
+                           Text($0)
+                       }
                    }
-               }
-               .pickerStyle(WheelPickerStyle())
-            }
-            Section {
-                Picker("Second Genre:", selection: $selectedGenreTwo) {
-                   ForEach(defaultGenreSeedsOptional, id: \.self) {
-                       Text($0)
+                   .pickerStyle(WheelPickerStyle())
+                    //.background(Color.secondary)
+                }
+                Section {
+                    Picker("Second Genre:", selection: $selectedGenreTwo) {
+                       ForEach(defaultGenreSeedsOptional, id: \.self) {
+                           Text($0)
+                       }
                    }
-               }
-               .pickerStyle(WheelPickerStyle())
-            }
-            Section {
-                Picker("Third Genre:", selection: $selectedGenreThree) {
-                   ForEach(defaultGenreSeedsOptional, id: \.self) {
-                       Text($0)
+                   .pickerStyle(WheelPickerStyle())
+                    //.background(Color.secondary)
+                }
+                Section {
+                    Picker("Third Genre:", selection: $selectedGenreThree) {
+                       ForEach(defaultGenreSeedsOptional, id: \.self) {
+                           Text($0)
+                       }
                    }
-               }
-               .pickerStyle(WheelPickerStyle())
-            }
+                   .pickerStyle(WheelPickerStyle())
+                    //.background(Color.secondary)
+                }
 
+                
+            } // Form
+            .background(Color.clear)
+            
             NavigationLink(
                 "Next",
                 destination: TrackAttributesView(
@@ -314,13 +320,14 @@ struct SeedGenresView: View {
                         createArrFromSelections()
                     }
             )
-            .font(.headline)
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
-        } // Form
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
+        } // VStack
+        .navigationTitle("Seed Genres")
+       
     } // body
     
     func createArrFromSelections() {

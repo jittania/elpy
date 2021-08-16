@@ -12,12 +12,10 @@ struct GenreSelectView: View {
     // init() { }
     
     var body: some View {
-        Text("Select Genre")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-            .multilineTextAlignment(.center)
+
         VStack {
             Text("Not sure what to enter?")
+                .padding()
             HStack {
                 Link("Click here", destination: URL(string: "https://everynoise.com/genrewords.html")!)
                     .foregroundColor(.red)
@@ -25,6 +23,7 @@ struct GenreSelectView: View {
             }
             genreInputBar
                 .padding([.top, .horizontal])
+            Spacer()
             NavigationLink(
                 "Next", destination: YearSelectView(currentGenre: self.$currentGenre)
             )
@@ -34,6 +33,7 @@ struct GenreSelectView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
         }
+        .navigationTitle("Genre")
     }
     
     var genreInputBar: some View {

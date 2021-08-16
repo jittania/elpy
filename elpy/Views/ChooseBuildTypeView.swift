@@ -13,7 +13,7 @@ struct ChooseBuildTypeView: View {
         List {
             
             NavigationLink(
-                "Filtered Track Search", destination: GenreSelectView()
+                "Selective Search", destination: GenreSelectView()
             )
             .padding()
                     .overlay(
@@ -21,7 +21,7 @@ struct ChooseBuildTypeView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Get Recommended Tracks", destination: SeedGenresView()
+                "Get Recommendations", destination: SeedGenresView()
             )
             .padding()
                     .overlay(

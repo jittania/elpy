@@ -33,7 +33,7 @@ struct BuildCrateView: View {
         }
         .alert(isPresented: $showingEmptySearchAlert) {
             Alert(
-                title: Text("Warning!"),
+                title: Text("Could Not Build Crate!!"),
                 message: Text("Must fill out at least one search field"),
                 dismissButton: .default(Text("Got it!")))
         }
@@ -62,7 +62,7 @@ struct BuildCrateView: View {
                 }
             }
             else {
-                Text("Tap a track to play it")
+                Text("Tap on a track to play it")
                     .foregroundColor(.secondary)
 
                 List {
@@ -81,7 +81,7 @@ struct BuildCrateView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Try again!", destination: SeedGenresView()
+                "Try Again!", destination: SeedGenresView()
             )
             .padding()
                     .overlay(
@@ -89,7 +89,7 @@ struct BuildCrateView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Home", destination: MainNavigationView()
+                "Go Home", destination: MainNavigationView()
             )
             .padding()
                     .overlay(

@@ -22,18 +22,17 @@ struct GetRecsView: View {
     @State private var searchCancellable: AnyCancellable? = nil
     
     var body: some View {
+        
+        Button("Build Crate!") {
+            getTrackRecs()
+        }
+        .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 2)
+            )
         VStack {
-            Button("Build Crate!") {
-                getTrackRecs()
-            }
-            .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
-                )
-
             Spacer()
-            
             if tracks.isEmpty {
                 if isSearching {
                     HStack {
@@ -52,7 +51,7 @@ struct GetRecsView: View {
                 }
             }
             else {
-                Text("Tap a track to play it")
+                Text("Tap on a track to play it")
                     .foregroundColor(.secondary)
 
                 List {
@@ -71,7 +70,7 @@ struct GetRecsView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Try again!", destination: SeedGenresView()
+                "Try Again!", destination: SeedGenresView()
             )
             .padding()
                     .overlay(
@@ -79,7 +78,7 @@ struct GetRecsView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Home", destination: MainNavigationView()
+                "Go Home", destination: MainNavigationView()
             )
             .padding()
                     .overlay(

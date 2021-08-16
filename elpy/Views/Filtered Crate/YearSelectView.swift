@@ -14,14 +14,12 @@ struct YearSelectView: View {
 //    init() { }
      
     var body: some View {
-        Text("Select Release Year")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-            .multilineTextAlignment(.center)
         VStack {
             Text("Can either enter a single year, or a range of years separated by a dash e.g. '1980-1989'")
+                .padding()
             yearInputBar
                 .padding([.top, .horizontal])
+            Spacer()
             NavigationLink(
                 "Next",
                 destination:
@@ -47,6 +45,7 @@ struct YearSelectView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
         } // VStack
+        .navigationTitle("Release Year")
         
     }
     

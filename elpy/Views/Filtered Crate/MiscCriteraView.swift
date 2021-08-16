@@ -15,32 +15,36 @@ struct MiscCriteraView: View {
     // init() { }
     
     var body: some View {
-        Text("Select Keywords")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-            .multilineTextAlignment(.center)
         VStack {
             Text("Here you can choose to include or omit any keywords from your search that could be present in the track, artist, or album names.")
-            Text("I want my search to include this text:")
+                .padding()
+            
+            Text("Include the following text:")
+                .padding()
             includeCriteriaBar
                 .padding([.top, .horizontal])
-            Text("I want my search to NOT include this text:")
+            
+            Text("Exclude the following text:")
+                .padding()
             excludeCriteriaBar
-        }
-        
-        NavigationLink(
-            "Next", destination: BuildCrateView(
-                currentGenre: self.$currentGenre,
-                currentYear: self.$currentYear,
-                currentIncludeText: self.$currentIncludeText,
-                currentExcludeText: self.$currentExcludeText
-            ) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
-        )
-        .padding()
+                .padding([.top, .horizontal])
+            
+            Spacer()
+            NavigationLink(
+                "Next", destination: BuildCrateView(
+                    currentGenre: self.$currentGenre,
+                    currentYear: self.$currentYear,
+                    currentIncludeText: self.$currentIncludeText,
+                    currentExcludeText: self.$currentExcludeText
+                ) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
+            )
+            .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.black, lineWidth: 2)
                 )
+        }
+        .navigationTitle("Keywords")
     }
     
     var includeCriteriaBar: some View {

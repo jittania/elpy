@@ -19,16 +19,12 @@ struct TrackAttributesView: View {
     // init() { }
     
     var body: some View {
-        Text("Select Audio Features")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-            .multilineTextAlignment(.center)
-        
-        Text("To ommit an attribute from your search, leave the slider position all the way to the left")
         
         VStack {
+            Text("To omit an attribute from your search, leave the slider position all the way to the left.")
+                .padding()
             VStack{
-                Text("Popularity:")
+                Text("Popularity: \(popularity, specifier: "%.f")")
                 HStack {
                     Text("Skip")
                     Slider(
@@ -41,11 +37,9 @@ struct TrackAttributesView: View {
                         .accentColor(Color.blue)
                     Text("100")
                 }
-                Text("Current: \(popularity, specifier: "%.f")")
             }.padding()
-
             VStack{
-                Text("Danceability:")
+                Text("Danceability: \(danceability, specifier: "%.2f")")
                 HStack {
                     Text("Skip")
                     Slider(
@@ -58,11 +52,9 @@ struct TrackAttributesView: View {
                         .accentColor(Color.blue)
                     Text("1")
                 }
-                Text("Current: \(danceability, specifier: "%.2f")")
-            }
-            
+            }.padding()
             VStack{
-                Text("Instrumentalness:")
+                Text("Instrumentalness: \(instrumentalness, specifier: "%.2f")")
                 HStack {
                     Text("Skip")
                     Slider(
@@ -75,12 +67,9 @@ struct TrackAttributesView: View {
                         .accentColor(Color.blue)
                     Text("1")
                 }
-                Text("Current: \(instrumentalness, specifier: "%.2f")")
-            }
-               
-            
+            }.padding()
             VStack{
-                Text("Acousticness:")
+                Text("Acousticness: \(acousticness, specifier: "%.2f")")
                 HStack {
                     Text("Skip")
                     Slider(
@@ -93,12 +82,9 @@ struct TrackAttributesView: View {
                         .accentColor(Color.blue)
                     Text("1")
                 }
-                Text("Current: \(acousticness, specifier: "%.2f")")
-            }
-            
-                
+            }.padding()
             VStack{
-                Text("Valence:")
+                Text("Valence: \(valence, specifier: "%.2f")")
                 HStack {
                     Text("Skip")
                     Slider(
@@ -111,9 +97,7 @@ struct TrackAttributesView: View {
                         .accentColor(Color.blue)
                     Text("1")
                 }
-                Text("Current: \(valence, specifier: "%.2f")")
-            }
-        }
+            }.padding()
         NavigationLink(
             "Next", destination: GetRecsView(
                 seedGenres: self.$seedGenres,
@@ -129,8 +113,9 @@ struct TrackAttributesView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black, lineWidth: 2)
             )
-    }
- 
+        } // VStack
+        .navigationTitle("Audio Features")
+    } // body
 }
     
 
