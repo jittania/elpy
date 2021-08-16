@@ -14,6 +14,10 @@ struct YearSelectView: View {
 //    init() { }
      
     var body: some View {
+        Text("Select Release Year")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.center)
         VStack {
             Text("Can either enter a single year, or a range of years separated by a dash e.g. '1980-1989'")
             yearInputBar
@@ -49,6 +53,7 @@ struct YearSelectView: View {
     var yearInputBar: some View {
         
         TextField("Year", text: $currentYear)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding(.leading, 22)
             .overlay(
                 HStack {

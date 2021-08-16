@@ -123,13 +123,12 @@ struct TrackAttributesView: View {
                 acousticness: self.$acousticness,
                 valence: self.$valence
                 )
-        ) // ❗️  disable nav link unless at least 1 genre is entered
-        .font(.title)
+        )
         .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
-                )
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 2)
+            )
     }
  
 }

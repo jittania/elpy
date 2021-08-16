@@ -9,10 +9,13 @@ struct GenreSelectView: View {
     
     @State var currentGenre: String = ""
     
-    init() { }
-    
+    // init() { }
     
     var body: some View {
+        Text("Select Genre")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.center)
         VStack {
             Text("Not sure what to enter?")
             HStack {
@@ -36,6 +39,7 @@ struct GenreSelectView: View {
     var genreInputBar: some View {
         
         TextField("Genre name", text: $currentGenre)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding(.leading, 22)
             .overlay(
                 HStack {

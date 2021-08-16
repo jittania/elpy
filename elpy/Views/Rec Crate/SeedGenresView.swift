@@ -274,10 +274,13 @@ struct SeedGenresView: View {
     // init() { }
     
     var body: some View {
-
         ///  Note: Because pickers in forms have this navigation behavior, it’s important you present them in a
         ///  NavigationView on iOS otherwise you’ll find that tapping them doesn’t work.
         Form {
+            Text("Select Seed Genres")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
             Text("Enter between 1 and 3 seed genres to continue")
             Section {
                 Picker("First Genre:", selection: $selectedGenreOne) {
@@ -303,20 +306,7 @@ struct SeedGenresView: View {
                }
                .pickerStyle(WheelPickerStyle())
             }
-//            Section {
-//                Button(
-//                    action: {
-//                        createArrFromSelections()
-//                    },
-//                    label: { Text("Save") }
-//                )
-//                .font(.headline)
-//                .padding()
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .stroke(Color.black, lineWidth: 2)
-//                        )
-//            }
+
             NavigationLink(
                 "Next",
                 destination: TrackAttributesView(
@@ -324,7 +314,6 @@ struct SeedGenresView: View {
                         createArrFromSelections()
                     }
             )
-            //.disabled(seedGenres.isEmpty)
             .font(.headline)
             .padding()
                     .overlay(

@@ -6,7 +6,7 @@ struct PlaylistCellView: View {
     
     @ObservedObject var spotify: Spotify
 
-    @ObservedObject var playlistDeduplicator: PlaylistDeduplicator
+    // @ObservedObject var playlistDeduplicator: PlaylistDeduplicator
 
     let playlist: Playlist<PlaylistItemsReference>
 
@@ -24,9 +24,9 @@ struct PlaylistCellView: View {
     init(spotify: Spotify, playlist: Playlist<PlaylistItemsReference>) {
         self.spotify = spotify
         self.playlist = playlist
-        self.playlistDeduplicator = PlaylistDeduplicator(
-            spotify: spotify, playlist: playlist
-        )
+//        self.playlistDeduplicator = PlaylistDeduplicator(
+//            spotify: spotify, playlist: playlist
+//        )
     }
     
     var body: some View {
@@ -38,10 +38,10 @@ struct PlaylistCellView: View {
                     .frame(width: 70, height: 70)
                     .padding(.trailing, 5)
                 Text("\(playlist.name)")
-                if playlistDeduplicator.isDeduplicating {
-                    ProgressView()
-                        .padding(.leading, 5)
-                }
+//                if playlistDeduplicator.isDeduplicating {
+//                    ProgressView()
+//                        .padding(.leading, 5)
+//                }
                 Spacer()
             }
             // Ensure the hit box extends across the entire width of the frame.
@@ -51,11 +51,11 @@ struct PlaylistCellView: View {
                 // you can only remove duplicates from a playlist you own
                 if let currentUserId = spotify.currentUser?.id,
                         playlist.owner?.id == currentUserId {
-                    
-                    Button("Remove Duplicates") {
-                        playlistDeduplicator.findAndRemoveDuplicates()
-                    }
-                    .disabled(playlistDeduplicator.isDeduplicating)
+//
+//                    Button("Remove Duplicates") {
+//                        playlistDeduplicator.findAndRemoveDuplicates()
+//                    }
+//                    .disabled(playlistDeduplicator.isDeduplicating)
                 }
             }
         })
@@ -64,9 +64,9 @@ struct PlaylistCellView: View {
             Alert(title: alert.title, message: alert.message)
         }
         .onAppear(perform: loadImage)
-        .onReceive(playlistDeduplicator.alertPublisher) { alert in
-            self.alert = alert
-        }
+//        .onReceive(playlistDeduplicator.alertPublisher) { alert in
+//            self.alert = alert
+//        }
     }
     
     /// Loads the image for the playlist.

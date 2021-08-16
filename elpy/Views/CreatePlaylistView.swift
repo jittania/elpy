@@ -18,110 +18,172 @@ struct CreatePlaylistView: View {
     
     @State var newPlaylistURI: SpotifyURIConvertible = ""
     
+    @State private var showingEmptyNameAlert = false
+    
     @State private var createPlaylistCancellable: AnyCancellable? = nil
     @State private var addTracksCancellable: AnyCancellable? = nil
     @State private var getPlaylistCancellable: AnyCancellable? = nil
 
-    
     var body: some View {
         VStack {
-            Form {
-                Section {
-                    TextField("Playlist name bar", text: $userInputPlaylistName)
-                        .padding(.leading, 22)
-                        .overlay(
-                            HStack {
-                                if !userInputPlaylistName.isEmpty {
-                                    Button(action: {
-                                        self.userInputPlaylistName = ""
-                                    }, label: {
-                                        Image(systemName: "xmark.circle.fill")
-                                            .foregroundColor(.secondary)
-                                    })
-                                }
-                            }
-                        )
-                        .padding(.vertical, 7)
-                        .padding(.horizontal, 7)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(10)
-                }
-                Section {
-                    Button(action: {
-                                print("Button Tapped")
-                                createPlaylistFromTracks()
-                            }) {
-                                Text("Create Playlist")
-                            }
-                            .padding()
-                            .cornerRadius(10)
-                }
-                .disabled(userInputPlaylistName.isEmpty)
+            TextField("Enter name for playlist", text: $userInputPlaylistName)
+                .padding(.leading, 22)
+                .overlay(
+                    HStack {
+                        if !userInputPlaylistName.isEmpty {
+                            Button(action: {
+                                self.userInputPlaylistName = ""
+                                self.responsePlaylistName = ""
+                            }, label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.secondary)
+                            })
+                        }
+                    }
+                )
+                .padding(.vertical, 7)
+                .padding(.horizontal, 7)
+                .background(Color(.secondarySystemBackground))
+                .cornerRadius(10)
+        }
+        
+        Button("Create Playlist") {
+            if self.userInputPlaylistName.isEmpty {
+                showingEmptyNameAlert = true
             }
+            else {
+                createPlaylistFromTracks()
+            }
+        }
+        .alert(isPresented: $showingEmptyNameAlert) {
+            Alert(
+                title: Text("Cannot create playlist!"),
+                message: Text("Must enter a playlist name first"),
+                dismissButton: .default(Text("Got it!"))
+            )
+        }
+        .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 2)
+            )
+        
+        
+        VStack {
+            
+            if !responsePlaylistName.isEmpty {
+                Text("Playlist successfully created!")
+                    .foregroundColor(.secondary)
+                    .font(.title)
+                
+            }
+                
             NavigationLink(
-                   "Build another crate", destination: GenreSelectView()
+                   "View Playlists", destination: PlaylistsListView()
                )
                .padding()
-                       .overlay(
-                           RoundedRectangle(cornerRadius: 10)
-                               .stroke(Color.black, lineWidth: 2)
-                       )
+                   .overlay(
+                       RoundedRectangle(cornerRadius: 10)
+                           .stroke(Color.black, lineWidth: 2)
+                   )
             NavigationLink(
-                   "Go back to main nav", destination: MainNavigationView()
+                   "Filtered Track Search", destination: GenreSelectView()
                )
                .padding()
-                       .overlay(
-                           RoundedRectangle(cornerRadius: 10)
-                               .stroke(Color.black, lineWidth: 2)
-                       )
+                   .overlay(
+                       RoundedRectangle(cornerRadius: 10)
+                           .stroke(Color.black, lineWidth: 2)
+                   )
+            NavigationLink(
+                   "Rec Track Search", destination: SeedGenresView()
+               )
+               .padding()
+                   .overlay(
+                       RoundedRectangle(cornerRadius: 10)
+                           .stroke(Color.black, lineWidth: 2)
+                   )
+            NavigationLink(
+                   "Home", destination: MainNavigationView()
+               )
+               .padding()
+                   .overlay(
+                       RoundedRectangle(cornerRadius: 10)
+                           .stroke(Color.black, lineWidth: 2)
+                   )
         }
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
     }
 
-//            if responsePlaylistName.isEmpty {
-//                if isCreatingPlaylist {
-//                    HStack {
-//                        ProgressView()
-//                            .padding()
-//                        Text("Creating")
-//                            .font(.title)
-//                            .foregroundColor(.secondary)
+    
+    
+//    var body: some View {
+//        VStack {
+//            Form {
+//                Section {
+//                    TextField("Enter name for playlist", text: $userInputPlaylistName)
+//                        .padding(.leading, 22)
+//                        .overlay(
+//                            HStack {
+//                                if !userInputPlaylistName.isEmpty {
+//                                    Button(action: {
+//                                        self.userInputPlaylistName = ""
+//                                    }, label: {
+//                                        Image(systemName: "xmark.circle.fill")
+//                                            .foregroundColor(.secondary)
+//                                    })
+//                                }
+//                            }
+//                        )
+//                        .padding(.vertical, 7)
+//                        .padding(.horizontal, 7)
+//                        .background(Color(.secondarySystemBackground))
+//                        .cornerRadius(10)
+//                }
+//                Section {
+//                    Button("Create Playlist") {
+//                        createPlaylistFromTracks()
 //                    }
+//                    .padding()
+//                        .overlay(
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .stroke(Color.black, lineWidth: 2)
+//                        )
+//                }
+//                .disabled(userInputPlaylistName.isEmpty)
 //
-//                }
-//                else {
-//                    Text("Must enter a playlist name")
-//                        .font(.title)
-//                        .foregroundColor(.secondary)
-//                }
 //            }
-//            else {
-//                Text("Press enter to create")
-            
-//            Spacer()
 //            NavigationLink(
-//                "Build another crate", destination: GenreSelectView()
-//            )
-//            .padding()
-//                    .overlay(
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .stroke(Color.black, lineWidth: 2)
-//                    )
+//                   "Filtered Track Search", destination: GenreSelectView()
+//               )
+//               .padding()
+//                   .overlay(
+//                       RoundedRectangle(cornerRadius: 10)
+//                           .stroke(Color.black, lineWidth: 2)
+//                   )
 //            NavigationLink(
-//                "Go back to main nav", destination: MainNavigationView()
-//            )
-//            .padding()
-//                    .overlay(
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .stroke(Color.black, lineWidth: 2)
-//                    )
+//                   "Rec Track Search", destination: SeedGenresView()
+//               )
+//               .padding()
+//                   .overlay(
+//                       RoundedRectangle(cornerRadius: 10)
+//                           .stroke(Color.black, lineWidth: 2)
+//                   )
+//            NavigationLink(
+//                   "Home", destination: MainNavigationView()
+//               )
+//               .padding()
+//                   .overlay(
+//                       RoundedRectangle(cornerRadius: 10)
+//                           .stroke(Color.black, lineWidth: 2)
+//                   )
 //        }
-//        .navigationTitle("Create Playlist")
 //        .alert(item: $alert) { alert in
 //            Alert(title: alert.title, message: alert.message)
 //        }
+//    }
+
 
     
     // =======================================================================

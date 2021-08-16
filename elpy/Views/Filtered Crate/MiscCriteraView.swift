@@ -15,10 +15,12 @@ struct MiscCriteraView: View {
     // init() { }
     
     var body: some View {
-        
-        Text("Here you can choose to include or omit any keywords from your search that could be present in the track, artist, or album names.")
-        
+        Text("Select Keywords")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.center)
         VStack {
+            Text("Here you can choose to include or omit any keywords from your search that could be present in the track, artist, or album names.")
             Text("I want my search to include this text:")
             includeCriteriaBar
                 .padding([.top, .horizontal])
@@ -44,6 +46,7 @@ struct MiscCriteraView: View {
     var includeCriteriaBar: some View {
         
         TextField("Text to include", text: $currentIncludeText)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding(.leading, 22)
             .overlay(
                 HStack {
@@ -64,6 +67,7 @@ struct MiscCriteraView: View {
     var excludeCriteriaBar: some View {
         
         TextField("Text to exclude", text: $currentExcludeText)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding(.leading, 22)
             .overlay(
                 HStack {

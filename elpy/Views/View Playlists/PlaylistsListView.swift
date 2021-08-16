@@ -51,7 +51,6 @@ struct PlaylistsListView: View {
                     Tap on a playlist to play it from Spotify!
                     """
                 )
-                .font(.caption)
                 .foregroundColor(.secondary)
                 List {
                     ForEach(playlists, id: \.uri) { playlist in

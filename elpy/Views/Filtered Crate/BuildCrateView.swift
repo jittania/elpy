@@ -7,26 +7,19 @@ struct BuildCrateView: View {
 
     @EnvironmentObject var spotify: Spotify
     
+    @State var tracks: [Track] = []
+    @State var trackURIs: [String] = []
+    
     @Binding var currentGenre: String
     @Binding var currentYear: String
     @Binding var currentIncludeText: String
     @Binding var currentExcludeText: String
 
-    @State var tracks: [Track] = []
-    @State var trackURIs: [String] = []
-
-    @State private var showingEmptySearchAlert = false
     @State private var alert: AlertItem? = nil
-    
     @State private var isSearching = false
     @State private var searchCancellable: AnyCancellable? = nil
     
-    /// Used by the preview provider to provide sample data.
-//    fileprivate init(sampleTracks: [Track]) {
-//        self._tracks = State(initialValue: sampleTracks)
-//    }
-    
-//    init() { }
+    @State private var showingEmptySearchAlert = false
     
     var body: some View {
         
@@ -44,13 +37,13 @@ struct BuildCrateView: View {
                 message: Text("Must fill out at least one search field"),
                 dismissButton: .default(Text("Got it!")))
         }
-            
-        //==========================================
-        // ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ ❗️ 
+        .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 2))
         
         VStack {
-            Text("Tap a track to play it")
-                .foregroundColor(.secondary)
+            Spacer()
             if tracks.isEmpty {
                 if isSearching {
                     HStack {
@@ -60,21 +53,25 @@ struct BuildCrateView: View {
                             .font(.title)
                             .foregroundColor(.secondary)
                     }
-
-                } else {
-                    Text("Your search yielded no results")
+                    
+                }
+                else {
+                    Text("No Results")
                         .font(.title)
                         .foregroundColor(.secondary)
                 }
-            } else {
+            }
+            else {
+                Text("Tap a track to play it")
+                    .foregroundColor(.secondary)
+
                 List {
                     ForEach(tracks, id: \.self) { track in
                         TrackView(track: track)
                     }
                 }
             }
-        //==========================================
-            
+            Spacer()
             NavigationLink(
                 "Save Crate", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
@@ -84,7 +81,7 @@ struct BuildCrateView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "Try again!", destination: GenreSelectView()
+                "Try again!", destination: SeedGenresView()
             )
             .padding()
                     .overlay(
@@ -99,8 +96,7 @@ struct BuildCrateView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.black, lineWidth: 2)
                     )
-            
-        } // VStack
+        }
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
@@ -173,7 +169,9 @@ struct BuildCrateView: View {
         self.isSearching = true
         
         self.searchCancellable = spotify.api.search(
-            query: queryString, categories: [.track]
+            query: queryString,
+            categories: [.track],
+            limit: 30
         )
         .receive(on: RunLoop.main)
         .sink(
@@ -187,9 +185,8 @@ struct BuildCrateView: View {
                 }
             },
             receiveValue: { searchResults in
-               
                 self.tracks = searchResults.tracks?.items ?? []
-
+                
                 for track in self.tracks {
                     self.trackURIs.append(track.uri!)
                 }

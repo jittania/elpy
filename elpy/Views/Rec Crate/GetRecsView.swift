@@ -20,13 +20,6 @@ struct GetRecsView: View {
     @State private var alert: AlertItem? = nil
     @State private var isSearching = false
     @State private var searchCancellable: AnyCancellable? = nil
-   
-//    / Used by the preview provider to provide sample data.
-//    fileprivate init(sampleTracks: [Track]) {
-//        self._tracks = State(initialValue: sampleTracks)
-//    }
-    
-    // init() { }
     
     var body: some View {
         VStack {
@@ -34,12 +27,10 @@ struct GetRecsView: View {
                 getTrackRecs()
             }
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
-            Text("Tap a track to play it")
-                .foregroundColor(.secondary)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
 
             Spacer()
             
@@ -55,12 +46,15 @@ struct GetRecsView: View {
                     
                 }
                 else {
-                    Text("Your search yielded no results!")
+                    Text("No Results")
                         .font(.title)
                         .foregroundColor(.secondary)
                 }
             }
             else {
+                Text("Tap a track to play it")
+                    .foregroundColor(.secondary)
+
                 List {
                     ForEach(tracks, id: \.self) { track in
                         TrackView(track: track)
@@ -160,7 +154,7 @@ struct GetRecsView: View {
         
         self.searchCancellable = spotify.api.recommendations(
             trackAttributesObj,
-            limit: 20
+            limit: 30
         )
         .receive(on: RunLoop.main)
         .sink(

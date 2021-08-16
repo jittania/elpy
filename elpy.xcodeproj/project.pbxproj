@@ -168,13 +168,13 @@
 			path = "Filtered Crate";
 			sourceTree = "<group>";
 		};
-		D507A62F26C7038200887AD1 /* Manage Playlists */ = {
+		D507A62F26C7038200887AD1 /* View Playlists */ = {
 			isa = PBXGroup;
 			children = (
 				D5AC3E9126C0A3E1006AEC79 /* PlaylistsListView.swift */,
 				D5AC3E9626C0A401006AEC79 /* PlaylistCellView.swift */,
 			);
-			path = "Manage Playlists";
+			path = "View Playlists";
 			sourceTree = "<group>";
 		};
 		D507A63326C703A600887AD1 /* Rec Crate */ = {
@@ -300,12 +300,12 @@
 				D59F44B026BFB9650075E211 /* ContentView.swift */,
 				D5AC3E7D26C0A33F006AEC79 /* MainNavigationView.swift */,
 				D507A64426C70BC800887AD1 /* ChooseBuildTypeView.swift */,
-				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
 				D5AC3E8726C0A367006AEC79 /* TrackView.swift */,
+				D5840F6026C0F16400D987DA /* CreatePlaylistView.swift */,
 				D507A63726C703C800887AD1 /* Recently Played */,
-				D507A62F26C7038200887AD1 /* Manage Playlists */,
-				D507A63326C703A600887AD1 /* Rec Crate */,
+				D507A62F26C7038200887AD1 /* View Playlists */,
 				D507A62B26C7035C00887AD1 /* Filtered Crate */,
+				D507A63326C703A600887AD1 /* Rec Crate */,
 			);
 			path = Views;
 			sourceTree = "<group>";
