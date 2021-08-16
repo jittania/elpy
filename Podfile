@@ -6,11 +6,7 @@ target 'elpy' do
   use_frameworks!
 
   # Pods for elpy
-  pod 'Hero', '~> 1.6.1'
-  pod 'SwiftLint', '~> 0.43.1'
-  pod 'Charts', '~> 3.6.0'
-  pod 'lottie-ios', '~> 3.2.3'
-  pod 'SwiftyBeaver', '~> 1.9.5'		
+  pod 'lottie-ios', '~> 3.2.3'		
 
   target 'elpyTests' do
     inherit! :search_paths
