@@ -6,19 +6,35 @@ struct TrackView: View {
     
     @EnvironmentObject var spotify: Spotify
     
+    @State var trackAlbum: String = ""
+    @State var trackReleaseYear: Date? = nil
+    @State var trackGenres: [String]? = []
+    
     @State private var playRequestCancellable: AnyCancellable? = nil
+    @State private var getAlbumInfoCancellable: AnyCancellable? = nil
+    @State private var getArtistInfoCancellable: AnyCancellable? = nil
 
     @State private var alert: AlertItem? = nil
-    
-    @State var aMessage: String = "before button is tapped"
     
     let track: Track
     
     var body: some View {
         HStack {
-            Button(action: getTrackAlbumInfo) {
-                Text("ⓘ")
-            }
+            Button(action: {
+                
+                displayAlbumInfo()
+                
+                
+            }, label: {
+                Image(systemName: "clock")
+                Text("Click Me")
+                Text("Subtitle")
+            })
+            .foregroundColor(Color.white)
+            .padding()
+            .background(Color.blue)
+            .cornerRadius(5)
+            
             Button(action: playTrack) {
                 HStack {
                     Text(trackDisplayName())
@@ -36,13 +52,71 @@ struct TrackView: View {
 
     } // body
     
-    func getTrackAlbumInfo() {
-        print(self.$aMessage)
-        print("I'm a button and I can change state if i wanna!")
-        self.aMessage = "after button is tapped"
-        print(self.$aMessage)
+    // =======================================================================
+    
+    /// `track.album?.uri` gives album's URI from a `Track` object
+    ///
+    /// Gets an album via `spotify.api.album(album)`
+    ///
+    /// Parameters:
+    /// - `album`: The URI for an album, type `SpotifyURIConvertible`
+    ///
+    /// Returns:  `Album` object, which has attributes
+    /// -   `name`: type `String`
+    /// -   `genres` : type `[String]`
+    /// -   `releaseDate`: type `Date` -  see also `releaseDatePrecision`
+    
+    func getAlbumInfo() {
+        let album = track.album?.uri
+        self.getAlbumInfoCancellable = spotify.api.album(album!)
+            .receive(on: RunLoop.main)
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        self.alert = AlertItem(
+                            title: "Unable to retrieve album details",
+                            message: error.localizedDescription
+                        )
+                    }
+                },
+                receiveValue: { albumObject in
+                    print("Album name: ", albumObject.name)
+                    print("Year: ", albumObject.releaseDate as Any)
+                    self.trackAlbum = albumObject.name
+                    self.trackReleaseYear = albumObject.releaseDate!
+                    
+                }
+            )
     }
     
+    func getArtistInfo() {
+        let artist = track.artists?.first?.uri
+        self.getArtistInfoCancellable = spotify.api.artist(artist!)
+            .receive(on: RunLoop.main)
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        self.alert = AlertItem(
+                            title: "Unable to retrieve genre details",
+                            message: error.localizedDescription
+                        )
+                    }
+                },
+                receiveValue: { artistObject in
+                    print("Artist genres: ", artistObject.genres as Any)
+                    self.trackGenres = artistObject.genres
+                }
+            )
+    }
+    
+    func displayAlbumInfo() -> String {
+        getAlbumInfo()
+        
+        // Need to format into a string and return
+    }
+    
+    
+    // =======================================================================
     
     /// The display name for the track. E.g., "Eclipse - Pink Floyd".
     func trackDisplayName() -> String {

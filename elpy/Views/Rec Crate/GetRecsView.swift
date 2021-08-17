@@ -116,26 +116,19 @@ struct GetRecsView: View {
         if self.popularity != 0 {
             popularity = .init(target: Int(self.popularity))
         }
-        
         if self.instrumentalness != 0 {
             instrumentalness = .init(target: self.instrumentalness)
         }
-        
         if self.danceability != 0 {
             danceability = .init(target: self.danceability)
         }
-        
         if self.acousticness != 0 {
             acousticness = .init(target: self.acousticness)
         }
-        
         if self.valence != 0 {
             valence = .init(target: self.valence)
         }
 
-        // need to assign genres array to trackAttributes object
-        // then add other attributes
-        
         print("Logging var danceability: \(String(describing: danceability))")
         
         let trackAttributesObj = TrackAttributes(
@@ -146,8 +139,6 @@ struct GetRecsView: View {
             popularity: popularity,
             valence: valence
         )
-        
-        //==========================================
         
         self.isSearching = true
         
