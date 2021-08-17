@@ -15,8 +15,12 @@ struct YearSelectView: View {
      
     var body: some View {
         VStack {
+            Text("Enter a release year for your search, or leave empty to skip")
+                .padding()
             Text("Can either enter a single year, or a range of years separated by a dash e.g. '1980-1989'")
                 .padding()
+                .font(.caption)
+            
             yearInputBar
                 .padding([.top, .horizontal])
             Spacer()

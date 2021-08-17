@@ -33,10 +33,10 @@ struct MainNavigationView: View {
                 "Build Crates", destination: ChooseBuildTypeView()
             )
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    ) 
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
         }
         .listStyle(PlainListStyle())
         

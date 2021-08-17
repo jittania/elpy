@@ -48,7 +48,7 @@ struct PlaylistsListView: View {
             else {
                 Text(
                     """
-                    Tap on a playlist to play it from Spotify!
+                    Tap on a playlist to play it!
                     """
                 )
                 .foregroundColor(.secondary)

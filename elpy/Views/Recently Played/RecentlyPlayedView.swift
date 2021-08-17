@@ -26,7 +26,14 @@ struct RecentlyPlayedView: View {
     }
 
     var body: some View {
+        
         Group {
+            VStack {
+                Text("Tap on a track to play it")
+                    .foregroundColor(.secondary)
+                Text("Press ⓘ for track details")
+                    .foregroundColor(.secondary)
+            }
             if recentlyPlayed.isEmpty {
                 if isLoadingPage {
                     HStack {

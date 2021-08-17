@@ -33,8 +33,8 @@ struct BuildCrateView: View {
         }
         .alert(isPresented: $showingEmptySearchAlert) {
             Alert(
-                title: Text("Could Not Build Crate!!"),
-                message: Text("Must fill out at least one search field"),
+                title: Text("Could Not Build Crate!"),
+                message: Text("You must submit at least one search criteria"),
                 dismissButton: .default(Text("Got it!")))
         }
         .padding()
@@ -64,6 +64,8 @@ struct BuildCrateView: View {
             else {
                 Text("Tap on a track to play it")
                     .foregroundColor(.secondary)
+                Text("Press ⓘ for track details")
+                    .foregroundColor(.secondary)
 
                 List {
                     ForEach(tracks, id: \.self) { track in
@@ -76,26 +78,26 @@ struct BuildCrateView: View {
                 "Save Crate", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
             NavigationLink(
-                "Try Again!", destination: SeedGenresView()
+                "Start Over", destination: GenreSelectView()
             )
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
             NavigationLink(
                 "Go Home", destination: MainNavigationView()
             )
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
         }
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)

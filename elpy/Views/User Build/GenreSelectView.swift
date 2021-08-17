@@ -14,13 +14,18 @@ struct GenreSelectView: View {
     var body: some View {
 
         VStack {
-            Text("Not sure what to enter?")
+            Text("Enter a genre for your search, or leave empty to skip")
                 .padding()
-            HStack {
-                Link("Click here", destination: URL(string: "https://everynoise.com/genrewords.html")!)
-                    .foregroundColor(.red)
-                Text("for a complete list of Spotify genres")
+            VStack {
+                Text("Not sure what to enter?")
+                HStack {
+                    Link("Click here", destination: URL(string: "https://everynoise.com/genrewords.html")!)
+                        .foregroundColor(.red)
+                    Text("for a complete list of Spotify genres")
+                }
             }
+            .font(.caption)
+            
             genreInputBar
                 .padding([.top, .horizontal])
             Spacer()
@@ -28,12 +33,12 @@ struct GenreSelectView: View {
                 "Next", destination: YearSelectView(currentGenre: self.$currentGenre)
             )
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
         }
-        .navigationTitle("Genre")
+        .navigationTitle("Genre Name")
     }
     
     var genreInputBar: some View {

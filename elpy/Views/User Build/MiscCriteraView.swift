@@ -16,16 +16,15 @@ struct MiscCriteraView: View {
     
     var body: some View {
         VStack {
-            Text("Here you can choose to include or omit any keywords from your search that could be present in the track, artist, or album names.")
+            Text("Enter any text you wish to include or exclude in your search, or leave empty to skip")
                 .padding()
+            Text("Elpy will check for these keywords in the track's name, album title, and artist fields")
+                .padding()
+                .font(.caption)
             
-            Text("Include the following text:")
-                .padding()
             includeCriteriaBar
                 .padding([.top, .horizontal])
-            
-            Text("Exclude the following text:")
-                .padding()
+
             excludeCriteriaBar
                 .padding([.top, .horizontal])
             
