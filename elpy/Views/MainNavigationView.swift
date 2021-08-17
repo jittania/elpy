@@ -5,13 +5,13 @@ struct MainNavigationView: View {
     
     var body: some View {
         Spacer()
-        Text("Elpy is a music discovery tool that builds a 'crate' of new songs for you, just like in the olden days when people went to record stores to dig up new finds. Except for Elpy has access to Spotify's entire database of tracks!")
+        Text("Elpy is a music discovery tool that builds 'crates' of new songs for you, emulating the experience of visiting an actual record store....Except that Elpy has access to Spotify's entire database of tracks!")
             .padding()
         Text("From here, you can check out your current Spotify library, view recently played tracks, or get started building crates with Elpy:")
             .padding()
         List {
             NavigationLink(
-                "View Playlists", destination: PlaylistsListView()
+                "Playlist Library", destination: PlaylistsListView()
             )
             .padding()
                     .overlay(
@@ -19,7 +19,7 @@ struct MainNavigationView: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             NavigationLink(
-                "View Recently Played Tracks", destination: RecentlyPlayedView()
+                "Recently Played Tracks", destination: RecentlyPlayedView()
             )
             .padding()
                     .overlay(
