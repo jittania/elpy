@@ -7,34 +7,21 @@ struct TrackView: View {
     @EnvironmentObject var spotify: Spotify
     
     @State var trackAlbum: String = ""
-    @State var trackReleaseYear: Date? = nil
-    @State var trackGenres: [String]? = []
+    @State var trackReleaseYear: Date?
+    @State var trackGenres: [String]?
     
     @State private var playRequestCancellable: AnyCancellable? = nil
     @State private var getAlbumInfoCancellable: AnyCancellable? = nil
     @State private var getArtistInfoCancellable: AnyCancellable? = nil
+    
+    @State private var showDetails = false
 
     @State private var alert: AlertItem? = nil
     
     let track: Track
     
     var body: some View {
-        HStack {
-            Button(action: {
-                
-                displayAlbumInfo()
-                
-                
-            }, label: {
-                Image(systemName: "clock")
-                Text("Click Me")
-                Text("Subtitle")
-            })
-            .foregroundColor(Color.white)
-            .padding()
-            .background(Color.blue)
-            .cornerRadius(5)
-            
+        VStack {    
             Button(action: playTrack) {
                 HStack {
                     Text(trackDisplayName())
@@ -48,8 +35,21 @@ struct TrackView: View {
             .alert(item: $alert) { alert in
                 Alert(title: alert.title, message: alert.message)
             }
-        } // HStack
-
+            Button("🐸") {
+                showDetails.toggle()
+            }
+            if showDetails {
+              Text("Surpise!")
+                  .font(.caption)
+            }
+        }
+        .onAppear {
+            // Need to call these here because they change the view's state
+            // Note that this will cause the API requests to be made only as each
+            // track view gets loaded
+            getAlbumInfo()
+            getArtistInfo()
+        }
     } // body
     
     // =======================================================================
@@ -110,9 +110,23 @@ struct TrackView: View {
     }
     
     func displayAlbumInfo() -> String {
-        getAlbumInfo()
         
-        // Need to format into a string and return
+//        getAlbumInfo()
+        
+        var displayAlbumInfo = ""
+        
+//        let releaseYear = self.trackReleaseYear
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "YY/MM/dd"
+//        let convReleaseYear = dateFormatter.string(from: releaseYear!)
+        
+        let albumName = self.trackAlbum
+        
+//        displayAlbumInfo = "\(albumName): \(convReleaseYear)"
+        displayAlbumInfo = "\(albumName): 1999"
+
+        return displayAlbumInfo
+        
     }
     
     
@@ -120,6 +134,8 @@ struct TrackView: View {
     
     /// The display name for the track. E.g., "Eclipse - Pink Floyd".
     func trackDisplayName() -> String {
+        
+        
         var displayName = track.name
         if let artistName = track.artists?.first?.name {
             displayName += " - \(artistName)"

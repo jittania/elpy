@@ -81,10 +81,10 @@ struct GetRecsView: View {
                 "Go Home", destination: MainNavigationView()
             )
             .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
-                    )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 2)
+                )
         }
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
