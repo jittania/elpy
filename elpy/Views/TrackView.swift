@@ -8,7 +8,7 @@ struct TrackView: View {
     
     @State var trackAlbum: String = ""
     @State var trackReleaseYear: Date?
-    @State var trackGenres: [String]?
+    @State var trackGenres: [String]? = []
     
     @State private var playRequestCancellable: AnyCancellable? = nil
     @State private var getAlbumInfoCancellable: AnyCancellable? = nil
@@ -21,26 +21,36 @@ struct TrackView: View {
     let track: Track
     
     var body: some View {
-        VStack {    
-            Button(action: playTrack) {
-                HStack {
-                    Text(trackDisplayName())
-                    Spacer()
+        VStack {
+            HStack {
+                Button {
+                    showDetails.toggle()
+                } label: {
+                    Text("ⓘ")
+                        .padding(2)
                 }
-                // Ensure the hit box extends across the entire width of the frame.
-                // See https://bit.ly/2HqNk4S
-                .contentShape(Rectangle())
+                .padding()
+                
+                Button(action: playTrack) {
+                    HStack {
+                        Text(trackDisplayName())
+                        Spacer()
+                    }
+                    // Ensure the hit box extends across the entire width of the frame.
+                    // See https://bit.ly/2HqNk4S
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(PlainButtonStyle())
+                .alert(item: $alert) { alert in
+                    Alert(title: alert.title, message: alert.message)
+                }
             }
-            .buttonStyle(PlainButtonStyle())
-            .alert(item: $alert) { alert in
-                Alert(title: alert.title, message: alert.message)
-            }
-            Button("🐸") {
-                showDetails.toggle()
-            }
+            
+            // The location of the following text is determined by the location
+            // of this code block, regardless of location of button that toggles appearance
             if showDetails {
-              Text("Surpise!")
-                  .font(.caption)
+                Text(displayAlbumInfo())
+                    .font(.caption)
             }
         }
         .onAppear {
@@ -50,7 +60,7 @@ struct TrackView: View {
             getAlbumInfo()
             getArtistInfo()
         }
-    } // body
+    }
     
     // =======================================================================
     
@@ -90,6 +100,7 @@ struct TrackView: View {
     }
     
     func getArtistInfo() {
+        
         let artist = track.artists?.first?.uri
         self.getArtistInfoCancellable = spotify.api.artist(artist!)
             .receive(on: RunLoop.main)
@@ -110,9 +121,7 @@ struct TrackView: View {
     }
     
     func displayAlbumInfo() -> String {
-        
-//        getAlbumInfo()
-        
+
         var displayAlbumInfo = ""
         
 //        let releaseYear = self.trackReleaseYear
@@ -134,13 +143,10 @@ struct TrackView: View {
     
     /// The display name for the track. E.g., "Eclipse - Pink Floyd".
     func trackDisplayName() -> String {
-        
-        
-        var displayName = track.name
+        var displayName = "\"\(track.name)\""
         if let artistName = track.artists?.first?.name {
             displayName += " - \(artistName)"
         }
-        
         return displayName
     }
     
