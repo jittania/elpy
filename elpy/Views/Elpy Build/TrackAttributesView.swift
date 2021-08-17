@@ -23,13 +23,14 @@ struct TrackAttributesView: View {
     @State private var showingAcousPopover = false
     @State private var showingValenPopover = false
  
-
-    
     var body: some View {
     
         VStack {
-            Text("To omit an attribute from your search, leave the slider position all the way to the left.")
+            Text("Provide Elpy with descriptive information about the kind of tracks you're looking for.")
                 .padding()
+            Text("To omit an attribute from your request, leave the slider position all the way to the left. Select ⓘ to learn how each index value is interpreted.")
+                .padding()
+                .font(.caption)
             
             VStack{
                 HStack {
@@ -37,12 +38,9 @@ struct TrackAttributesView: View {
                         showingPopulPopover = true
                     }
                     .popover(isPresented: $showingPopulPopover) {
-                       Text(
-                        """
-                        The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.
-                        Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past.
-                        """
-                       )
+                        Text("How is the Popularity index calculated?")
+                        Text("The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past.")
+                            .padding()
                     }
                     Text("Popularity: \(popularity, specifier: "%.f")")
                 }
@@ -65,11 +63,9 @@ struct TrackAttributesView: View {
                         showingDancePopover = true
                     }
                     .popover(isPresented: $showingDancePopover) {
-                       Text(
-                        """
-                        Danceability: Describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
-                        """
-                       )
+                        Text("How is the Danceability index calculcated?")
+                        Text("'Danceability' describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.")
+                            .padding()
                     }
                     Text("Danceability: \(danceability, specifier: "%.2f")")
                 }
@@ -92,11 +88,9 @@ struct TrackAttributesView: View {
                         showingInstrPopover = true
                     }
                     .popover(isPresented: $showingInstrPopover) {
-                       Text(
-                        """
-                        Instrumentalness: Predicts whether a track contains no vocals. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content.
-                        """
-                       )
+                        Text("How is the Instrumentalness index calculcated?")
+                        Text("'Instrumentalness' predicts the vocal content of a track. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content.")
+                            .padding()
                     }
                     Text("Instrumentalness: \(instrumentalness, specifier: "%.2f")")
                 }
@@ -120,11 +114,9 @@ struct TrackAttributesView: View {
                         showingAcousPopover = true
                     }
                     .popover(isPresented: $showingAcousPopover) {
-                       Text(
-                        """
-                        Acousticness: A measure from 0.0 to 1.0 of whether the track is acoustic.
-                        """
-                       )
+                        Text("How is the Acousticness index calculcated?")
+                        Text("'Acousticness' is a measure from 0.0 to 1.0 of whether the track is acoustic.")
+                            .padding()
                     }
                     Text("Acousticness: \(acousticness, specifier: "%.2f")")
                 }
@@ -148,11 +140,9 @@ struct TrackAttributesView: View {
                         showingValenPopover = true
                     }
                     .popover(isPresented: $showingValenPopover) {
-                       Text(
-                        """
-                        Valence: A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).
-                        """
-                       )
+                        Text("How is the Valence index calculcated?")
+                        Text("'Valence' is a measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more 'positive' (e.g. happy, cheerful, euphoric), while tracks with low valence sound more 'negative' (e.g. sad, depressed, angry).")
+                            .padding()
                     }
                     Text("Valence: \(valence, specifier: "%.2f")")
                 }

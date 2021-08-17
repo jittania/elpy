@@ -20,7 +20,7 @@ struct ChooseBuildTypeView: View {
                                 .stroke(Color.black, lineWidth: 2)
                         )
                 NavigationLink(
-                    "Let Elpy Build", destination: SeedGenresView()
+                    "Build With Elpy", destination: SeedGenresView()
                 )
                 .padding()
                         .overlay(

@@ -280,7 +280,12 @@ struct SeedGenresView: View {
         ///  NavigationView on iOS otherwise you’ll find that tapping them doesn’t work.
         VStack {
             Form {
-                Text("Enter between 1 and 3 seed genres")
+                Text("Select between 1 and 3 seed genres.")
+                    .padding()
+                Text("Elpy will use your selections to recommend tracks with similar styles")
+                    .padding()
+                    .font(.caption)
+                
                 Section {
                     Picker("First Genre:", selection: $selectedGenreOne) {
                        ForEach(defaultGenreSeedsReq, id: \.self) {

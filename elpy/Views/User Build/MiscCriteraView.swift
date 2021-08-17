@@ -16,7 +16,7 @@ struct MiscCriteraView: View {
     
     var body: some View {
         VStack {
-            Text("Enter any text you wish to include or exclude in your search, or leave empty to skip")
+            Text("Enter any text you wish to include or exclude in your search, or leave empty to skip.")
                 .padding()
             Text("Elpy will check for these keywords in the track's name, album title, and artist fields")
                 .padding()

@@ -14,7 +14,7 @@ struct GenreSelectView: View {
     var body: some View {
 
         VStack {
-            Text("Enter a genre for your search, or leave empty to skip")
+            Text("Enter a genre for your search, or leave empty to skip.")
                 .padding()
             VStack {
                 Text("Not sure what to enter?")

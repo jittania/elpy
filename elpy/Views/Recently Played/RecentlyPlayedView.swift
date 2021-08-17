@@ -29,9 +29,9 @@ struct RecentlyPlayedView: View {
         
         Group {
             VStack {
-                Text("Tap on a track to play it")
+                Text("Tap on a track to play it!")
                     .foregroundColor(.secondary)
-                Text("Press ⓘ for track details")
+                Text("Tap ⓘ for track details")
                     .foregroundColor(.secondary)
             }
             if recentlyPlayed.isEmpty {

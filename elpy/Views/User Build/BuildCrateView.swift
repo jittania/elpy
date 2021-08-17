@@ -34,7 +34,7 @@ struct BuildCrateView: View {
         .alert(isPresented: $showingEmptySearchAlert) {
             Alert(
                 title: Text("Could Not Build Crate!"),
-                message: Text("You must submit at least one search criteria"),
+                message: Text("You must include at least one genre, date or keyword entry in your request"),
                 dismissButton: .default(Text("Got it!")))
         }
         .padding()
@@ -62,9 +62,9 @@ struct BuildCrateView: View {
                 }
             }
             else {
-                Text("Tap on a track to play it")
+                Text("Tap on a track to play it!")
                     .foregroundColor(.secondary)
-                Text("Press ⓘ for track details")
+                Text("Tap ⓘ for track details")
                     .foregroundColor(.secondary)
 
                 List {
