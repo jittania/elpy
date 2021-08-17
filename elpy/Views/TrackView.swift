@@ -10,23 +10,39 @@ struct TrackView: View {
 
     @State private var alert: AlertItem? = nil
     
+    @State var aMessage: String = "before button is tapped"
+    
     let track: Track
     
     var body: some View {
-        Button(action: playTrack) {
-            HStack {
-                Text(trackDisplayName())
-                Spacer()
+        HStack {
+            Button(action: getTrackAlbumInfo) {
+                Text("ⓘ")
             }
-            // Ensure the hit box extends across the entire width of the frame.
-            // See https://bit.ly/2HqNk4S
-            .contentShape(Rectangle())
-        }
-        .buttonStyle(PlainButtonStyle())
-        .alert(item: $alert) { alert in
-            Alert(title: alert.title, message: alert.message)
-        }
+            Button(action: playTrack) {
+                HStack {
+                    Text(trackDisplayName())
+                    Spacer()
+                }
+                // Ensure the hit box extends across the entire width of the frame.
+                // See https://bit.ly/2HqNk4S
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(PlainButtonStyle())
+            .alert(item: $alert) { alert in
+                Alert(title: alert.title, message: alert.message)
+            }
+        } // HStack
+
+    } // body
+    
+    func getTrackAlbumInfo() {
+        print(self.$aMessage)
+        print("I'm a button and I can change state if i wanna!")
+        self.aMessage = "after button is tapped"
+        print(self.$aMessage)
     }
+    
     
     /// The display name for the track. E.g., "Eclipse - Pink Floyd".
     func trackDisplayName() -> String {
