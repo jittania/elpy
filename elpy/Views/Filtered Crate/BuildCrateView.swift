@@ -160,8 +160,6 @@ struct BuildCrateView: View {
         }
         
         print("Assembled lowercase query string: ", queryString)
-        
-        //==========================================
 
         if queryString.isEmpty { return }
 

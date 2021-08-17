@@ -22,9 +22,10 @@ struct TrackView: View {
     
     var body: some View {
         VStack {
+            
             HStack {
                 Button {
-                    showDetails.toggle()
+                    showDetails.toggle() // Using toggle here means user can tap same button to hide
                 } label: {
                     Text("ⓘ")
                         .padding(2)
@@ -45,14 +46,16 @@ struct TrackView: View {
                     Alert(title: alert.title, message: alert.message)
                 }
             }
-            
             // The location of the following text is determined by the location
             // of this code block, regardless of location of button that toggles appearance
             if showDetails {
                 Text(displayAlbumInfo())
                     .font(.caption)
+                Text(displayArtistGenres())
+                    .font(.caption)
             }
-        }
+            
+        } // Outermost VStack
         .onAppear {
             // Need to call these here because they change the view's state
             // Note that this will cause the API requests to be made only as each
@@ -124,20 +127,35 @@ struct TrackView: View {
 
         var displayAlbumInfo = ""
         
-//        let releaseYear = self.trackReleaseYear
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "YY/MM/dd"
-//        let convReleaseYear = dateFormatter.string(from: releaseYear!)
-        
         let albumName = self.trackAlbum
         
-//        displayAlbumInfo = "\(albumName): \(convReleaseYear)"
-        displayAlbumInfo = "\(albumName): 1999"
+        let releaseYear = self.trackReleaseYear
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM yyyy"
+        let convReleaseYear = dateFormatter.string(from: releaseYear!)
+        
+        displayAlbumInfo = "\"\(albumName),\" \(convReleaseYear)"
 
         return displayAlbumInfo
-        
     }
     
+    func displayArtistGenres() -> String {
+        
+        var displayArtistGenres = "Genre:"
+        let genres = self.trackGenres!
+        
+        if genres.isEmpty {
+            displayArtistGenres = "Genre: None"
+        } else {
+            for genre in genres {
+                let genreStr = " " + genre.capitalized + ","
+                displayArtistGenres += genreStr
+            }
+            displayArtistGenres.removeLast() // gets rid of extra comma at end
+        }
+        
+        return displayArtistGenres
+    }
     
     // =======================================================================
     
