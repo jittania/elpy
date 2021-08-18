@@ -175,7 +175,7 @@ struct TrackAttributesView: View {
                     .stroke(Color.black, lineWidth: 2)
             )
         } // VStack
-        .navigationTitle("Audio Features")
+        .navigationTitle("Features")
     } // body
 }
     
