@@ -281,10 +281,11 @@ struct SeedGenresView: View {
         VStack {
             Form {
                 Text("Select between 1 and 3 seed genres.")
+                    .font(.system(size: 20))
                     .padding()
                 Text("Elpy will use your selections to recommend tracks with similar styles")
+                    .foregroundColor(.secondary)
                     .padding()
-                    .font(.caption)
                 
                 Section {
                     Picker("First Genre:", selection: $selectedGenreOne) {

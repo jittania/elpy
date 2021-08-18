@@ -29,11 +29,11 @@ struct RecentlyPlayedView: View {
         
         Group {
             VStack {
-                Text("Tap on a track to play it!")
-                    .foregroundColor(.secondary)
-                Text("Tap ⓘ for track details")
-                    .foregroundColor(.secondary)
+                Text("Tap on a track to play it, or")
+                Text("tap ⓘ to get track details")
             }
+            .foregroundColor(.secondary)
+            .padding()
             if recentlyPlayed.isEmpty {
                 if isLoadingPage {
                     HStack {

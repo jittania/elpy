@@ -9,24 +9,27 @@ struct ChooseBuildTypeView: View {
         VStack {
             Text("From here, you can either build your own crate from a selective search of tracks, or ask Elpy to recommend tracks for you:")
                 .padding()
+                .font(.system(size: 20))
 
             List {
                 NavigationLink(
                     "Build My Own", destination: GenreSelectView()
                 )
+                .font(.system(size: 22))
                 .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 2)
-                        )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 3)
+                    )
                 NavigationLink(
                     "Build With Elpy", destination: SeedGenresView()
                 )
+                .font(.system(size: 22))
                 .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 2)
-                        )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 3)
+                    )
             }
             .listStyle(PlainListStyle())
         }

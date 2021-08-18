@@ -17,10 +17,12 @@ struct MiscCriteraView: View {
     var body: some View {
         VStack {
             Text("Enter any text you wish to include or exclude in your search, or leave empty to skip.")
+                .font(.system(size: 20))
                 .padding()
             Text("Elpy will check for these keywords in the track's name, album title, and artist fields")
+                .foregroundColor(.secondary)
                 .padding()
-                .font(.caption)
+            
             
             includeCriteriaBar
                 .padding([.top, .horizontal])
@@ -37,10 +39,11 @@ struct MiscCriteraView: View {
                     currentExcludeText: self.$currentExcludeText
                 ) // important for these to be in the same order as they are in the view, or else Xcode...crashes?
             )
+            .font(.system(size: 22))
             .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
+                        .stroke(Color.black, lineWidth: 3)
                 )
         }
         .navigationTitle("Keywords")
@@ -53,6 +56,7 @@ struct MiscCriteraView: View {
             .padding(.leading, 22)
             .overlay(
                 HStack {
+                    Spacer()
                     if !currentIncludeText.isEmpty {
                         Button(action: {
                             self.currentIncludeText = ""
@@ -74,6 +78,7 @@ struct MiscCriteraView: View {
             .padding(.leading, 22)
             .overlay(
                 HStack {
+                    Spacer()
                     if !currentExcludeText.isEmpty {
                         Button(action: {
                             self.currentExcludeText = ""

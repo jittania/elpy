@@ -5,6 +5,7 @@ import SwiftUI
 enum ImageName: String {
     
     case spotifyLogoGreen = "spotify logo green"
+    case spotifyLogoBlack = "spotify logo black"
     case spotifyLogoWhite = "spotify logo white"
     case spotifyAlbumPlaceholder = "spotify album placeholder"
 }

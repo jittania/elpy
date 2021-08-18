@@ -15,16 +15,18 @@ struct GenreSelectView: View {
 
         VStack {
             Text("Enter a genre for your search, or leave empty to skip.")
+                .font(.system(size: 20))
                 .padding()
             VStack {
                 Text("Not sure what to enter?")
                 HStack {
                     Link("Click here", destination: URL(string: "https://everynoise.com/genrewords.html")!)
-                        .foregroundColor(.red)
+                        .foregroundColor(Color(#colorLiteral(red: 0.6786135959, green: 0.2310954848, blue: 1, alpha: 1)))
                     Text("for a complete list of Spotify genres")
-                }
+                    }
             }
-            .font(.caption)
+            .padding()
+            .foregroundColor(.secondary)
             
             genreInputBar
                 .padding([.top, .horizontal])
@@ -32,10 +34,11 @@ struct GenreSelectView: View {
             NavigationLink(
                 "Next", destination: YearSelectView(currentGenre: self.$currentGenre)
             )
+            .font(.system(size: 22))
             .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
+                        .stroke(Color.black, lineWidth: 3)
                 )
         }
         .navigationTitle("Genre Name")
@@ -48,6 +51,7 @@ struct GenreSelectView: View {
             .padding(.leading, 22)
             .overlay(
                 HStack {
+                    Spacer()
                     if !currentGenre.isEmpty {
                         Button(action: {
                             self.currentGenre = ""

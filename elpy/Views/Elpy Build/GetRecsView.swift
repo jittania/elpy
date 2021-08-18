@@ -51,11 +51,12 @@ struct GetRecsView: View {
                 }
             }
             else {
-                Text("Tap on a track to play it!")
-                    .foregroundColor(.secondary)
-                Text("Tap ⓘ for track details")
-                    .foregroundColor(.secondary)
-
+                VStack {
+                    Text("Tap on a track to play it, or")
+                    Text("tap ⓘ to get track details")
+                }
+                .foregroundColor(.secondary)
+                .padding()
                 List {
                     ForEach(tracks, id: \.self) { track in
                         TrackView(track: track)
@@ -66,26 +67,29 @@ struct GetRecsView: View {
             NavigationLink(
                 "Save Crate", destination: CreatePlaylistView(trackURIs: self.$trackURIs)
             )
+            .font(.system(size: 22))
             .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
+                        .stroke(Color.black, lineWidth: 3)
                 )
             NavigationLink(
                 "Start Over", destination: SeedGenresView()
             )
+            .font(.system(size: 22))
             .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
+                        .stroke(Color.black, lineWidth: 3)
                 )
             NavigationLink(
                 "Go Home", destination: MainNavigationView()
             )
+            .font(.system(size: 22))
             .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
+                        .stroke(Color.black, lineWidth: 3)
                 )
         }
         .alert(item: $alert) { alert in

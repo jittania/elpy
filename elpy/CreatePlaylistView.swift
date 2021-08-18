@@ -62,10 +62,11 @@ struct CreatePlaylistView: View {
                 dismissButton: .default(Text("Got it!"))
             )
         }
+        .font(.system(size: 22))
         .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black, lineWidth: 2)
+                    .stroke(Color.black, lineWidth: 3)
             )
         
         
@@ -81,35 +82,21 @@ struct CreatePlaylistView: View {
             NavigationLink(
                    "View Playlists", destination: PlaylistsListView()
                )
-               .padding()
-                   .overlay(
-                       RoundedRectangle(cornerRadius: 10)
-                           .stroke(Color.black, lineWidth: 2)
-                   )
-            NavigationLink(
-                   "Filtered Track Search", destination: GenreSelectView()
+            .font(.system(size: 22))
+            .padding()
+               .overlay(
+                   RoundedRectangle(cornerRadius: 10)
+                       .stroke(Color.black, lineWidth: 3)
                )
-               .padding()
-                   .overlay(
-                       RoundedRectangle(cornerRadius: 10)
-                           .stroke(Color.black, lineWidth: 2)
-                   )
             NavigationLink(
-                   "Rec Track Search", destination: SeedGenresView()
+                   "Go Home", destination: MainNavigationView()
                )
-               .padding()
-                   .overlay(
-                       RoundedRectangle(cornerRadius: 10)
-                           .stroke(Color.black, lineWidth: 2)
-                   )
-            NavigationLink(
-                   "Home", destination: MainNavigationView()
+            .font(.system(size: 22))
+            .padding()
+               .overlay(
+                   RoundedRectangle(cornerRadius: 10)
+                       .stroke(Color.black, lineWidth: 3)
                )
-               .padding()
-                   .overlay(
-                       RoundedRectangle(cornerRadius: 10)
-                           .stroke(Color.black, lineWidth: 2)
-                   )
         }
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)

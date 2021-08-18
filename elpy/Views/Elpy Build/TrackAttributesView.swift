@@ -27,10 +27,12 @@ struct TrackAttributesView: View {
     
         VStack {
             Text("Provide Elpy with descriptive information about the kind of tracks you're looking for.")
+                .font(.system(size: 20))
                 .padding()
             Text("To omit an attribute from your request, leave the slider position all the way to the left. Select ⓘ to learn how each index value is interpreted.")
+                .foregroundColor(.secondary)
                 .padding()
-                .font(.caption)
+
             
             VStack{
                 HStack {

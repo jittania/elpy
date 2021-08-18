@@ -31,17 +31,23 @@ struct LoginView: ViewModifier {
     /// so that the animation can be seen.
     @State private var finishedViewLoadDelay = false
     
-
     let backgroundGradient = LinearGradient(
         gradient: Gradient(
             colors: [Color(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)), Color(#colorLiteral(red: 0.1903857588, green: 0.8321116255, blue: 0.4365008013, alpha: 1))]
         ),
         startPoint: .leading, endPoint: .trailing
     )
+
+//    let backgroundGradient = LinearGradient(
+//        gradient: Gradient(
+//            colors: [Color(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)), Color(#colorLiteral(red: 0.1903857588, green: 0.8321116255, blue: 0.4365008013, alpha: 1))]
+//        ),
+//        startPoint: .leading, endPoint: .trailing
+//    )
     
     var spotifyLogo: ImageName {
         colorScheme == .dark ? .spotifyLogoWhite
-                : .spotifyLogoGreen
+                : .spotifyLogoBlack
     }
     
     func body(content: Content) -> some View {

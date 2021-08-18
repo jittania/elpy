@@ -46,11 +46,8 @@ struct PlaylistsListView: View {
                 }
             }
             else {
-                Text(
-                    """
-                    Tap on a playlist to play it!
-                    """
-                )
+                Text("Tap on a playlist to play it")
+                .padding()
                 .foregroundColor(.secondary)
                 List {
                     ForEach(playlists, id: \.uri) { playlist in
