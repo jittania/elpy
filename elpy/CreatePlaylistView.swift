@@ -47,7 +47,6 @@ struct CreatePlaylistView: View {
                 .padding(.vertical, 7)
                 .padding(.horizontal, 7)
         }
-        Spacer()
         Button("Create Playlist") {
             if self.userInputPlaylistName.isEmpty {
                 showingEmptyNameAlert = true
@@ -79,7 +78,7 @@ struct CreatePlaylistView: View {
                     .font(.title)
                 
             }
-                
+            Spacer()
             NavigationLink(
                    "View Playlists", destination: PlaylistsListView()
                )
