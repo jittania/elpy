@@ -10,7 +10,7 @@ struct ChooseBuildTypeView: View {
             Text("From here, you can either build your own crate from a selective search of tracks, or ask Elpy to recommend tracks for you:")
                 .padding()
                 .font(.system(size: 20))
-
+            Spacer()
             List {
                 NavigationLink(
                     "Build My Own", destination: GenreSelectView()

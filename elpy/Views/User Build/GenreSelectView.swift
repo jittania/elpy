@@ -22,14 +22,16 @@ struct GenreSelectView: View {
                 HStack {
                     Link("Click here", destination: URL(string: "https://everynoise.com/genrewords.html")!)
                         .foregroundColor(Color(#colorLiteral(red: 0.6786135959, green: 0.2310954848, blue: 1, alpha: 1)))
-                    Text("for a complete list of Spotify genres")
-                    }
+                    Text("for a complete")
+                }
+                Text("list of Spotify genres")
             }
             .padding()
             .foregroundColor(.secondary)
             
             genreInputBar
                 .padding([.top, .horizontal])
+                
             Spacer()
             NavigationLink(
                 "Next", destination: YearSelectView(currentGenre: self.$currentGenre)
@@ -48,6 +50,7 @@ struct GenreSelectView: View {
         
         TextField("Genre name", text: $currentGenre)
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .foregroundColor(.purple)
             .padding(.leading, 22)
             .overlay(
                 HStack {

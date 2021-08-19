@@ -59,6 +59,7 @@ struct YearSelectView: View {
         
         TextField("Year", text: $currentYear)
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .foregroundColor(.purple)
             .padding(.leading, 22)
             .overlay(
                 HStack {

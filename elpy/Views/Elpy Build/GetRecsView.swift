@@ -26,10 +26,11 @@ struct GetRecsView: View {
         Button("Build Crate!") {
             getTrackRecs()
         }
+        .font(.system(size: 22))
         .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black, lineWidth: 2)
+                    .stroke(Color.black, lineWidth: 3)
             )
         VStack {
             Spacer()

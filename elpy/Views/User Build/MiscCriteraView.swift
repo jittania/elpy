@@ -16,14 +16,15 @@ struct MiscCriteraView: View {
     
     var body: some View {
         VStack {
-            Text("Enter any text you wish to include or exclude in your search, or leave empty to skip.")
-                .font(.system(size: 20))
-                .padding()
-            Text("Elpy will check for these keywords in the track's name, album title, and artist fields")
-                .foregroundColor(.secondary)
-                .padding()
-            
-            
+            VStack(alignment: .leading) {
+                Text("Enter any text you wish to include or exclude in your search, or leave empty to skip.")
+                    .font(.system(size: 20))
+                    .padding()
+                Text("Elpy will check for these keywords in the track's name, album title, and artist fields")
+                    .padding()
+                    .foregroundColor(.secondary)
+            }
+
             includeCriteriaBar
                 .padding([.top, .horizontal])
 
@@ -53,6 +54,7 @@ struct MiscCriteraView: View {
         
         TextField("Text to include", text: $currentIncludeText)
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .foregroundColor(.purple)
             .padding(.leading, 22)
             .overlay(
                 HStack {
@@ -75,6 +77,7 @@ struct MiscCriteraView: View {
         
         TextField("Text to exclude", text: $currentExcludeText)
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .foregroundColor(.purple)
             .padding(.leading, 22)
             .overlay(
                 HStack {

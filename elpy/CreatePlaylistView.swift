@@ -27,9 +27,12 @@ struct CreatePlaylistView: View {
     var body: some View {
         VStack {
             TextField("Enter name for playlist", text: $userInputPlaylistName)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .foregroundColor(.purple)
                 .padding(.leading, 22)
                 .overlay(
                     HStack {
+                        Spacer()
                         if !userInputPlaylistName.isEmpty {
                             Button(action: {
                                 self.userInputPlaylistName = ""
@@ -43,10 +46,8 @@ struct CreatePlaylistView: View {
                 )
                 .padding(.vertical, 7)
                 .padding(.horizontal, 7)
-                .background(Color(.secondarySystemBackground))
-                .cornerRadius(10)
         }
-        
+        Spacer()
         Button("Create Playlist") {
             if self.userInputPlaylistName.isEmpty {
                 showingEmptyNameAlert = true

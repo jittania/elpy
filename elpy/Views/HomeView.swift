@@ -4,8 +4,7 @@ import SwiftUI
 struct MainNavigationView: View {
     
     var body: some View {
-        
-        VStack {
+        VStack(alignment: .leading) {
             Text("Elpy is a music discovery tool that builds 'crates' of new songs for you, emulating the experience of visiting an actual record store....Except that Elpy has access to Spotify's entire database of tracks!")
                 .padding()
             Text("From here, you can check out your current Spotify library, view recently played tracks, or get started building crates with Elpy:")
@@ -13,7 +12,7 @@ struct MainNavigationView: View {
         }
         .font(.system(size: 20))
         
-        Spacer()
+        
         List {
             NavigationLink(
                 "Playlist Library", destination: PlaylistsListView()

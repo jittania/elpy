@@ -49,10 +49,14 @@ struct TrackView: View {
             // The location of the following text is determined by the location
             // of this code block, regardless of location of button that toggles appearance
             if showDetails {
-                Text(displayAlbumInfo())
-                    .font(.caption)
-                Text(displayArtistGenres())
-                    .font(.caption)
+                VStack {
+                    Text(displayAlbumInfo())
+                        .font(.caption)
+                        .alignmentGuide(.leading) { d in d[.leading] }
+                    Text(displayArtistGenres())
+                        .font(.caption)
+                        .alignmentGuide(.leading) { d in d[.leading] }
+                }  
             }
             
         } // Outermost VStack

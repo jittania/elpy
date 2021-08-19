@@ -281,11 +281,13 @@ struct SeedGenresView: View {
         VStack {
             Form {
                 Text("Select between 1 and 3 seed genres.")
+                    .padding()
                     .font(.system(size: 20))
-                    .padding()
+                    .alignmentGuide(.leading) { d in d[.leading] }
                 Text("Elpy will use your selections to recommend tracks with similar styles")
-                    .foregroundColor(.secondary)
                     .padding()
+                    .foregroundColor(.secondary)
+                    .alignmentGuide(.leading) { d in d[.leading] }
                 
                 Section {
                     Picker("First Genre:", selection: $selectedGenreOne) {
@@ -326,10 +328,11 @@ struct SeedGenresView: View {
                         createArrFromSelections()
                     }
             )
+            .font(.system(size: 22))
             .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 2)
+                        .stroke(Color.black, lineWidth: 3)
                 )
         } // VStack
         .navigationTitle("Seed Genres")
