@@ -12,10 +12,16 @@ Elpy expands a Spotify user's ability to perform informed searches for new music
 
 1. User can employ Elpy to find new music and expand their existing Spotify library: user has full access to their personal Spotify library from within app: can create, modify, play playlists from app
 
+![Screenshot 2025-03-13 at 6 22 40 PM](https://github.com/user-attachments/assets/c24e41d7-939a-44ed-9ae8-9f069dc963fc)
+![Screenshot 2025-03-13 at 6 27 50 PM](https://github.com/user-attachments/assets/1b57e831-ca67-4ccb-9b1b-10a9b51d7dfa)
+
 2. User has option to build an "informed" crate vs. letting Elpy build a crate. To build an "Informed" crate, user selects (has option to skip any, but must respond to at least one) :
    - Release date period
    - Genre (a complete list that responds to a "filter" input field that user can employ to narrow down genres)
    - Miscellaneous style criteria: Valence, Danceability, Obscurity, Instrumentalness, Acousticness, Energy, BPM
+   - 
+![Screenshot 2025-03-13 at 6 31 07 PM](https://github.com/user-attachments/assets/348d0c4c-394a-4623-b937-aad034ea1e58)
+![Screenshot 2025-03-13 at 6 31 19 PM](https://github.com/user-attachments/assets/08857b03-c54c-4bc3-8586-57871210467c)
 
 3. To let Elpy build a crate, user has option to choose style specifications, or let Elpy choose 20 songs at random
 
