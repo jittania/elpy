@@ -11,11 +11,14 @@ Elpy expands a Spotify user's ability to perform informed searches for new music
 ## **Application Features**
 
 1. User can employ Elpy to find new music and expand their existing Spotify library: user has full access to their personal Spotify library from within app: can create, modify, play playlists from app
+
 2. User has option to build an "informed" crate vs. letting Elpy build a crate. To build an "Informed" crate, user selects (has option to skip any, but must respond to at least one) :
    - Release date period
    - Genre (a complete list that responds to a "filter" input field that user can employ to narrow down genres)
    - Miscellaneous style criteria: Valence, Danceability, Obscurity, Instrumentalness, Acousticness, Energy, BPM
+
 3. To let Elpy build a crate, user has option to choose style specifications, or let Elpy choose 20 songs at random
+
 4. User is given a "crate" of songs (a Spotify playlist of 20 songs) based on their search choices
    - Songs are displayed in format of Track name : Artist: Release Year : Genre
    - User can play songs within the app, favorite individual songs, add songs to existing playlists, or save the entire Elpy crate as a playlist
@@ -24,7 +27,20 @@ Elpy expands a Spotify user's ability to perform informed searches for new music
 
 ## **Local Setup Instructions**
 
-TBD
+This version of the app currently requires Xcode to run. Go [here](https://developer.apple.com/support/xcode/) to find a version of Xcode that is compatible with your current OS.
+
+1. `cd` into `elpy`
+
+2. Ensure CocoaPods is installed on your system with `pod --version`. If not, install it using `sudo gem install cocoapods`
+
+3. Install project dependencies with `pod install`
+
+4. Open the Xcode Workspace file with `open elpy.xcworkspace`
+
+5. Build and run the app:
+
+- In Xcode, select your preferred simulator (e.g., iPhone 15).​
+- Press `Cmd + R` or click the Run button to build and launch the app in the simulator.
 
 ---
 
