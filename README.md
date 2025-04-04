@@ -1,5 +1,6 @@
-![logo3 copy](https://github.com/user-attachments/assets/a5a6a001-8503-4cd7-922e-eb2181a9c176)
+![logo3 copy 2](https://github.com/user-attachments/assets/a18fd412-0839-4340-a25a-eaf68a4d1019)
 
+---
 # **Elpy**
 
 One of Spotify's primary advantages is that it provides a central hub for musical collections across devices. It streamlines the process of actually getting music, organizing it, and storing it on multiple devices. This means users can devote more time to actually organizing and maintaining playlists. However, because of Spotify's limited search specifity, users can find themselves reliant on outside sources to find new music based on criteria like genre, release date, or charateristics of the song (BPM, energy level, instrumental nature).
